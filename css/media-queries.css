@@ -1,0 +1,103 @@
+@media only screen and (max-width: 768px) {
+  /* ------ Generic ------ */
+  .title {
+    text-align: center;
+    font-size: 2.4rem;
+  }
+
+  .container {
+    padding: 0 2rem;
+  }
+
+  /* ------ Header ------ */
+  header {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  header ul {
+    flex-direction: column;
+  }
+
+  header ul li {
+    margin-top: 1.5rem;
+    padding: 0.5rem;
+    border-bottom: 1px dotted var(--color-dark-light);
+  }
+
+  /* ------ Hero ------ */
+  .vp-content h1 {
+    font-size: 2.2rem;
+    padding-top: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .vp-content p {
+    font-size: 1.6rem;
+    font-weight: 400;
+  }
+
+  /* ------ Offer ------ */
+  .offer {
+    padding: 5rem 1rem;
+    text-align: center;
+  }
+
+  .offer-list {
+    flex-direction: column;
+  }
+
+  /* ------ Team ------ */
+  .who {
+    flex-direction: column-reverse;
+  }
+
+  .who-content-img {
+    min-height: 30rem;
+  }
+
+  .who-content-text {
+    padding: 4rem 2rem;
+  }
+
+  /* ------ Testimonials ------ */
+  .testimonials-elem {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .testimonials-elem-reverse {
+    flex-direction: column-reverse;
+  }
+
+  .testimonials-elem-profil {
+    text-align: center;
+  }
+
+  .testimonials-elem-profil img {
+    display: block;
+    margin: 2rem auto 1rem;
+  }
+
+  /* ------ Contact ------ */
+  .contact {
+    padding: 5rem 2rem;
+  }
+
+  .contact-form {
+    padding: 0 1rem;
+  }
+
+  .contact-form-button {
+    margin: 3rem auto 0 auto;
+    width: 100%;
+    max-width: 30rem;
+  }
+
+  /* ------ Footer ------ */
+  footer {
+    padding: 3rem 2rem;
+    font-size: 1.4rem;
+  }
+}
