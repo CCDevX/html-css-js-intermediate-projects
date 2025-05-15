@@ -1,0 +1,51 @@
+@use "../../scss/variables" as *;
+
+nav {
+  display: flex;
+  width: 100%;
+  padding: 1.6rem 3.2rem;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid $border;
+  background: $background;
+  ul {
+    display: flex;
+    align-items: flex-start;
+    gap: 4rem;
+    list-style: none;
+    li {
+      a {
+        text-decoration: none;
+        font-size: 1.6rem;
+        color: $font-color;
+        font-weight: 500;
+        &:active {
+          color: $font-color;
+        }
+      }
+    }
+  }
+}
+
+.active {
+  border-bottom: 1px solid $font-color;
+  font-weight: 700;
+}
+
+.nav-title {
+  text-align: center;
+  h3 {
+    font-weight: 500;
+    font-size: 1.6rem;
+  }
+  p {
+    font-size: 1rem;
+  }
+}
+
+.social-link {
+  font-size: 3rem;
+  i {
+    margin: 0 1rem;
+  }
+}
