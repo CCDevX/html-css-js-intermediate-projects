@@ -1,0 +1,95 @@
+@use "../../scss/variables" as *;
+
+.about-container {
+  display: flex;
+  padding: 8rem 10rem;
+  justify-content: center;
+  align-items: center;
+  gap: 132px;
+  .about-presentation {
+    flex: 1 1 60%;
+    min-width: 30rem;
+    padding-right: 2rem;
+    text-align: justify;
+    display: flex;
+    flex-direction: column;
+    h2 {
+      font-family: "Libre Baskerville";
+      font-size: 4rem;
+      font-weight: 400;
+      line-height: 5rem;
+      letter-spacing: -1.08px;
+    }
+    p {
+      font-size: 21px;
+      font-weight: 300;
+      line-height: 3rem;
+    }
+    .accordion {
+      width: 100%; // pleine largeur du bloc parent
+      margin-top: 2rem;
+      font-family: inherit;
+
+      .accordion-item {
+        border-bottom: 1px solid #ddd;
+        padding: 0.5rem 0;
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        &.active {
+          .accordion-header::after {
+            content: "×";
+          }
+
+          .accordion-content {
+            display: block;
+          }
+        }
+      }
+
+      .accordion-header {
+        width: 100%;
+        background: none;
+        border: none;
+        font-weight: 600;
+        font-size: 2rem;
+        padding: 1rem 0;
+        text-align: left;
+        cursor: pointer;
+        position: relative;
+
+        &::after {
+          content: "+";
+          position: absolute;
+          right: 0;
+        }
+      }
+
+      .accordion-content {
+        display: none;
+        padding: 0 0 1rem 0;
+        font-weight: 400;
+        font-size: 1.6rem;
+        color: #333;
+      }
+    }
+  }
+  .image-wrapper {
+    flex: 1 1 35%;
+    min-width: 25rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: $primary-color;
+    padding: 10px;
+    border-radius: 10px;
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      display: block;
+    }
+  }
+}

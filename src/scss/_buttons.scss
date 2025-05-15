@@ -1,0 +1,15 @@
+@use "./variables" as *;
+
+.btn {
+  display: flex;
+  width: 56rem;
+  padding: 2rem 2.4rem;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 48px;
+  &-primary {
+    background: $primary-color;
+    color: $black;
+  }
+}
