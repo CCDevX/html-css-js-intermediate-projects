@@ -1,8 +1,9 @@
 @use "../../scss/variables" as *;
+@use "../../scss/media-queries" as *;
 
 .home-container {
   display: flex;
-  padding: 80px 25px 0px 25px;
+  padding: 8rem 2.5rem 0 2.5rem;
   flex-direction: column;
   align-items: center;
   gap: 72px;
@@ -29,25 +30,9 @@
     text-align: center;
   }
 
-  // .home-button {
-  //   display: flex;
-  //   padding: 2rem 2.4rem;
-  //   justify-content: center;
-  //   align-items: center;
-  //   gap: 10px;
-  //   border-radius: 48px;
-  //   background: $primary-color;
-  //   color: $black;
-  //   text-align: center;
-  //   font-size: 1.6rem;
-  //   font-weight: 500;
-  //   line-height: 1.5rem;
-  //   letter-spacing: -0.48px;
-  //   margin: 0.5rem 0;
-  // }
-
   .home-button {
     display: inline-flex;
+    margin: 1rem;
     padding: 1.6rem 3.2rem;
     justify-content: center;
     align-items: center;
@@ -82,12 +67,18 @@
   margin: 3rem auto;
   padding: 0 1rem;
   display: flex;
-  align-items: flex-start; /* Aligner les conteneurs gallery en haut */
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .gallery-left {
   display: flex;
   gap: 2rem;
+  @include sm {
+    flex-direction: column;
+    justify-content: center;
+  }
 }
 
 .gallery-left img {
@@ -108,6 +99,9 @@
   height: 270px;
   object-fit: cover;
   display: block;
+  @include sm {
+    width: 448px;
+  }
 }
 
 img {
