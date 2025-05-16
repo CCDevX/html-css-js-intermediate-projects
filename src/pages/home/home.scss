@@ -29,21 +29,51 @@
     text-align: center;
   }
 
+  // .home-button {
+  //   display: flex;
+  //   padding: 2rem 2.4rem;
+  //   justify-content: center;
+  //   align-items: center;
+  //   gap: 10px;
+  //   border-radius: 48px;
+  //   background: $primary-color;
+  //   color: $black;
+  //   text-align: center;
+  //   font-size: 1.6rem;
+  //   font-weight: 500;
+  //   line-height: 1.5rem;
+  //   letter-spacing: -0.48px;
+  //   margin: 0.5rem 0;
+  // }
+
   .home-button {
-    display: flex;
-    padding: 2rem 2.4rem;
+    display: inline-flex;
+    padding: 1.6rem 3.2rem;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 1rem;
     border-radius: 48px;
-    background: $primary-color;
+    background-color: $primary-color;
+    opacity: 0.8;
     color: $black;
+    font-size: 1.8rem;
+    font-weight: 600;
+    letter-spacing: -0.4px;
     text-align: center;
-    font-size: 1.6rem;
-    font-weight: 500;
-    line-height: 1.5rem;
-    letter-spacing: -0.48px;
-    margin: 0.5rem 0;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+  }
+
+  .home-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+  }
+
+  .home-button:active {
+    transform: scale(0.97);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
 }
 
@@ -74,14 +104,17 @@
 }
 
 .gallery-right img {
-  width: 100%; /* Les images de droite prennent toute la largeur de leur conteneur */
-  height: 270px; /* Ajuster la hauteur pour que les deux images combinées aient environ la même hauteur que celles de gauche (560px) */
+  width: 100%;
+  height: 270px;
   object-fit: cover;
   display: block;
+}
+
+img {
   border: 3px solid transparent;
   transition: border 0.3s;
 
   &:hover {
-    border-color: #ffd500;
+    border-color: $primary-color;
   }
 }
