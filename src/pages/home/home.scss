@@ -4,9 +4,9 @@
 .home-container {
   display: flex;
   padding: 8rem 2.5rem 0 2.5rem;
-  flex-direction: column;
   align-items: center;
   gap: 72px;
+  flex-direction: column;
 
   .title-section {
     display: flex;
@@ -68,8 +68,10 @@
   padding: 0 1rem;
   display: flex;
   align-items: center;
-  flex-direction: column;
   justify-content: center;
+  @include sm {
+    flex-direction: column;
+  }
 }
 
 .gallery-left {
