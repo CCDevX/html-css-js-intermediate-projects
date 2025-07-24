@@ -114,3 +114,50 @@ img {
     border-color: $primary-color;
   }
 }
+
+@media (max-width: 767px) {
+  .home-container {
+    padding: 4rem 1.5rem 0 1.5rem;
+    gap: 3rem;
+
+    .title-section {
+      height: auto;
+      gap: 2rem;
+    }
+
+    h1 {
+      font-size: 3.2rem;
+      line-height: 4rem;
+      letter-spacing: -0.5px;
+    }
+
+    p {
+      font-size: 1.6rem;
+      line-height: 2.4rem;
+    }
+
+    .home-button {
+      padding: 1.2rem 2rem;
+      font-size: 1.6rem;
+      margin: 1rem 0;
+    }
+  }
+
+  .img-container {
+    flex-direction: column;
+    padding: 0;
+    gap: 1.5rem;
+    margin: 2rem 0;
+
+    .gallery-left,
+    .gallery-right {
+      flex-direction: column;
+      gap: 1.5rem;
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+}
