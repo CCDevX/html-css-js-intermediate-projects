@@ -2,11 +2,23 @@
 @use "../../scss/media-queries" as *;
 
 .home-container {
+  width: 100vw;
   display: flex;
-  padding: 8rem 2.5rem 0 2.5rem;
+  padding: 8rem 2rem 0 2rem;
   align-items: center;
   gap: 72px;
   flex-direction: column;
+  overflow-x: hidden;
+
+  @include sm {
+    padding: 4rem 1.5rem 0 1.5rem;
+    gap: 3rem;
+  }
+
+  @include xs {
+    padding: 3rem 1rem 0 1rem;
+    gap: 2rem;
+  }
 
   .title-section {
     display: flex;
@@ -14,7 +26,18 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    max-width: 100%;
+
+    @include sm {
+      height: auto;
+      gap: 2rem;
+    }
+
+    @include xs {
+      gap: 1.5rem;
+    }
   }
+
   h1 {
     text-align: center;
     font-family: "Libre Baskerville";
@@ -22,12 +45,36 @@
     font-weight: 700;
     line-height: 6rem;
     letter-spacing: -1.83px;
+
+    @include sm {
+      font-size: 3.2rem;
+      line-height: 4rem;
+      letter-spacing: -0.5px;
+    }
+
+    @include xs {
+      font-size: 2.4rem;
+      line-height: 2.8rem;
+      letter-spacing: -0.3px;
+    }
   }
+
   p {
     font-size: 2rem;
     font-weight: 300;
     line-height: 3rem;
     text-align: center;
+    max-width: 800px;
+
+    @include sm {
+      font-size: 1.6rem;
+      line-height: 2.4rem;
+    }
+
+    @include xs {
+      font-size: 1.4rem;
+      line-height: 2.2rem;
+    }
   }
 
   .home-button {
@@ -49,115 +96,82 @@
     cursor: pointer;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
-  }
 
-  .home-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
-  }
-
-  .home-button:active {
-    transform: scale(0.97);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
-}
-
-.img-container {
-  gap: 2rem;
-  margin: 3rem auto;
-  padding: 0 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  @include sm {
-    flex-direction: column;
-  }
-}
-
-.gallery-left {
-  display: flex;
-  gap: 2rem;
-  @include sm {
-    flex-direction: column;
-    justify-content: center;
-  }
-}
-
-.gallery-left img {
-  width: 448px;
-  height: 560px;
-  display: block;
-  object-fit: cover;
-}
-
-.gallery-right {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.gallery-right img {
-  width: 100%;
-  height: 270px;
-  object-fit: cover;
-  display: block;
-  @include sm {
-    width: 448px;
-  }
-}
-
-img {
-  border: 3px solid transparent;
-  transition: border 0.3s;
-
-  &:hover {
-    border-color: $primary-color;
-  }
-}
-
-@media (max-width: 767px) {
-  .home-container {
-    padding: 4rem 1.5rem 0 1.5rem;
-    gap: 3rem;
-
-    .title-section {
-      height: auto;
-      gap: 2rem;
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
     }
 
-    h1 {
-      font-size: 3.2rem;
-      line-height: 4rem;
-      letter-spacing: -0.5px;
+    &:active {
+      transform: scale(0.97);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
 
-    p {
-      font-size: 1.6rem;
-      line-height: 2.4rem;
-    }
-
-    .home-button {
+    @include sm {
       padding: 1.2rem 2rem;
       font-size: 1.6rem;
       margin: 1rem 0;
     }
+
+    @include xs {
+      padding: 1rem 1.5rem;
+      font-size: 1.4rem;
+    }
+  }
+}
+
+.img-container {
+  display: grid;
+  gap: 2rem;
+  margin: 3rem auto 0;
+  width: 100%;
+  max-width: 1200px;
+  justify-content: center;
+
+  // Grand écran : 4 images en horizontal (1 rangée de 4)
+  grid-template-columns: repeat(4, minmax(400px, 1fr));
+  padding: 0 2rem;
+
+  // Tablette : 2x2 (2 rangées de 2)
+  @include md {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    max-width: 700px;
+    padding: 0 1rem;
   }
 
-  .img-container {
-    flex-direction: column;
-    padding: 0;
+  // Mobile : 4 images en vertical (4 rangées de 1)
+  @include sm {
+    grid-template-columns: 1fr;
     gap: 1.5rem;
-    margin: 2rem 0;
+    padding: 0 1rem;
+    margin: 2rem auto 0;
+  }
 
-    .gallery-left,
-    .gallery-right {
-      flex-direction: column;
-      gap: 1.5rem;
+  @include xs {
+    gap: 1rem;
+    padding: 0;
+    margin: 2rem 0 0;
+  }
 
-      img {
-        width: 100%;
-        height: auto;
-      }
+  img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 6 / 5;
+    object-fit: cover;
+    display: block;
+    border: 3px solid transparent;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+
+    &:hover {
+      border-color: $primary-color;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    @include xs {
+      border-radius: 6px;
     }
   }
 }
