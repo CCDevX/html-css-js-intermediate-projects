@@ -1,4 +1,7 @@
 import "./index.scss";
+import { initAbout } from "./pages/about/about";
+import { initHome } from "./pages/home/home";
+import { initPortefolio } from "./pages/portfolio/portfolio";
 
 /**
  * Loads an HTML fragment (partial) into a DOM element and its associated JS module.
@@ -54,6 +57,13 @@ async function loadPage(pageName) {
   // Load and initialize the associated JS module
   await loadPageScript(pageName);
 
+  if (pageName === "home") {
+    await initHome();
+  } else if (pageName === "portfolio") {
+    await initPortefolio();
+  } else if (pageName === "about") {
+    await initAbout();
+  }
   // Highlight the active nav link
   setActiveNavLink(pageName);
 }

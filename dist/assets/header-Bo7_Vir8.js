@@ -1,0 +1,1 @@
+const t=()=>{const e=document.querySelector("nav");e==null||e.classList.toggle("open")},n=()=>{const e=document.querySelector(".hamburger-menu");e&&(e.removeEventListener("click",t),e.addEventListener("click",t))};document.addEventListener("DOMContentLoaded",n);const r=new MutationObserver(()=>{n()});r.observe(document.body,{childList:!0,subtree:!0});

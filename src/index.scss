@@ -1,8 +1,179 @@
 @use "./scss/reset" as *;
 @use "./scss/variables" as *;
+@use "./scss/media-queries" as *;
 
+// Variables CSS pour le layout global
+:root {
+  --viewport-height: 100vh;
+  --viewport-height-mobile: 100dvh; // Nouvelles unités viewport pour mobile
+  --layout-transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+// Container principal - adapté à votre HTML exact
 .container {
   display: grid;
   grid-template-rows: auto 1fr auto;
-  height: 100vh;
+  min-height: var(--viewport-height);
+  isolation: isolate;
+
+  // Desktop : hauteur fixe 100vh
+  @media (min-width: 768px) {
+    height: var(--viewport-height);
+    overflow: hidden;
+  }
+
+  // Mobile/Tablette : hauteur flexible
+  @include md {
+    height: auto;
+    min-height: var(--viewport-height);
+    overflow: visible;
+  }
+
+  @include sm {
+    height: auto;
+    min-height: var(--viewport-height-mobile);
+    overflow: visible;
+  }
+
+  // Support des nouvelles unités viewport
+  @supports (height: 100dvh) {
+    @include sm {
+      min-height: var(--viewport-height-mobile);
+    }
+  }
+
+  // Header
+  #header {
+    grid-row: 1;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    // Le header garde sa taille naturelle
+    flex-shrink: 0;
+  }
+
+  // Main content
+  #main-content {
+    grid-row: 2;
+    position: relative;
+
+    // Desktop : scroll interne
+    @media (min-width: 768px) {
+      overflow-y: auto;
+      overflow-x: hidden;
+
+      // Scrollbar moderne
+      scrollbar-width: thin;
+      scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+
+      &::-webkit-scrollbar {
+        width: 6px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 3px;
+
+        &:hover {
+          background: rgba(0, 0, 0, 0.3);
+        }
+      }
+
+      // Mode sombre
+      @media (prefers-color-scheme: dark) {
+        scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+
+        &::-webkit-scrollbar-thumb {
+          background: rgba(255, 255, 255, 0.3);
+
+          &:hover {
+            background: rgba(255, 255, 255, 0.4);
+          }
+        }
+      }
+    }
+
+    // Mobile : scroll naturel
+    @include md {
+      overflow: visible;
+    }
+
+    @include sm {
+      overflow: visible;
+    }
+  }
+
+  // Footer
+  #footer {
+    grid-row: 3;
+    flex-shrink: 0;
+  }
+}
+
+// Optimisations performance
+.container {
+  // GPU
+  transform: translateZ(0);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Écrans haute densité
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .container {
+    -webkit-font-smoothing: subpixel-antialiased;
+  }
+}
+
+// Préférences utilisateur
+@media (prefers-reduced-motion: reduce) {
+  .container {
+    * {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+// Impression
+@media print {
+  .container {
+    display: block;
+    height: auto;
+    overflow: visible;
+
+    #header,
+    #main-content,
+    #footer {
+      position: static;
+      overflow: visible;
+    }
+  }
+}
+
+// Fallback navigateurs anciens
+@supports not (display: grid) {
+  .container {
+    display: flex;
+    flex-direction: column;
+
+    #header {
+      flex-shrink: 0;
+    }
+
+    #main-content {
+      flex: 1;
+    }
+
+    #footer {
+      flex-shrink: 0;
+    }
+  }
 }
