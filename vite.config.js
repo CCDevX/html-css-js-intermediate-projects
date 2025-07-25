@@ -18,20 +18,20 @@ export default defineConfig({
     },
   },
   //A décommenter avant de build
-  // plugins: [
-  //   viteStaticCopy({
-  //     targets: [
-  //       {
-  //         src: "pages/**/*", // <-- attention, relatif à root (src/)
-  //         dest: "pages",
-  //       },
-  //       {
-  //         src: "partials/**/*",
-  //         dest: "partials",
-  //       },
-  //     ],
-  //   }),
-  // ],
+  plugins: [
+    viteStaticCopy({
+      targets: [
+        {
+          src: "pages/**/*", // <-- attention, relatif à root (src/)
+          dest: "pages",
+        },
+        {
+          src: "partials/**/*",
+          dest: "partials",
+        },
+      ],
+    }),
+  ],
   server: {
     open: true,
   },
