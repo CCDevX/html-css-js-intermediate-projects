@@ -176,21 +176,21 @@
         color: $primary-color;
         position: relative;
 
-        // Effet de surlignage subtil
-        &::after {
-          content: "";
-          position: absolute;
-          bottom: -2px;
-          left: 0;
-          right: 0;
-          height: 3px;
-          background: linear-gradient(
-            90deg,
-            $primary-color,
-            color.adjust($primary-color, $lightness: 15%)
-          );
-          opacity: 0.7;
-        }
+        // // Effet de surlignage subtil
+        // &::after {
+        //   content: "";
+        //   position: absolute;
+        //   bottom: -2px;
+        //   left: 0;
+        //   right: 0;
+        //   height: 3px;
+        //   background: linear-gradient(
+        //     90deg,
+        //     $primary-color,
+        //     color.adjust($primary-color, $lightness: 15%)
+        //   );
+        //   opacity: 0.7;
+        // }
       }
 
       // Amélioration contraste/accessibilité
