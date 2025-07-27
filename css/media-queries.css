@@ -1,103 +1,937 @@
-@media only screen and (max-width: 768px) {
-  /* ------ Generic ------ */
-  .title {
-    text-align: center;
-    font-size: 2.4rem;
+/* ===== MEDIA QUERIES RESPONSIVE ===== */
+
+/* ===== TABLETTES (768px - 1024px) ===== */
+@media only screen and (max-width: 1024px) {
+  :root {
+    font-size: 58%;
   }
 
   .container {
-    padding: 0 2rem;
+    padding: 0 1.5rem;
   }
 
-  /* ------ Header ------ */
-  header {
+  /* Header */
+  .header-container {
+    padding: 1.2rem 1.5rem;
+  }
+
+  .nav-list {
+    gap: 3rem;
+  }
+
+  /* Hero - Correction pour tablettes */
+  .hero-title {
+    font-size: clamp(4rem, 4.5vw, 5.2rem);
+  }
+
+  .hero-description {
+    font-size: clamp(1.6rem, 1.8vw, 1.8rem);
+  }
+
+  /* Offres */
+  .offers-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+  }
+
+  /* Contact */
+  .contact-content {
+    gap: 6rem;
+  }
+
+  /* Footer */
+  .footer-links {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+  }
+}
+
+/* ===== TABLETTES PETITES (768px) ===== */
+@media only screen and (max-width: 768px) {
+  :root {
+    font-size: 55%;
+    --section-padding: 8rem 0;
+  }
+
+  .container {
+    padding: 0 1.5rem;
+  }
+
+  .section-title {
+    font-size: clamp(3rem, 4vw, 3.6rem);
+    margin-bottom: 4rem;
+  }
+
+  /* Header - Menu mobile */
+  .header-container {
+    padding: 1.5rem;
+  }
+
+  .navigation {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100vh;
+    background: rgba(10, 10, 10, 0.98);
+    backdrop-filter: blur(20px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-smooth);
+    z-index: 999;
+  }
+
+  .navigation.nav-open {
+    right: 0;
+  }
+
+  .nav-list {
     flex-direction: column;
-    gap: 1rem;
+    gap: 4rem;
     text-align: center;
   }
 
-  header ul {
-    flex-direction: column;
+  .nav-link {
+    font-size: 2.4rem;
+    font-weight: 600;
   }
 
-  header ul li {
-    margin-top: 1.5rem;
-    padding: 0.5rem;
-    border-bottom: 1px dotted var(--color-dark-light);
+  .menu-toggle {
+    display: flex;
+    z-index: 1001;
   }
 
-  /* ------ Hero ------ */
-  .vp-content h1 {
-    font-size: 2.2rem;
-    padding-top: 1rem;
-    margin-bottom: 2rem;
+  /* Hero - Corrections importantes */
+  .hero {
+    padding: 10rem 2rem 4rem; /* Augmenté le padding-top pour éviter le chevauchement */
+    background-attachment: scroll;
+    min-height: auto; /* Permet une hauteur flexible */
   }
 
-  .vp-content p {
-    font-size: 1.6rem;
-    font-weight: 400;
+  .hero-content {
+    padding: 2rem 1rem; /* Réduit le padding */
+    max-width: 100%; /* Utilise toute la largeur disponible */
   }
 
-  /* ------ Offer ------ */
-  .offer {
-    padding: 5rem 1rem;
-    text-align: center;
+  .hero-title {
+    font-size: clamp(3.2rem, 6vw, 4.2rem);
+    margin-bottom: 2.5rem;
+    line-height: 1.1; /* Ligne plus compacte */
   }
 
-  .offer-list {
-    flex-direction: column;
+  .hero-description {
+    font-size: clamp(1.5rem, 2.2vw, 1.7rem);
+    margin-bottom: 3rem;
+    line-height: 1.5;
   }
 
-  /* ------ Team ------ */
-  .who {
+  .hero-cta {
+    padding: 1.5rem 3rem;
+    font-size: clamp(1.4rem, 2vw, 1.6rem);
+  }
+
+  /* Offres */
+  .offers {
+    padding: 6rem 0;
+  }
+
+  .offers-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .offer-card {
+    border-radius: 1.5rem;
+  }
+
+  .offer-content {
+    padding: 2.5rem;
+  }
+
+  /* Équipe */
+  .team {
     flex-direction: column-reverse;
+    min-height: auto;
   }
 
-  .who-content-img {
+  .team-image {
     min-height: 30rem;
   }
 
-  .who-content-text {
+  .team-image-overlay {
+    display: none;
+  }
+
+  .team-content::before {
+    display: none;
+  }
+
+  .team-text {
     padding: 4rem 2rem;
   }
 
-  /* ------ Testimonials ------ */
-  .testimonials-elem {
+  .team-text .section-title {
+    text-align: center;
+  }
+
+  .team-text .section-title::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .team-stats {
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .stat-number {
+    font-size: 3rem;
+  }
+
+  /* Témoignages */
+  .testimonials {
+    padding: 6rem 0;
+  }
+
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .testimonial-card {
+    padding: 3rem 2.5rem;
+    border-radius: 1.5rem;
+  }
+
+  .testimonial-content {
+    gap: 2.5rem;
+  }
+
+  .testimonial-author {
     flex-direction: column;
     text-align: center;
+    gap: 1.5rem;
   }
 
-  .testimonials-elem-reverse {
-    flex-direction: column-reverse;
+  .author-avatar {
+    width: 5rem;
+    height: 5rem;
   }
 
-  .testimonials-elem-profil {
+  /* Contact */
+  .contact {
+    padding: 6rem 0;
+  }
+
+  .contact-content {
+    grid-template-columns: 1fr;
+    gap: 5rem;
+  }
+
+  .contact-info .section-title {
     text-align: center;
   }
 
-  .testimonials-elem-profil img {
-    display: block;
-    margin: 2rem auto 1rem;
+  .contact-info .section-title::after {
+    left: 50%;
+    transform: translateX(-50%);
   }
 
-  /* ------ Contact ------ */
-  .contact {
-    padding: 5rem 2rem;
+  .contact-details {
+    align-items: center;
   }
 
-  .contact-form {
+  .form-button {
+    align-self: stretch;
+    justify-content: center;
+  }
+
+  /* Footer */
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+    text-align: center;
+  }
+
+  .footer-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-links {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .footer-section {
+    text-align: center;
+  }
+
+  .social-links {
+    justify-content: center;
+    gap: 1.5rem;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .legal-links {
+    gap: 2rem;
+    justify-content: center;
+  }
+}
+
+/* ===== MOBILES (480px) ===== */
+@media only screen and (max-width: 480px) {
+  :root {
+    font-size: 52%;
+    --section-padding: 6rem 0;
+  }
+
+  .container {
     padding: 0 1rem;
   }
 
-  .contact-form-button {
-    margin: 3rem auto 0 auto;
-    width: 100%;
-    max-width: 30rem;
+  .section-title {
+    font-size: clamp(2.8rem, 5vw, 3.2rem);
+    margin-bottom: 3rem;
   }
 
-  /* ------ Footer ------ */
-  footer {
-    padding: 3rem 2rem;
+  /* Header */
+  .header-container {
+    padding: 1rem;
+  }
+
+  .logo {
+    font-size: clamp(2.4rem, 4vw, 2.8rem);
+  }
+
+  .logo-icon {
+    font-size: clamp(1.8rem, 3vw, 2rem);
+  }
+
+  /* Hero - Corrections critiques */
+  .hero {
+    padding: 8rem 1rem 3rem; /* Réduit encore le padding */
+    min-height: 80vh; /* Hauteur minimale réduite */
+  }
+
+  .hero-content {
+    padding: 1rem;
+    max-width: 100%;
+  }
+
+  .hero-title {
+    font-size: clamp(2.8rem, 7vw, 3.6rem);
+    margin-bottom: 2rem;
+    line-height: 1.05; /* Ligne très compacte pour mobile */
+  }
+
+  .hero-description {
+    font-size: clamp(1.4rem, 2.5vw, 1.6rem);
+    margin-bottom: 2.5rem;
+    line-height: 1.4;
+  }
+
+  .hero-cta {
+    padding: 1.4rem 2.5rem;
+    font-size: clamp(1.3rem, 2.2vw, 1.5rem);
+    gap: 0.8rem;
+  }
+
+  /* Scroll indicator - Masquer sur mobile */
+  .scroll-indicator {
+    display: none;
+  }
+
+  /* Offres */
+  .offers {
+    padding: 5rem 0;
+  }
+
+  .offer-card {
+    border-radius: 1.2rem;
+  }
+
+  .offer-image-container {
+    height: 20rem;
+  }
+
+  .offer-content {
+    padding: 2rem;
+  }
+
+  .offer-location {
+    font-size: 1.8rem;
+  }
+
+  .offer-price {
+    font-size: 2rem;
+  }
+
+  .offer-button {
+    padding: 1rem 2rem;
     font-size: 1.4rem;
+  }
+
+  /* Équipe */
+  .team-image {
+    min-height: 25rem;
+  }
+
+  .team-text {
+    padding: 3rem 1.5rem;
+  }
+
+  .team-description {
+    font-size: 1.6rem;
+  }
+
+  .team-stats {
+    gap: 2rem;
+  }
+
+  .stat-number {
+    font-size: 2.6rem;
+  }
+
+  .stat-label {
+    font-size: 1.2rem;
+  }
+
+  /* Témoignages */
+  .testimonials {
+    padding: 5rem 0;
+  }
+
+  .testimonial-card {
+    padding: 2.5rem 2rem;
+    border-radius: 1.2rem;
+  }
+
+  .testimonial-text {
+    font-size: 1.6rem;
+  }
+
+  .quote-icon {
+    font-size: 2rem;
+  }
+
+  .author-name {
+    font-size: 1.6rem;
+  }
+
+  .author-role {
+    font-size: 1.3rem;
+  }
+
+  /* Contact */
+  .contact {
+    padding: 5rem 0;
+  }
+
+  .contact-content {
+    gap: 4rem;
+  }
+
+  .contact-description {
+    font-size: 1.6rem;
+  }
+
+  .contact-details {
+    gap: 1.5rem;
+  }
+
+  .contact-detail {
+    font-size: 1.5rem;
+  }
+
+  .form-input,
+  .form-textarea {
+    padding: 1.5rem;
+    font-size: 1.5rem;
+    border-radius: 0.8rem;
+  }
+
+  .form-textarea {
+    min-height: 12rem;
+  }
+
+  .form-button {
+    padding: 1.8rem 3rem;
+    font-size: 1.5rem;
+  }
+
+  /* Footer */
+  .footer-content {
+    padding: 4rem 0 3rem;
+  }
+
+  .footer-title {
+    font-size: 1.6rem;
+  }
+
+  .footer-link {
+    font-size: 1.4rem;
+  }
+
+  .social-links {
+    justify-content: center;
+    gap: 1.2rem;
+  }
+
+  .social-link {
+    width: 3.5rem;
+    height: 3.5rem;
+    font-size: 1.6rem;
+  }
+
+  .footer-bottom {
+    padding: 2rem 0;
+  }
+
+  .copyright,
+  .legal-link {
+    font-size: 1.3rem;
+  }
+
+  .legal-links {
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+
+/* ===== TRÈS PETITS MOBILES (320px) ===== */
+@media only screen and (max-width: 320px) {
+  :root {
+    font-size: 50%;
+  }
+
+  .container {
+    padding: 0 0.8rem;
+  }
+
+  /* Hero - Optimisations extrêmes */
+  .hero {
+    padding: 7rem 0.5rem 2rem;
+    min-height: 70vh;
+  }
+
+  .hero-content {
+    padding: 0.5rem;
+  }
+
+  .hero-title {
+    font-size: clamp(2.4rem, 8vw, 3.2rem);
+    margin-bottom: 1.5rem;
+    line-height: 1;
+  }
+
+  .hero-description {
+    font-size: clamp(1.3rem, 3vw, 1.5rem);
+    margin-bottom: 2rem;
+    line-height: 1.3;
+  }
+
+  .hero-cta {
+    padding: 1.2rem 2rem;
+    font-size: clamp(1.2rem, 2.5vw, 1.4rem);
+  }
+
+  /* Offres */
+  .offer-image-container {
+    height: 18rem;
+  }
+
+  .offer-content {
+    padding: 1.8rem;
+  }
+
+  /* Équipe */
+  .team-text {
+    padding: 2.5rem 1rem;
+  }
+
+  .team-stats {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  /* Témoignages */
+  .testimonial-card {
+    padding: 2rem 1.5rem;
+  }
+
+  /* Contact */
+  .contact-description {
+    font-size: 1.5rem;
+  }
+
+  .form-input,
+  .form-textarea {
+    padding: 1.2rem;
+    font-size: 1.4rem;
+  }
+
+  .form-button {
+    padding: 1.6rem 2.5rem;
+    font-size: 1.4rem;
+  }
+}
+
+/* ===== ANIMATIONS RESPONSIVES ===== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ===== ORIENTATION PAYSAGE SUR MOBILE ===== */
+@media only screen and (max-height: 600px) and (orientation: landscape) {
+  .hero {
+    min-height: auto;
+    padding: 10rem 2rem 4rem; /* Ajusté pour l'orientation paysage */
+  }
+
+  .hero-title {
+    font-size: clamp(2.8rem, 5vw, 3.6rem);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-description {
+    font-size: clamp(1.3rem, 2vw, 1.5rem);
+    margin-bottom: 2rem;
+  }
+
+  .scroll-indicator {
+    display: none;
+  }
+}
+
+/* ===== MODES SOMBRES SYSTÈME ===== */
+@media (prefers-color-scheme: dark) {
+  /* Le design est déjà en mode sombre, mais on peut ajuster si nécessaire */
+}
+
+/* ===== CONTRASTE ÉLEVÉ ===== */
+@media (prefers-contrast: high) {
+  :root {
+    --color-primary: #f4d03f;
+    --color-bg: #000000;
+    --color-bg-secondary: #1a1a1a;
+    --color-white: #ffffff;
+  }
+
+  .offer-card,
+  .testimonial-card {
+    border: 2px solid var(--color-primary);
+  }
+}
+
+/* ===== IMPRESSION ===== */
+@media print {
+  *,
+  *::before,
+  *::after {
+    background: transparent !important;
+    color: black !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  body {
+    font-size: 12pt;
+    line-height: 1.4;
+    background: white !important;
+    color: black !important;
+  }
+
+  /* Masquer les éléments non nécessaires à l'impression */
+  .header,
+  .hero-cta,
+  .offer-button,
+  .form-button,
+  .social-links,
+  .menu-toggle,
+  .scroll-indicator {
+    display: none !important;
+  }
+
+  /* Ajuster les sections pour l'impression */
+  .hero {
+    min-height: auto;
+    padding: 2rem 0;
+    page-break-inside: avoid;
+  }
+
+  .hero-title {
+    font-size: 24pt;
+    margin-bottom: 1rem;
+  }
+
+  .hero-description {
+    font-size: 14pt;
+  }
+
+  .section-title {
+    font-size: 18pt;
+    page-break-after: avoid;
+  }
+
+  .offer-card,
+  .testimonial-card {
+    border: 1pt solid #ccc;
+    page-break-inside: avoid;
+    margin-bottom: 1rem;
+  }
+
+  .offers,
+  .testimonials,
+  .team,
+  .contact {
+    page-break-inside: avoid;
+  }
+
+  /* Forcer de nouvelles pages pour certaines sections */
+  .team {
+    page-break-before: always;
+  }
+
+  .contact {
+    page-break-before: always;
+  }
+
+  /* URLs après les liens */
+  a[href^="http"]:after {
+    content: " (" attr(href) ")";
+    font-size: 10pt;
+    color: #666;
+  }
+
+  /* Pagination */
+  @page {
+    margin: 2cm;
+    size: A4;
+  }
+
+  @page :first {
+    margin-top: 5cm;
+  }
+}
+
+/* ===== ÉCRANS HAUTE RÉSOLUTION ===== */
+@media only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (min-resolution: 192dpi),
+  only screen and (min-resolution: 2dppx) {
+  /* Optimisations pour les écrans Retina */
+  .offer-image,
+  .author-avatar {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* ===== TRÈS GRANDS ÉCRANS (1440px+) ===== */
+@media only screen and (min-width: 1440px) {
+  :root {
+    font-size: 65%;
+  }
+
+  .container {
+    max-width: 140rem;
+  }
+
+  .hero-title {
+    font-size: clamp(6rem, 6vw, 7.2rem);
+  }
+
+  .hero-description {
+    font-size: clamp(2rem, 2.2vw, 2.2rem);
+  }
+
+  .section-title {
+    font-size: 4.8rem;
+  }
+
+  .offers-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5rem;
+  }
+
+  .testimonials-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .contact-content {
+    gap: 10rem;
+  }
+}
+
+/* ===== ÉCRANS ULTRA LARGES (1920px+) ===== */
+@media only screen and (min-width: 1920px) {
+  :root {
+    font-size: 70%;
+  }
+
+  .container {
+    max-width: 160rem;
+  }
+
+  .hero-title {
+    font-size: clamp(7rem, 7vw, 8rem);
+  }
+
+  .section-title {
+    font-size: 5.2rem;
+  }
+}
+
+/* ===== ACCESSIBILITÉ - FOCUS VISIBLE ===== */
+@media (prefers-reduced-motion: no-preference) {
+  /* Animations complètes uniquement si l'utilisateur n'a pas de préférence pour les animations réduites */
+  .offer-card {
+    animation: fadeInUp 0.6s ease-out;
+  }
+
+  .testimonial-card {
+    animation: fadeInUp 0.8s ease-out;
+  }
+}
+
+/* Focus visible pour l'accessibilité */
+.nav-link:focus-visible,
+.hero-cta:focus-visible,
+.offer-button:focus-visible,
+.form-input:focus-visible,
+.form-textarea:focus-visible,
+.form-button:focus-visible,
+.footer-link:focus-visible,
+.social-link:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ===== CORRECTIONS SPÉCIFIQUES NAVIGATEURS ===== */
+
+/* Safari iOS */
+@supports (-webkit-touch-callout: none) {
+  .hero {
+    background-attachment: scroll;
+  }
+
+  .form-input,
+  .form-textarea {
+    border-radius: 0;
+    -webkit-appearance: none;
+  }
+}
+
+/* Firefox */
+@-moz-document url-prefix() {
+  .form-input,
+  .form-textarea {
+    -moz-appearance: none;
+  }
+}
+
+/* Edge */
+@supports (-ms-ime-align: auto) {
+  .offer-card,
+  .testimonial-card {
+    background-clip: padding-box;
+  }
+}
+
+/* ===== NAVIGATION AU CLAVIER ===== */
+.skip-link {
+  position: absolute;
+  top: -4rem;
+  left: 1rem;
+  background: var(--color-primary);
+  color: var(--color-bg);
+  padding: 0.8rem 1.6rem;
+  text-decoration: none;
+  border-radius: 0 0 0.4rem 0.4rem;
+  font-weight: 600;
+  z-index: 9999;
+  transition: var(--transition-fast);
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* ===== ÉTATS DE CHARGEMENT ===== */
+@media (prefers-reduced-motion: no-preference) {
+  .offer-card:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+
+  .offer-card:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+
+  .offer-card:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+
+  .testimonial-card:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+
+  .testimonial-card:nth-child(2) {
+    animation-delay: 0.3s;
+  }
+
+  .testimonial-card:nth-child(3) {
+    animation-delay: 0.5s;
+  }
+}
+
+/* ===== CORRECTIONS POUR L'ACCESSIBILITÉ ===== */
+
+/* Amélioration du contraste pour les éléments interactifs */
+@media (prefers-contrast: more) {
+  .nav-link,
+  .hero-cta,
+  .offer-button,
+  .form-button {
+    border: 2px solid currentColor;
+  }
+
+  .form-input,
+  .form-textarea {
+    border-width: 3px;
+  }
+}
+
+/* Support pour les utilisateurs qui préfèrent les données réduites */
+@media (prefers-reduced-data: reduce) {
+  .hero {
+    background-image: none;
+    background-color: var(--color-bg-secondary);
+  }
+
+  .team-image {
+    background-image: none;
+    background-color: var(--color-bg-card);
+  }
+
+  .offer-image,
+  .author-avatar {
+    display: none;
   }
 }
