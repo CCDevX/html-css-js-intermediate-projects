@@ -1,24 +1,61 @@
-A responsive and modern single-page website for a fictional real estate agency.  
-Designed with accessibility, clean code, and mobile-first principles in mind.
+# Elysian Estates – Démo d’un site vitrine immobilier de prestige
 
-## Features
+Ce projet est une **démo front-end professionnelle** pour un site vitrine dans le secteur de l’immobilier haut de gamme.  
+Il a été conçu pour mettre en valeur l’expertise technique en HTML, CSS et JavaScript moderne, avec une attention particulière portée à l’accessibilité, à la performance, au responsive et au raffinement visuel.
 
-- Fully responsive layout (mobile, tablet, desktop)
-- Hero section with call-to-action
-- Real estate property listings with pricing and descriptions
-- About the team section
-- Client testimonials
-- Contact form with custom styling
-- Dark theme with modern color palette
-- Clean, semantic HTML and modular CSS
+**Démo en ligne :** [https://single-page-elysian-estate.netlify.app](https://single-page-elysian-estate.netlify.app)
 
-## Tech Stack
+---
 
-- HTML5
-- CSS3 with custom properties (variables)
-- Responsive design with media queries
-- GitHub Pages for hosting
+## Objectifs du projet
 
-## How to Use
+- Présenter un exemple de **single-page site de luxe** (type agence immobilière)
+- Démontrer la capacité à produire un **front-end soigné, optimisé et professionnel**
+- Appliquer les **bonnes pratiques SEO, accessibilité et responsive design**
+- Créer un design élégant avec une **identité visuelle premium (doré, noir, typographies classiques)**
 
-Clone the repository and open `index.html` in your browser.
+---
+
+## Fonctionnalités
+
+- Navigation fluide avec scroll animé
+- Menu mobile accessible (focus trap, aria-expanded, clavier)
+- Header dynamique qui disparaît au scroll
+- Animations CSS personnalisées (`fadeIn`, `pulse`, `shimmer`)
+- Formulaire de contact avec validation JavaScript
+- Système de messages d’erreur et de succès
+- Témoignages, statistiques, et galerie responsive
+- Console log stylisé pour signature développeur
+- Préchargement des images clés
+- Tracking analytics des interactions (boutons, formulaire)
+- Compatibilité multi-navigateurs et impression optimisée
+
+---
+
+## Technologies utilisées
+
+- HTML5 sémantique
+- CSS3 (Flexbox, Grid, variables, media queries avancées)
+- JavaScript Vanilla (ES6+)
+- Intersection Observer API
+- ARIA / focus-visible / prefers-reduced-motion
+- Responsive design (320px à 1920px+)
+- Accessibilité et SEO renforcés
+- Hébergement via [Netlify](https://www.netlify.com)
+
+---
+
+## Lancer le projet en local
+
+1. Cloner ce dépôt : git clone https://github.com/CCDevX/single-page-site-real-estate.git
+
+2. Ouvrir le fichier `index.html` dans votre navigateur (site statique, aucun serveur requis).
+
+## Auteur
+
+Projet réalisé par **CCDevX**  
+
+---
+
+**Note** : Il s'agit d'une démonstration technique. Les contenus et visuels sont fictifs. Ce site n’est pas destiné à une utilisation commerciale.
+
