@@ -1,48 +1,188 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="./style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
-    <title>Site KYOTO</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Découvrez Kyoto</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Merienda+One&family=Nunito+Sans&display=swap" rel="stylesheet">
 </head>
 <body>
+
 <!-- Navigation -->
 
+
 <nav>
-    <ul class="list-nav">
-        <li class="item-nav">
-            <a href="#home">Accueil</a>
-        </li>
-        <li class="item-nav">
-            <a href="#asym">Que Faire ?</a>
-        </li>
-        <li class="item-nav">
-            <a href="#tarifs">Tarifs</a>
-        </li>
-        <li class="item-nav">
-            <a href="#contact">Contact</a>
-        </li>
+    <ul class="liste-nav">
+        <li class="item-nav"><a href="#home">Accueil</a></li>
+        <li class="item-nav"><a href="#asym">Que faire ?</a></li>
+        <li class="item-nav"><a href="#tarifs">Tarifs</a></li>
+        <li class="item-nav"><a href="#contact">Contact</a></li>
     </ul>
-    <img src="./ressources/menu.svg" alt="logo menu" class="logo-menu">
+    <img src="ressources/menu.svg" alt="logo menu" class="logo-menu">
 </nav>
+
 
 <!-- Accueil -->
 
-<!--<div class="accueil" id="home">-->
-<!--    <img src="./ressources/logo-porte-japon.jpg" alt="logo porte japon" class="logo-kyoto">-->
-<!--    <h1>Découvrez Kyoto</h1>-->
-<!--    <p class="sous-titre">La ville impériale du Japon</p>-->
-<!--    <a href="#asym" class="btn-accueil">En savoir plus</a>-->
-<!--</div>-->
+
+<div class="accueil" id="home">
+    <img src="ressources/logo-porte-japon.jpg" alt="logo porte traditionnelle du japon" class="logo-kyoto">
+    <h1>Découvrez Kyoto</h1>
+    <p class="sous-titre">La ville impériale du Japon.</p>
+    <a href="#asym" class="btn-accueil">En savoir plus</a>
+</div>
+
+<!-- Section asymétrique -->
+
+<section class="section-asymetrique" id="asym">
+
+    <h2>Que faire à Kyoto</h2>
+
+    <div class="bloc-left bloc-1">
+        <div class="bloc-txt-left">
+            <h3>Explorez les temples ancestraux</h3>
+            <p>Kyoto abrite certains des temples les plus emblématiques du Japon, comme le Kiyomizu-dera ou le Ginkaku-ji. Laissez-vous porter par la sérénité des couloirs en bois, les jardins zen et l'atmosphère mystique qui règne dans ces lieux chargés d’histoire.</p>
+            <button class="btn-bloc-left" type="button">En savoir plus</button>
+        </div>
+        <img src="ressources/kyoto-temple.jpg" alt="couloir d'un temple de kyoto">
+    </div>
+
+    <div class="bloc-2">
+        <div class="bloc-txt-2">
+            <h3>Admirez les châteaux</h3>
+            <p>Le château de Nijo est un joyau architectural du shogunat Tokugawa. Promenez-vous dans ses jardins soigneusement entretenus et explorez ses bâtiments historiques aux parquets «rossignol» qui chantent sous vos pas.</p>
+            <button type="button">En savoir plus</button>
+        </div>
+        <img src="ressources/chateau-kyoto.jpg" alt="un château à Kyoto">
+    </div>
+
+    <div class="bloc-left bloc-3">
+        <div class="bloc-txt-left">
+            <h3>Plongez dans la culture des geishas</h3>
+            <p>Flânez dans les ruelles du quartier de Gion et croisez peut-être une geisha en kimono se rendant à une représentation. Ces artistes incarnent l'élégance et les traditions vivantes de Kyoto depuis des siècles.</p>
+            <button class="btn-bloc-left" type="button">En savoir plus</button>
+        </div>
+        <img src="ressources/geisha.jpg" alt="une geisha">
+    </div>
+
+    <div class="ligne-gauche"></div>
+    <div class="ligne-milieu"></div>
+    <div class="ligne-droite"></div>
+</section>
+
+<!-- Section parallax -->
+
+<section class="parallax">
+    <p>冒険に行く</p>
+    <span>Partez à l'aventure</span>
+</section>
+
+
+<!-- Section Tarifs -->
+
+<!-- Section tarifs -->
+
+<section class="section-tarifs" id="tarifs">
+    <h3>Laissez-vous guider...</h3>
+    <hr>
+    <div class="container-tarifs">
+
+        <div class="cartes-tarifs">
+            <h4>Classique</h4>
+            <span>100€</span>
+            <p>✔️ Visite des châteaux</p>
+            <p>✔️ Visite de la ville</p>
+            <p>✔️ Spectacle folklorique</p>
+            <p>❌ Restaurant typique d'exception</p>
+            <p>❌ Visite culturelle sur plusieurs jours</p>
+            <p>❌ Accès privé à des lieux grandioses</p>
+
+            <a href="#contact">Réservez un guide</a>
+
+        </div>
+
+        <div class="cartes-tarifs">
+            <h4>Découverte</h4>
+            <span>250€</span>
+            <p>✔️ Visite des châteaux</p>
+            <p>✔️ Visite de la ville</p>
+            <p>✔️ Spectacle folklorique</p>
+            <p>✔️ Restaurant typique d'exception</p>
+            <p>❌ Visite culturelle sur plusieurs jours</p>
+            <p>❌ Accès privé à des lieux grandioses</p>
+
+            <a href="#contact">Réservez un guide</a>
+
+        </div>
+
+
+        <div class="cartes-tarifs">
+            <h4>Exception</h4>
+            <span>500€</span>
+            <p>✔️ Visite des châteaux</p>
+            <p>✔️ Visite de la ville</p>
+            <p>✔️ Spectacle folklorique</p>
+            <p>✔️ Restaurant typique d'exception</p>
+            <p>✔️ Visite culturelle sur plusieurs jours</p>
+            <p>✔️ Accès privé à des lieux grandioses</p>
+
+            <a href="#contact">Réservez un guide</a>
+
+        </div>
 
 
 
-<script src="./app.js"></script>
+    </div>
+
+</section>
+
+
+
+<!-- Section Contact -->
+
+<section class="section-contact" id="contact">
+
+    <h2><strong>Rentrons</strong> en contact</h2>
+
+    <div class="container-form">
+
+        <form class="form-bloc">
+
+            <div class="form-groupe">
+                <label for="prenom">Entrez votre prénom</label>
+                <input type="text" placeholder="Prénom" required id="prenom">
+            </div>
+
+            <div class="form-groupe">
+                <label for="nom">Entrez votre nom</label>
+                <input type="text" placeholder="Prénom" required id="nom">
+            </div>
+
+            <div class="form-groupe">
+                <textarea  id="txt" placeholder="Votre message" required></textarea>
+            </div>
+
+            <div class="form-groupe">
+                <input type="submit" value="ENVOYER" class="button-sub">
+            </div>
+
+        </form>
+
+    </div>
+
+</section>
+
+<footer>
+    Tous Droits Réservés &copy;
+</footer>
+
+
+
+
+
+
+
+<script src="app.js"></script>
 </body>
 </html>
