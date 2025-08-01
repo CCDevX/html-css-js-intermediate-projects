@@ -1,3 +1,7 @@
+console.log('🚀 app.js chargé et exécuté !');
+console.log('Type de document:', typeof document);
+console.log('ReadyState:', document.readyState);
+
 // Variables globales
 const navbar = document.getElementById('navbar');
 const logoMenu = document.querySelector('.logo-menu');
@@ -327,7 +331,7 @@ function submitForm() {
     submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
     submitButton.disabled = true;
 
-    // Simuler l'envoi (remplacer par votre logique d'envoi)
+    // Simuler l'envoi (remplacer par la logique d'envoi)
     setTimeout(() => {
         // Succès
         showSuccessMessage();
