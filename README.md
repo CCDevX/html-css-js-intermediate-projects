@@ -127,6 +127,3 @@ npm run preview
 ## Auteur
 
 **CCDevX**
-- Portfolio : [Lien vers portfolio]
-- LinkedIn : [Lien LinkedIn]
-- GitHub : [Lien GitHub]
