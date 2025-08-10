@@ -28,7 +28,3 @@ Built with HTML, CSS and JavaScript, it is a static frontend-only site without b
 ## Author
 
 CCDevX
-
----
-
-Feel free to customize and expand this README if you add more features!
