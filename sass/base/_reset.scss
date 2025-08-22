@@ -1,0 +1,19 @@
+@use "./theme";
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+}
+img {
+  height: auto;
+}
+
+body {
+  font-family: theme.$base-text-lato;
+}

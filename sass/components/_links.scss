@@ -1,0 +1,7 @@
+@use "./mixins";
+
+.c-gold-link {
+  @include mixins.button-aspect;
+  text-align: center;
+  display: inline-block;
+}

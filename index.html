@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Aquarium - fine dining</title>
+    <title>Aquarium - cuisine raffinée</title>
     <link rel="stylesheet" href="./styles/home.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -11,10 +11,228 @@
       href="https://fonts.googleapis.com/css2?family=Antic+Didone&family=Lato:wght@100;300;400;700;900&family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
-    <meta name="description" content="High end seafood New York restaurant. Come on in and try our fine cuisine made by our award-winning chef.">
+    <meta name="description" content="Restaurant de fruits de mer haut de gamme à Paris. Venez découvrir notre cuisine raffinée préparée par notre chef primé.">
   </head>
   <body>
 
+    <header class="home-header">
+      <nav class="l-main-nav">
+        <div class="u-container l-main-nav__container">
+          <a href="./index.html" class="l-main-nav__logo">AQUARIUM</a>
+          <button class="l-main-nav__toggle-button">
+            <img src="assets/logos/hamburger.svg" alt="ouvrir le menu mobile" class="l-main-nav__toggle-logo" width="50" height="50">
+          </button>
+          <ul class="l-main-nav__list">
+            <li><a class="l-main-nav__link" href="./index.html">Accueil</a></li>
+            <li><a class="l-main-nav__link" href="./menu.html">Menu</a></li>
+            <li><a class="l-main-nav__link" href="./index.html#about">À propos</a></li>
+            <li><a class="l-main-nav__link" href="./index.html#reservation">Réservations</a></li>
+            <li><a class="l-main-nav__link" href="./index.html#contact">Contact</a></li>
+          </ul>
+          <div class="l-main-nav__phonenumber">
+            <img src="assets/logos/call.svg" alt="" class="l-main-nav__phonelogo" width="20" height="20">
+            <span class="l-main-nav__phonedigits">+33 1 42 58 96 84</span>
+          </div>
+        </div>
+      </nav>
+      <div class="home-header__faded-bg"></div>
+      <img src="assets/images/main-bg.jpg" alt="plat de tentacules" class="home-header__tentacles" width="947" height="674">
+      <div class="u-container home-header__container">
+        <p class="home-header__surtitle">Découvrez l'Art de la</p>
+        <h1 class="u-main-title home-header__title">CUISINE MARINE</h1>
+        <p class="home-header__subtitle">Où les Fruits de Mer Frais Rencontrent un Service Exceptionnel</p>
+        <a href="#reservation" class="c-gold-link home-header__cta">Réserver une table</a>
+
+        <div class="home-header__info">
+          <p class="home-header__info-paragraph">
+            <img src="assets/logos/location.svg" alt="" class="home-header__info-icon" width="24" height="24">
+            <span class="home-header__info-text">75 Avenue des Champs-Élysées, 75008 Paris, France</span>
+          </p>
+          <p class="home-header__info-paragraph">
+            <img src="assets/logos/clock.svg" alt="" class="home-header__info-icon" width="24" height="24">
+            <span class="home-header__info-text">Horaires d'ouverture : Lun-Sam : 10h00 - 22h00</span>
+          </p>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section id="about" class="u-container discover-section">
+        <img src="assets/images/presentational-dish-1.jpg" alt="un plat de fruits de mer" class="discover-section__dish-img" width="440" height="600">
+        <div class="discover-section__text">
+          <h2 class="u-section-h2 discover-section__h2">DÉCOUVREZ LA PASSION DERRIÈRE NOTRE RESTAURANT DE FRUITS DE MER</h2>
+          <p class="u-basic-text">Nous sommes bien plus qu'un simple endroit où prendre un repas. Notre passion pour les fruits de mer nous a poussés à créer une expérience culinaire unique, alliant les ingrédients les plus frais à un service exceptionnel dans une atmosphère chaleureuse et accueillante. Notre équipe de chefs talentueux prend plaisir à sélectionner à la main les meilleurs fruits de mer des marchés locaux, s'assurant que chaque plat que nous servons soit de la plus haute qualité. Que vous ayez envie d'un plateau de fruits de mer classique ou d'un plat créatif et innovant, vous pouvez être sûr de profiter du meilleur que l'océan a à offrir.</p>
+        </div>
+      </section>
+      <section class="dishes-section">
+        <div class="u-container dishes-section__container">
+          <div class="dishes-section__content">
+            <h2 class="u-section-h2 u-section-h2--light dishes-section__h2">NOS PLATS DE FRUITS DE MER
+            </h2>
+            <p class="u-basic-text u-basic-text--light dishes-section__basic-text">Du saumon grillé succulent à la bisque de homard crémeuse, nos plats sont préparés en mettant l'accent sur la saveur et la présentation.</p>
+            <div class="dishes-section__photos">
+              <div class="dishes-section__card">
+                <img src="assets/images/example-food-1.jpg" alt="Bar Grillé" width="168" height="114">
+                <p class="dishes-section__card-name">Bar Grillé</p>
+                <p class="dishes-section__card-price">23 €</p>
+              </div>
+              <div class="dishes-section__card">
+                <img src="assets/images/example-food-2.jpg" alt="Crevettes Scampi" width="168" height="114">
+                <p class="dishes-section__card-name">Crevettes Scampi</p>
+                <p class="dishes-section__card-price">18 €</p>
+              </div>
+              <div class="dishes-section__card">
+                <img src="assets/images/example-food-3.jpg" alt="Poulpe Grillé" width="168" height="114">
+                <p class="dishes-section__card-name">Poulpe Grillé</p>
+                <p class="dishes-section__card-price">32 €</p>
+              </div>
+            </div>
+            <div class="dishes-section__links">
+              <a href="./menu.html" class="c-gold-link dishes-section__link">Voir le Menu</a>
+              <a href="#" download class="c-gold-link dishes-section__link">Télécharger le Menu</a>
+            </div>
+          </div>
+          <div class="dishes-section__side-image-container">
+            <img src="assets/images/oysters.jpg" alt="Huîtres Rockefeller" class="dishes-section__side-image" width="440" height="601">
+            <p class="dishes-section__img-label">Huîtres Rockefeller</p>
+          </div>
+        </div>
+      </section>
+      <section class="u-container values-section">
+        <img src="assets/images/chef-cooking.jpg" alt="chef cuisinier" class="values-section__chef-img" width="440" height="656">
+        <div class="values-section__content">
+          <h2 class="u-section-h2 values-section__h2">LE MONDE FRAIS ET SAVOUREUX DES FRUITS DE MER</h2>
+          <p class="u-basic-text values-section__basic-text">Nous croyons que les fruits de mer frais sont la clé d'un excellent goût. C'est pourquoi nous ne nous approvisionnons qu'avec les meilleurs ingrédients, en préparant expertement chaque plat pour faire ressortir les meilleures saveurs.</p>
+          <img src="assets/images/restaurant-room.jpg" alt="la salle du restaurant" class="values-section__decoration-img">
+        </div>
+      </section>
+
+      <section id="reservation" class="reservation-section">
+        <div class="u-container reservation-section__container">
+            <div class="reservation-section__info">
+              <h2 class="u-section-h2 u-section-h2--light reservation-section__h2">FAIRE UNE RÉSERVATION
+              </h2>
+              <p class="u-basic-text u-basic-text--light">Lundi – Samedi : <strong>11h30-14h (déjeuner) ; 17h-23h (dîner)</strong></p>
+              <p class="u-basic-text u-basic-text--light reservation-section__schedule-sunday">Dimanche : <strong>11h30-14h (déjeuner) ; 17h-22h (dîner)</strong></p>
+              <p class="u-basic-text u-basic-text--light reservation-section__dress-code">Nous vous demandons poliment de vous habiller élégamment pour votre soirée avec nous. Les vestes ne sont pas obligatoires.</p>
+              <p class="u-basic-text u-basic-text--light">TÉLÉPHONE : <strong>+33 1 42 58 96 84</strong></p>
+              <p class="u-basic-text u-basic-text--light">GÉNÉRAL : <strong>aquarium@info.com</strong></p>
+            </div>
+            <div class="reservation-section__demarcation"></div>
+            <div class="reservation-section__info">
+              <h2 class="u-section-h2 u-section-h2--light reservation-section__h2">PLUS D'INFORMATIONS
+              </h2>
+              <p class="u-basic-text u-basic-text--light reservation-section__location">Adresse : <strong>75 Avenue des Champs-Élysées, 75008 Paris</strong></p>
+              <p class="u-basic-text u-basic-text--light reservation-section__social-networks">Suivez-nous : 
+                <strong>
+                  <a class="reservation-section__link" href="#">Facebook</a>
+                  <a class="reservation-section__link" href="#">Instagram</a>
+                </strong>
+              </p>
+              <img src="assets/images/restaurant-table.jpg" alt="tables du restaurant" class="reservation-section__end-picture" width="461" height="308">
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="contact" class="u-container contact-section">
+        <div>
+          <h2 class="u-section-h2 contact-section__h2">Contactez-nous</h2>
+          <form  class="contact-section__form">
+            <img src="assets/images/seafood.jpg" alt="fruits de mer" class="contact-section__side-img" width="170" height="315">
+            <div class="form-content">
+              <p class="u-basic-text contact-section__basic-text">
+                Laissez vos informations et nous vous recontacterons rapidement.
+              </p>
+              <label for="name" class="contact-section__label">Votre nom</label>
+              <input 
+              id="name"
+              placeholder="Saisissez ici"
+              type="text" 
+              class="c-form-input contact-section__input">
+
+              <label for="phone" class="contact-section__label">Votre numéro de téléphone</label>
+              <input 
+              id="phone"
+              placeholder="Saisissez ici"
+              type="text" 
+              class="c-form-input contact-section__input">
+
+
+              <label for="message" class="contact-section__label">Votre message</label>
+              <textarea 
+              id="message"
+              placeholder="Saisissez ici"
+              class="c-form-textarea contact-section__input"></textarea>
+
+              <button class="c-gold-button contact-section__submit-button">Envoyer maintenant</button>
+            </div>
+          </form>
+        </div>
+        <img src="assets/images/shrimps-being-cooked.jpg" alt="crevettes en cours de cuisson" class="contact-section__main-decoration-img" width="440" height="570">
+      </section>
+    </main>
+    <footer class="l-main-footer">
+      <div class="u-container l-main-footer__container">
+        <nav class="l-main-footer__upper-content">
+          <a href="./index.html" class="l-main-footer__logo">AQUARIUM</a>
+          <ul class="l-main-footer__links-nav">
+            <li>
+              <a class="l-main-footer__link" href="./index.html">Accueil</a>
+            </li>
+            <li>
+              <a class="l-main-footer__link" href="./menu.html">Notre Menu</a>
+            </li>
+            <li>
+              <a class="l-main-footer__link" href="#about">À propos</a>
+            </li>
+            <li>
+              <a class="l-main-footer__link" href="#reservation">Réservations</a>
+            </li>
+            <li>
+              <a class="l-main-footer__link" href="#contact">Contact</a>
+            </li>
+          </ul>
+          <ul class="l-main-footer__social-networks">
+            <li>
+              <a href="#" class="l-main-footer__social-network-logo-container">
+                <img
+                  class="l-main-footer__social-network-logo"
+                  src="assets/logos/facebook.svg"
+                  alt="Visitez notre page Facebook"
+                />
+              </a>
+            </li>
+            <li>
+              <a href="#" class="l-main-footer__social-network-logo-container">
+                <img
+                  class="l-main-footer__social-network-logo"
+                  src="assets/logos/twitter.svg"
+                  alt="Visitez notre page Twitter" width="36" height="37"
+                />
+              </a>
+            </li>
+            <li>
+              <a href="#" class="l-main-footer__social-network-logo-container">
+                <img
+                  class="l-main-footer__social-network-logo"
+                  src="assets/logos/instagram.svg"
+                  alt="Visitez notre page Instagram" width="36" height="37"
+                />
+              </a>
+            </li>
+            <li>
+              <a href="#" class="l-main-footer__social-network-logo-container">
+                <img
+                  class="l-main-footer__social-network-logo"
+                  src="assets/logos/linkedIn.svg"
+                  alt="Visitez notre page LinkedIn" width="36" height="37"
+                />
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <p class="l-main-footer__copyright">Copyright © 2023 Aquarium | Tous Droits Réservés</p>
+      </div>
+    </footer>
     
     <script src="scripts/script.js"></script>
   </body>
