@@ -1,144 +1,305 @@
-// Import des variables du thème
+// Import des variables du thème personnalisé
 @use "../base/theme";
 
-// Navigation principale du site
+// Navigation principale du site - Version personnalisée
 .l-main-nav {
-  position: absolute; // Positionné au-dessus du contenu
-  top: 21px; // 21px du haut de la page
-  inline-size: 100%; // Largeur complète (équivalent à width: 100%)
+  position: absolute;
+  top: 0; // Collé en haut pour un effet plus moderne
+  inline-size: 100%;
+  background: rgba(theme.$deep-blue, 0.95); // Fond semi-transparent
+  backdrop-filter: blur(10px); // Effet de flou d'arrière-plan
+  z-index: 100; // S'assure qu'elle reste au-dessus
+  transition: theme.$transition-medium;
+
+  // Effet au scroll (à implémenter avec JS)
+  &--scrolled {
+    background: rgba(theme.$deep-blue, 0.98);
+    box-shadow: theme.$shadow-medium;
+  }
 
   // Conteneur de la navigation
   &__container {
-    display: flex; // Layout flexbox
-    align-items: center; // Centre verticalement les éléments
+    display: flex;
+    align-items: center;
+    padding-block: theme.$spacing-sm; // Espacement vertical
+    min-height: 70px; // Hauteur minimum
+    gap: 30px;
   }
 
-  // Logo du site
+  // Logo du site - Version personnalisée
   &__logo {
-    font-size: theme.$fs-33; // Taille 33px (2.0625rem)
-    font-family: theme.$heading-antic-didone; // Police Antic Didone
-    color: theme.$white-main; // Couleur blanche
+    font-size: theme.$fs-36; // Taille augmentée
+    font-family: theme.$heading-antic-didone;
+    color: theme.$white-main;
+    font-weight: 600; // Plus bold
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    transition: theme.$transition-medium;
+    position: relative;
+
+    // Effet de brillance au survol
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(theme.$accent-gold, 0.3),
+        transparent
+      );
+      transition: theme.$transition-slow;
+    }
+
+    &:hover::after {
+      left: 100%;
+    }
+
+    &:hover {
+      color: theme.$accent-gold;
+      transform: scale(1.05);
+    }
   }
 
-  // Bouton hamburger (masqué par défaut sur desktop)
+  // Bouton hamburger - Version personnalisée
   &__toggle-button {
-    display: none; // Caché sur desktop
+    display: none;
+    background: rgba(theme.$accent-teal, 0.2);
+    border: 2px solid theme.$accent-teal;
+    border-radius: theme.$button-border-radius;
+    padding: theme.$spacing-xs;
+    transition: theme.$transition-medium;
+
+    &:hover {
+      background: rgba(theme.$accent-teal, 0.4);
+      transform: scale(1.1);
+    }
   }
 
-  // Liste des liens de navigation
+  // Liste des liens de navigation - Version personnalisée
   &__list {
-    flex-shrink: 0; // Ne se réduit pas
-    list-style: none; // Supprime les puces
-    display: flex; // Layout horizontal
+    flex-shrink: 0;
+    list-style: none;
+    display: flex;
+    gap: theme.$spacing-md; // Espacement entre les liens
+    background: rgba(theme.$orange-main, 0.1); // Fond subtil
+    border-radius: 50px; // Forme de pilule
+    padding: theme.$spacing-xs theme.$spacing-md;
+    backdrop-filter: blur(5px);
   }
 
-  // Liens de navigation
+  // Liens de navigation - Version personnalisée
   &__link {
-    font-size: theme.$fs-16; // Taille 16px
-    font-family: theme.$base-text-lato; // Police Lato
-    color: theme.$white-main; // Couleur blanche
-    margin-inline: 16px; // 16px d'espacement gauche/droite
+    font-size: theme.$fs-16;
+    font-family: theme.$base-text-lato;
+    color: theme.$white-main;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: theme.$spacing-xs theme.$spacing-sm;
+    border-radius: theme.$button-border-radius;
+    transition: theme.$transition-medium;
+    position: relative;
+    overflow: hidden;
+
+    // Ligne animée en bas
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: theme.$accent-gold;
+      transform: translateX(-50%);
+      transition: theme.$transition-medium;
+    }
+
+    &:hover {
+      color: theme.$accent-gold;
+      background: rgba(theme.$white-main, 0.1);
+
+      &::before {
+        width: 80%;
+      }
+    }
+
+    // État actif
+    &--active {
+      color: theme.$accent-gold;
+      background: rgba(theme.$accent-gold, 0.2);
+
+      &::before {
+        width: 80%;
+      }
+    }
   }
 
-  // Conteneur du numéro de téléphone
+  // Conteneur du numéro de téléphone - Version personnalisée
   &__phonenumber {
-    display: flex; // Layout flexbox
-    align-items: center; // Centre verticalement
-    justify-content: flex-end; // Aligne à droite
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(theme.$accent-teal, 0.2);
+    padding: theme.$spacing-xs theme.$spacing-sm;
+    border-radius: 25px;
+    border: 1px solid rgba(theme.$accent-teal, 0.3);
+    transition: theme.$transition-medium;
+
+    &:hover {
+      background: rgba(theme.$accent-teal, 0.3);
+      transform: scale(1.05);
+    }
   }
 
-  // Icône du téléphone
+  // Icône du téléphone - Version personnalisée
   &__phonelogo {
-    margin-inline-end: 7px; // 7px d'espace à droite de l'icône
+    margin-inline-end: theme.$spacing-xs;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+    transition: theme.$transition-medium;
   }
 
-  // Numéro de téléphone
+  // Numéro de téléphone - Version personnalisée
   &__phonedigits {
-    font-family: theme.$base-text-lato; // Police Lato
-    color: theme.$white-main; // Couleur blanche
+    font-family: theme.$base-text-lato;
+    color: theme.$white-main;
+    font-weight: 600;
+    font-size: theme.$fs-14;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
   }
 
   // Logo et numéro prennent toute la largeur disponible
   &__logo,
   &__phonenumber {
-    inline-size: 100%; // Largeur 100% (se partagent l'espace)
+    inline-size: 100%;
   }
 }
 
-// Media query pour tablette (écrans moins de 1130px)
-@media (max-width: 1130px) {
-  .l-main-nav__link {
-    margin-inline: 8px; // Réduit l'espacement des liens à 8px
+// Media query pour tablette
+@media (max-width: theme.$lg-breakpoint) {
+  .l-main-nav {
+    &__container {
+      padding-inline: theme.$spacing-sm;
+    }
+
+    &__list {
+      gap: theme.$spacing-sm;
+      padding: theme.$spacing-xs;
+    }
+
+    &__link {
+      font-size: theme.$fs-14;
+      padding: theme.$spacing-xs;
+    }
   }
 }
 
-// Media query pour mobile (écrans moins de 920px)
+// Media query pour mobile
 @media (max-width: 920px) {
   .l-main-nav {
-    top: 0; // Colle la nav en haut de l'écran
-    padding-block: 14px; // 14px de padding vertical
+    position: fixed; // Fixe pour rester visible
+    top: 0;
+    left: 0;
+    right: 0;
+    background: theme.$deep-blue;
+    box-shadow: theme.$shadow-medium;
 
-    // État actif (menu ouvert) avec classe JavaScript
+    // État actif (menu ouvert)
     &--active {
-      background-color: theme.$dark-black; // Fond noir
-      border-block-end: 1px solid rgba(theme.$white-main, 0.6); // Bordure blanche semi-transparente
+      background: theme.$deep-blue;
+
+      .l-main-nav__container {
+        background: linear-gradient(
+          180deg,
+          theme.$deep-blue,
+          theme.$orange-dark
+        );
+      }
     }
 
-    // Quand le menu est actif, affiche la liste et le téléphone
+    // Animation du menu
     &--active &__list,
     &--active &__phonenumber {
-      display: flex; // Rend visible
+      display: flex;
+      animation: slideDown 0.3s ease-out;
     }
 
-    // Conteneur en mode mobile
     &__container {
-      flex-wrap: wrap; // Permet le retour à la ligne
+      flex-wrap: wrap;
+      padding: theme.$spacing-sm;
     }
 
-    // Logo en mode mobile
     &__logo {
-      inline-size: auto; // Largeur automatique
-      margin-inline-end: auto; // Pousse le bouton hamburger à droite
-      font-size: theme.$fs-22; // Taille réduite (22px)
+      inline-size: auto;
+      margin-inline-end: auto;
+      font-size: theme.$fs-28;
     }
 
-    // Bouton hamburger visible sur mobile
     &__toggle-button {
-      display: inline-flex; // Devient visible
-      background-color: transparent; // Fond transparent
-      border: none; // Pas de bordure
-      cursor: pointer; // Curseur main
+      display: inline-flex;
+      background: transparent;
+      border: 2px solid theme.$accent-teal;
+      border-radius: theme.$button-border-radius;
+      padding: theme.$spacing-xs;
+
+      &:hover {
+        background: rgba(theme.$accent-teal, 0.2);
+      }
     }
 
-    // Icône du hamburger
     &__toggle-logo {
-      inline-size: theme.$fs-24; // Taille 24px
+      inline-size: theme.$fs-24;
+      filter: brightness(0) invert(1);
     }
 
-    // Liste des liens en mode mobile
     &__list {
-      flex-direction: column; // Layout vertical
-      inline-size: 100%; // Largeur complète
-      margin-block: 20px; // 20px de marge verticale
+      flex-direction: column;
+      inline-size: 100%;
+      margin-block: theme.$spacing-md;
+      background: rgba(theme.$orange-main, 0.2);
+      border-radius: theme.$card-border-radius;
+      padding: theme.$spacing-md;
+      gap: theme.$spacing-xs;
     }
 
-    // Liens en mode mobile
     &__link {
-      display: inline-block; // Block pour le padding
-      padding-block: 16px; // 16px de padding vertical
-      margin-inline: 0; // Supprime les marges horizontales
+      display: block;
+      padding: theme.$spacing-sm;
+      margin: 0;
+      text-align: center;
+      background: rgba(theme.$white-main, 0.05);
+      border-radius: theme.$button-border-radius;
+
+      &:hover {
+        background: rgba(theme.$accent-gold, 0.2);
+      }
     }
 
-    // Numéro de téléphone en mode mobile
     &__phonenumber {
-      padding-block-end: 16px; // 16px de padding en bas
-      justify-content: flex-start; // Aligne à gauche (au lieu de droite)
+      justify-content: center;
+      padding: theme.$spacing-sm;
+      margin-bottom: theme.$spacing-sm;
+      border-radius: theme.$card-border-radius;
     }
 
-    // Par défaut, cache la liste et le téléphone (menu fermé)
+    // Par défaut masqué
     &__list,
     &__phonenumber {
-      display: none; // Masqué par défaut
+      display: none;
     }
+  }
+}
+
+// Animation pour le menu mobile
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

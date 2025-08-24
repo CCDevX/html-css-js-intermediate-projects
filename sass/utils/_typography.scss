@@ -50,7 +50,7 @@
 
 // Texte de base utilisé dans les paragraphes - Version personnalisée
 .u-basic-text {
-  @include mixins.responsive-text(theme.$fs-16, theme.$fs-17, theme.$fs-18);
+  @include mixins.responsive-text(theme.$fs-16, theme.$fs-18, theme.$fs-20);
   color: theme.$dark-black;
   font-family: theme.$base-text-lato;
   font-weight: 400; // Poids légèrement augmenté
