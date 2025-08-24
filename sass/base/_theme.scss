@@ -1,35 +1,68 @@
-// Polices de caractères
+// Polices de caractères - Personnalisées
 $heading-antic-didone: "Antic Didone"; // Police pour les titres
 $base-text-lato: "Lato"; // Police principale pour le texte
 $base-text-raleway: "Raleway"; // Police alternative
 
-// Palette de couleurs
-$orange-main: #e78c15; // Orange principal - couleur primaire du site
-$orange-dark: #7d4700; // Orange foncé - pour les variations et états hover
-$white-main: #fff; // Blanc principal
-$dark-black: #0c0e0d; // Noir principal - presque noir pour meilleur contraste
+// Palette de couleurs personnalisée - Thème océan profond
+$orange-main: #1a5490; // Bleu océan profond - couleur primaire
+$orange-dark: #0f3460; // Bleu plus foncé - pour les variations et états hover
+$accent-gold: #ffd700; // Ajout d'un doré pour les accents
+$accent-teal: #20b2aa; // Vert-bleu pour les détails
+$white-main: #fafafa; // Blanc cassé plus doux
+$light-gray: #f8f9fa; // Gris très clair pour les fonds
+$dark-black: #1a1a1a; // Noir plus doux
+$deep-blue: #002347; // Bleu très profond pour les sections sombres
 
-// Tailles de police en REM=
+// Tailles de police personnalisées
 // Utilisation de rem pour une mise à l'échelle responsive
-// 1rem = 16px par défaut dans la plupart des navigateurs
+$fs-12: 0.75rem; // 12px - très petit texte
 $fs-14: 0.875rem; // 14px - texte très petit
 $fs-16: 1rem; // 16px - taille de base
 $fs-18: 1.125rem; // 18px - texte légèrement plus grand
 $fs-20: 1.25rem; // 20px - sous-titres
 $fs-22: 1.375rem; // 22px
 $fs-24: 1.5rem; // 24px - titres H3
+$fs-28: 1.75rem; // 28px - nouveau format
 $fs-32: 2rem; // 32px - titres H2
 $fs-33: 2.0625rem; // 33px - taille spécifique
 $fs-36: 2.25rem; // 36px
 $fs-40: 2.5rem; // 40px - grands titres
+$fs-48: 3rem; // 48px - très grands titres
 $fs-50: 3.125rem; // 50px - très grands titres
 $fs-60: 3.75rem; // 60px - titres héros
+$fs-72: 4.5rem; // 72px - titres géants
 $fs-80: 5rem; // 80px - titres géants
 
-// Dimensions
+// Dimensions personnalisées
+$table-sub-container: 650px; // Largeur maximale pour les conteneurs de tableaux (augmentée)
+$card-border-radius: 12px; // Rayons de bordure pour les cartes
+$button-border-radius: 8px; // Rayons de bordure pour les boutons
 
-$table-sub-container: 600px; // Largeur maximale pour les conteneurs de tableaux
+// Ombres personnalisées
+$shadow-light: 0 2px 8px rgba(0, 0, 0, 0.1);
+$shadow-medium: 0 4px 16px rgba(0, 0, 0, 0.15);
+$shadow-heavy: 0 8px 32px rgba(0, 0, 0, 0.2);
 
-// Breakpoints
+// Transitions personnalisées
+$transition-fast: 0.2s ease-in-out;
+$transition-medium: 0.3s ease-in-out;
+$transition-slow: 0.5s ease-in-out;
 
+// Espacements personnalisés
+$spacing-xs: 8px;
+$spacing-sm: 16px;
+$spacing-md: 24px;
+$spacing-lg: 32px;
+$spacing-xl: 48px;
+$spacing-xxl: 64px;
+
+// Breakpoints personnalisés
+$sm-breakpoint: 576px; // Petits téléphones
+$md-breakpoint: 768px; // Tablettes
 $lg-breakpoint: 1130px; // Point de rupture pour les grands écrans (desktop)
+$xl-breakpoint: 1440px; // Très grands écrans
+
+// Gradients personnalisés
+$gradient-ocean: linear-gradient(135deg, #{$orange-main}, #{$accent-teal});
+$gradient-sunset: linear-gradient(135deg, #{$orange-main}, #{$accent-gold});
+$gradient-dark: linear-gradient(135deg, #{$deep-blue}, #{$dark-black});

@@ -1,15 +1,110 @@
 @use "../base/theme";
 
-// Mixin pour l'apparence commune des boutons et liens
-
+// Mixin pour l'apparence commune des boutons et liens - Version personnalisée
 @mixin button-aspect {
   font-family: theme.$base-text-lato;
   font-size: theme.$fs-18;
-  color: theme.$dark-black;
-  background-color: theme.$orange-main;
-  padding-inline: 9px; // Padding horizontal (logical property)
-  padding-block: 9px; // Padding vertical (logical property)
+  color: theme.$white-main;
+  background: theme.$gradient-ocean; // Utilisation du gradient océan
+  padding-inline: 24px; // Padding horizontal augmenté
+  padding-block: 14px; // Padding vertical augmenté
   line-height: 133.33%; // Interligne de 1.33 pour la lisibilité
   cursor: pointer;
-  font-weight: bold;
+  font-weight: 600; // Plus bold
+  border-radius: theme.$button-border-radius; // Coins arrondis
+  transition: theme.$transition-medium; // Transition fluide
+  text-transform: uppercase; // Texte en majuscules
+  letter-spacing: 0.5px; // Espacement des lettres
+  box-shadow: theme.$shadow-medium; // Ombre portée
+
+  // Effet au survol
+  &:hover {
+    background: theme.$gradient-sunset; // Change de gradient au hover
+    transform: translateY(-2px); // Léger effet de survol
+    box-shadow: theme.$shadow-heavy; // Ombre plus prononcée
+  }
+
+  // Effet au clic
+  &:active {
+    transform: translateY(0); // Retour à la position normale
+  }
+}
+
+// Nouveau mixin pour les cartes
+@mixin card-style {
+  background-color: theme.$white-main;
+  border-radius: theme.$card-border-radius;
+  box-shadow: theme.$shadow-light;
+  transition: theme.$transition-medium;
+
+  &:hover {
+    box-shadow: theme.$shadow-heavy;
+    transform: translateY(-4px);
+  }
+}
+
+// Mixin pour les titres avec effet
+@mixin title-gradient {
+  background: theme.$gradient-ocean;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+// Mixin pour les overlays
+@mixin overlay($opacity: 0.6) {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(theme.$deep-blue, $opacity);
+    z-index: 1;
+  }
+}
+
+// Mixin pour les animations de fade-in
+@mixin fade-in-up($delay: 0s) {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s ease-out #{$delay} forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Mixin pour les grilles flexibles
+@mixin flex-grid($columns: 3, $gap: theme.$spacing-md) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $gap;
+
+  > * {
+    flex: 1 1 calc((100% - #{$gap} * (#{$columns} - 1)) / #{$columns});
+  }
+}
+
+// Mixin pour le texte responsive
+@mixin responsive-text(
+  $mobile: theme.$fs-16,
+  $tablet: theme.$fs-18,
+  $desktop: theme.$fs-20
+) {
+  font-size: $mobile;
+
+  @media (min-width: theme.$md-breakpoint) {
+    font-size: $tablet;
+  }
+
+  @media (min-width: theme.$lg-breakpoint) {
+    font-size: $desktop;
+  }
 }
