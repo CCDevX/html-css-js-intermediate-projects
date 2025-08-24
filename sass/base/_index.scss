@@ -1,2 +1,10 @@
-@use "./reset.scss";
-@forward "./theme.scss";
+// Point d'entrée principal qui orchestre l'importation
+
+@use "./reset.scss"; // Import et exécution immédiate du reset CSS
+// DOIT être importé en premier pour éviter les conflits
+
+@forward "./theme.scss"; // Forward (transmet) toutes les variables du thème
+// Les fichiers qui importent _index.scss auront accès
+// aux variables de _theme.scss sans l'importer directement
+// C'est différent de @use car @forward rend les variables
+// disponibles aux utilisateurs de ce fichier

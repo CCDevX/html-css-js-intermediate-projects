@@ -1,0 +1,144 @@
+// Import des variables du thème
+@use "../base/theme";
+
+// Navigation principale du site
+.l-main-nav {
+  position: absolute; // Positionné au-dessus du contenu
+  top: 21px; // 21px du haut de la page
+  inline-size: 100%; // Largeur complète (équivalent à width: 100%)
+
+  // Conteneur de la navigation
+  &__container {
+    display: flex; // Layout flexbox
+    align-items: center; // Centre verticalement les éléments
+  }
+
+  // Logo du site
+  &__logo {
+    font-size: theme.$fs-33; // Taille 33px (2.0625rem)
+    font-family: theme.$heading-antic-didone; // Police Antic Didone
+    color: theme.$white-main; // Couleur blanche
+  }
+
+  // Bouton hamburger (masqué par défaut sur desktop)
+  &__toggle-button {
+    display: none; // Caché sur desktop
+  }
+
+  // Liste des liens de navigation
+  &__list {
+    flex-shrink: 0; // Ne se réduit pas
+    list-style: none; // Supprime les puces
+    display: flex; // Layout horizontal
+  }
+
+  // Liens de navigation
+  &__link {
+    font-size: theme.$fs-16; // Taille 16px
+    font-family: theme.$base-text-lato; // Police Lato
+    color: theme.$white-main; // Couleur blanche
+    margin-inline: 16px; // 16px d'espacement gauche/droite
+  }
+
+  // Conteneur du numéro de téléphone
+  &__phonenumber {
+    display: flex; // Layout flexbox
+    align-items: center; // Centre verticalement
+    justify-content: flex-end; // Aligne à droite
+  }
+
+  // Icône du téléphone
+  &__phonelogo {
+    margin-inline-end: 7px; // 7px d'espace à droite de l'icône
+  }
+
+  // Numéro de téléphone
+  &__phonedigits {
+    font-family: theme.$base-text-lato; // Police Lato
+    color: theme.$white-main; // Couleur blanche
+  }
+
+  // Logo et numéro prennent toute la largeur disponible
+  &__logo,
+  &__phonenumber {
+    inline-size: 100%; // Largeur 100% (se partagent l'espace)
+  }
+}
+
+// Media query pour tablette (écrans moins de 1130px)
+@media (max-width: 1130px) {
+  .l-main-nav__link {
+    margin-inline: 8px; // Réduit l'espacement des liens à 8px
+  }
+}
+
+// Media query pour mobile (écrans moins de 920px)
+@media (max-width: 920px) {
+  .l-main-nav {
+    top: 0; // Colle la nav en haut de l'écran
+    padding-block: 14px; // 14px de padding vertical
+
+    // État actif (menu ouvert) avec classe JavaScript
+    &--active {
+      background-color: theme.$dark-black; // Fond noir
+      border-block-end: 1px solid rgba(theme.$white-main, 0.6); // Bordure blanche semi-transparente
+    }
+
+    // Quand le menu est actif, affiche la liste et le téléphone
+    &--active &__list,
+    &--active &__phonenumber {
+      display: flex; // Rend visible
+    }
+
+    // Conteneur en mode mobile
+    &__container {
+      flex-wrap: wrap; // Permet le retour à la ligne
+    }
+
+    // Logo en mode mobile
+    &__logo {
+      inline-size: auto; // Largeur automatique
+      margin-inline-end: auto; // Pousse le bouton hamburger à droite
+      font-size: theme.$fs-22; // Taille réduite (22px)
+    }
+
+    // Bouton hamburger visible sur mobile
+    &__toggle-button {
+      display: inline-flex; // Devient visible
+      background-color: transparent; // Fond transparent
+      border: none; // Pas de bordure
+      cursor: pointer; // Curseur main
+    }
+
+    // Icône du hamburger
+    &__toggle-logo {
+      inline-size: theme.$fs-24; // Taille 24px
+    }
+
+    // Liste des liens en mode mobile
+    &__list {
+      flex-direction: column; // Layout vertical
+      inline-size: 100%; // Largeur complète
+      margin-block: 20px; // 20px de marge verticale
+    }
+
+    // Liens en mode mobile
+    &__link {
+      display: inline-block; // Block pour le padding
+      padding-block: 16px; // 16px de padding vertical
+      margin-inline: 0; // Supprime les marges horizontales
+    }
+
+    // Numéro de téléphone en mode mobile
+    &__phonenumber {
+      padding-block-end: 16px; // 16px de padding en bas
+      justify-content: flex-start; // Aligne à gauche (au lieu de droite)
+    }
+
+    // Par défaut, cache la liste et le téléphone (menu fermé)
+    &__list,
+    &__phonenumber {
+      display: none; // Masqué par défaut
+    }
+  }
+}

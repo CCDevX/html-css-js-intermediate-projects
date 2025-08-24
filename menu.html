@@ -4,23 +4,30 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Aquarium - Menu</title>
+    <!-- CSS spécifique à la page menu -->
     <link rel="stylesheet" href="./styles/menu.css" />
+    <!-- Optimisation des polices Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Antic+Didone&family=Lato:wght@100;300;400;700;900&family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
+    <!-- Description pour le référencement -->
     <meta
       name="description"
       content="Restaurant de fruits de mer haut de gamme à Paris. Venez découvrir notre cuisine raffinée préparée par notre chef primé."
     />
   </head>
   <body>
+    <!-- En-tête de la page menu -->
     <header class="menu-header">
+      <!-- Navigation principale -->
       <nav class="l-main-nav">
         <div class="u-container l-main-nav__container">
+          <!-- Logo du site -->
           <a href="./index.html" class="l-main-nav__logo">AQUARIUM</a>
+          <!-- Bouton menu mobile -->
           <button class="l-main-nav__toggle-button">
             <img
               src="assets/logos/hamburger.svg"
@@ -30,6 +37,7 @@
               height="50"
             />
           </button>
+          <!-- Liste des liens de navigation -->
           <ul class="l-main-nav__list">
             <li><a class="l-main-nav__link" href="./index.html">Accueil</a></li>
             <li><a class="l-main-nav__link" href="./menu.html">Menu</a></li>
@@ -47,6 +55,7 @@
               >
             </li>
           </ul>
+          <!-- Numéro de téléphone -->
           <div class="l-main-nav__phonenumber">
             <img
               src="assets/logos/call.svg"
@@ -59,18 +68,23 @@
           </div>
         </div>
       </nav>
+      <!-- Titre principal de la page -->
       <h1 class="u-main-title menu-header__main-title">NOTRE MENU</h1>
     </header>
 
+    <!-- Contenu principal -->
     <main>
+      <!-- Section du menu -->
       <section class="u-container menu">
         <div class="menu__container">
+          <!-- Section des entrées -->
           <h2 class="menu__h2">Entrées</h2>
           <div class="menu__flex-dishes menu__flex-dishes--spacing-bottom">
+            <!-- Première colonne de plats -->
             <ul class="dishes-list">
               <li class="dishes-list__dish">
                 <p class="dishes-list__dish-name">
-                  Huîtres Rockefeller <span>15€</span>
+                  Huîtres Rockefeller <span>9€</span>
                 </p>
                 <p class="dishes-list__dish-description">
                   garnies d'un mélange d'épinards
@@ -78,24 +92,28 @@
               </li>
               <li class="dishes-list__dish">
                 <p class="dishes-list__dish-name">
-                  Cocktail de Crevettes <span>18€</span>
+                  Cocktail de Crevettes <span>9€</span>
                 </p>
                 <p class="dishes-list__dish-description">
-                  servi avec une sauce cocktail maison
+                  garni d'un mélange d'épinards
                 </p>
               </li>
               <li class="dishes-list__dish">
-                <p class="dishes-list__dish-name">Calamars <span>16€</span></p>
+                <p class="dishes-list__dish-name">Calamars <span>9€</span></p>
                 <p class="dishes-list__dish-description">
                   servis avec un aïoli au citron
                 </p>
               </li>
             </ul>
+
+            <!-- Séparateur vertical -->
             <div class="menu__demarcation"></div>
+
+            <!-- Deuxième colonne de plats -->
             <ul class="dishes-list">
               <li class="dishes-list__dish">
                 <p class="dishes-list__dish-name">
-                  Beignets de Crabe <span>22€</span>
+                  Beignets de Crabe <span>9€</span>
                 </p>
                 <p class="dishes-list__dish-description">
                   servis avec une sauce rémoulade
@@ -103,7 +121,7 @@
               </li>
               <li class="dishes-list__dish">
                 <p class="dishes-list__dish-name">
-                  Palourdes Casino <span>19€</span>
+                  Palourdes Casino <span>9€</span>
                 </p>
                 <p class="dishes-list__dish-description">
                   garnies de bacon et chapelure
@@ -111,7 +129,7 @@
               </li>
               <li class="dishes-list__dish">
                 <p class="dishes-list__dish-name">
-                  Bisque de Homard <span>24€</span>
+                  Bisque de Homard <span>9€</span>
                 </p>
                 <p class="dishes-list__dish-description">
                   soupe riche et crémeuse
@@ -119,34 +137,38 @@
               </li>
               <li class="dishes-list__dish">
                 <p class="dishes-list__dish-name">
-                  Saumon Fumé <span>26€</span>
+                  Saumon Fumé <span>9€</span>
                 </p>
                 <p class="dishes-list__dish-description">
-                  servi avec blinis et crème fraîche
+                  servi avec crackers et fromage à la crème
                 </p>
               </li>
             </ul>
+
+            <!-- Séparateur vertical -->
             <div class="menu__demarcation"></div>
+
+            <!-- Troisième colonne de plats -->
             <ul class="dishes-list">
               <li class="dishes-list__dish">
                 <p class="dishes-list__dish-name">
-                  Tartare de Thon <span>28€</span>
+                  Tartare de Thon <span>9€</span>
                 </p>
                 <p class="dishes-list__dish-description">
-                  servi avec chips de wontons
+                  servi avec des wontons croustillants
                 </p>
               </li>
               <li class="dishes-list__dish">
                 <p class="dishes-list__dish-name">
-                  Mac & Cheese au Homard <span>32€</span>
+                  Macaronis au Homard <span>9€</span>
                 </p>
                 <p class="dishes-list__dish-description">
-                  mélangé à une sauce au fromage crémeuse
+                  mélangés à une sauce crémeuse au fromage
                 </p>
               </li>
               <li class="dishes-list__dish">
                 <p class="dishes-list__dish-name">
-                  Ceviche de Saint-Jacques <span>30€</span>
+                  Ceviche de Saint-Jacques <span>9€</span>
                 </p>
                 <p class="dishes-list__dish-description">
                   marinées au jus de citron vert et coriandre
@@ -154,29 +176,36 @@
               </li>
             </ul>
           </div>
+
+          <!-- Section des accompagnements -->
           <h2 class="menu__h2">Accompagnements</h2>
           <div class="menu__flex-dishes menu__flex-dishes--spacing-bottom">
+            <!-- Première colonne -->
             <ul class="dishes-list">
               <li class="dishes-list__dish">
                 <p class="dishes-list__dish-name">
-                  Salade de Chou <span>8€</span>
+                  Salade de Chou <span>9€</span>
                 </p>
                 <p class="dishes-list__dish-description">
                   chou, carottes et mayonnaise
                 </p>
               </li>
               <li class="dishes-list__dish">
-                <p class="dishes-list__dish-name">Riz Pilaf <span>10€</span></p>
+                <p class="dishes-list__dish-name">Riz Pilaf <span>9€</span></p>
                 <p class="dishes-list__dish-description">
-                  cuit dans un bouillon assaisonné
+                  cuit dans un bouillon épicé
                 </p>
               </li>
             </ul>
+
+            <!-- Séparateur -->
             <div class="menu__demarcation"></div>
+
+            <!-- Deuxième colonne -->
             <ul class="dishes-list">
               <li class="dishes-list__dish">
                 <p class="dishes-list__dish-name">
-                  Asperges Grillées <span>12€</span>
+                  Asperges Grillées <span>9€</span>
                 </p>
                 <p class="dishes-list__dish-description">
                   arrosées de jus de citron
@@ -184,18 +213,22 @@
               </li>
               <li class="dishes-list__dish">
                 <p class="dishes-list__dish-name">
-                  Pommes de Terre Sautées <span>9€</span>
+                  Pommes de Terre Frites <span>9€</span>
                 </p>
                 <p class="dishes-list__dish-description">
                   pommes de terre finement tranchées
                 </p>
               </li>
             </ul>
+
+            <!-- Séparateur -->
             <div class="menu__demarcation"></div>
+
+            <!-- Troisième colonne -->
             <ul class="dishes-list">
               <li class="dishes-list__dish">
                 <p class="dishes-list__dish-name">
-                  Épinards Sautés <span>11€</span>
+                  Épinards Sautés <span>9€</span>
                 </p>
                 <p class="dishes-list__dish-description">
                   cuisinés à l'ail et au beurre
@@ -203,7 +236,7 @@
               </li>
               <li class="dishes-list__dish">
                 <p class="dishes-list__dish-name">
-                  Patates Douces Rôties <span>10€</span>
+                  Patates Douces Rôties <span>9€</span>
                 </p>
                 <p class="dishes-list__dish-description">
                   rôties jusqu'à être tendres et caramélisées
@@ -211,12 +244,15 @@
               </li>
             </ul>
           </div>
+
+          <!-- Section des salades -->
           <h2 class="menu__h2">Salades</h2>
           <div class="menu__flex-dishes menu__flex-dishes--spacing-bottom">
+            <!-- Première colonne -->
             <ul class="dishes-list">
               <li class="dishes-list__dish">
                 <p class="dishes-list__dish-name">
-                  Salade de Fruits de Mer <span>24€</span>
+                  Salade de Fruits de Mer <span>9€</span>
                 </p>
                 <p class="dishes-list__dish-description">
                   assaisonnée d'une vinaigrette acidulée
@@ -224,45 +260,83 @@
               </li>
               <li class="dishes-list__dish">
                 <p class="dishes-list__dish-name">
-                  Salade César <span>18€</span>
+                  Salade César <span>9€</span>
                 </p>
                 <p class="dishes-list__dish-description">
                   garnie d'une sauce crémeuse
                 </p>
               </li>
             </ul>
+
+            <!-- Séparateur -->
             <div class="menu__demarcation"></div>
+
+            <!-- Deuxième colonne -->
             <ul class="dishes-list">
               <li class="dishes-list__dish">
-                <p class="dishes-list__dish-name">Ceviche <span>26€</span></p>
+                <p class="dishes-list__dish-name">Ceviche <span>9€</span></p>
                 <p class="dishes-list__dish-description">
-                  mariné dans des jus d'agrumes
+                  mariné aux jus d'agrumes
                 </p>
               </li>
               <li class="dishes-list__dish">
                 <p class="dishes-list__dish-name">
-                  Salade Niçoise <span>22€</span>
+                  Salade Niçoise <span>9€</span>
                 </p>
                 <p class="dishes-list__dish-description">
-                  servie sur un lit de verdure
+                  servie sur un lit de salade verte
                 </p>
               </li>
             </ul>
           </div>
+
+          <!-- Section des plats principaux -->
           <h2 class="menu__h2">Plats principaux</h2>
           <div class="menu__flex-dishes">
+            <!-- Première colonne -->
             <ul class="dishes-list">
               <li class="dishes-list__dish">
                 <p class="dishes-list__dish-name">
-                  Bar de Ligne Grillé <span>38€</span>
+                  Bar Grillé <span>18€</span>
                 </p>
                 <p class="dishes-list__dish-description">
-                  accompagné de légumes de saison
+                  grillé à la perfection, servi avec légumes
                 </p>
               </li>
               <li class="dishes-list__dish">
                 <p class="dishes-list__dish-name">
-                  Bouillabaisse Marseillaise <span>45€</span>
+                  Saumon à l'Aneth <span>22€</span>
+                </p>
+                <p class="dishes-list__dish-description">
+                  filet de saumon grillé aux herbes fraîches
+                </p>
+              </li>
+              <li class="dishes-list__dish">
+                <p class="dishes-list__dish-name">
+                  Sole Meunière <span>28€</span>
+                </p>
+                <p class="dishes-list__dish-description">
+                  sole pochée au beurre citronné
+                </p>
+              </li>
+            </ul>
+
+            <!-- Séparateur -->
+            <div class="menu__demarcation"></div>
+
+            <!-- Deuxième colonne -->
+            <ul class="dishes-list">
+              <li class="dishes-list__dish">
+                <p class="dishes-list__dish-name">
+                  Homard Thermidor <span>45€</span>
+                </p>
+                <p class="dishes-list__dish-description">
+                  homard gratiné à la sauce crémeuse
+                </p>
+              </li>
+              <li class="dishes-list__dish">
+                <p class="dishes-list__dish-name">
+                  Bouillabaisse Marseillaise <span>35€</span>
                 </p>
                 <p class="dishes-list__dish-description">
                   soupe de poissons traditionnelle avec rouille
@@ -270,72 +344,49 @@
               </li>
               <li class="dishes-list__dish">
                 <p class="dishes-list__dish-name">
-                  Poulpe Grillé <span>42€</span>
+                  Plateau de Fruits de Mer <span>52€</span>
                 </p>
                 <p class="dishes-list__dish-description">
-                  servi avec purée de pommes de terre
+                  sélection d'huîtres, crevettes et langoustines
+                </p>
+              </li>
+              <li class="dishes-list__dish">
+                <p class="dishes-list__dish-name">
+                  Turbot aux Champignons <span>32€</span>
+                </p>
+                <p class="dishes-list__dish-description">
+                  filet de turbot aux champignons de Paris
                 </p>
               </li>
             </ul>
+
+            <!-- Séparateur -->
             <div class="menu__demarcation"></div>
+
+            <!-- Troisième colonne -->
             <ul class="dishes-list">
               <li class="dishes-list__dish">
                 <p class="dishes-list__dish-name">
-                  Homard Thermidor <span>58€</span>
+                  Poulpe Grillé <span>26€</span>
                 </p>
                 <p class="dishes-list__dish-description">
-                  gratiné avec une sauce au cognac
+                  poulpe tendre grillé aux herbes méditerranéennes
                 </p>
               </li>
               <li class="dishes-list__dish">
                 <p class="dishes-list__dish-name">
-                  Sole Meunière <span>48€</span>
+                  Daurade Royale <span>24€</span>
                 </p>
                 <p class="dishes-list__dish-description">
-                  poêlée au beurre noisette et citron
+                  daurade entière grillée aux aromates
                 </p>
               </li>
               <li class="dishes-list__dish">
                 <p class="dishes-list__dish-name">
-                  Plateau de Fruits de Mer <span>65€</span>
+                  Coquilles Saint-Jacques <span>29€</span>
                 </p>
                 <p class="dishes-list__dish-description">
-                  sélection de fruits de mer frais
-                </p>
-              </li>
-              <li class="dishes-list__dish">
-                <p class="dishes-list__dish-name">
-                  Saumon à l'Unilatéral <span>36€</span>
-                </p>
-                <p class="dishes-list__dish-description">
-                  servi avec risotto aux herbes fraîches
-                </p>
-              </li>
-            </ul>
-            <div class="menu__demarcation"></div>
-            <ul class="dishes-list">
-              <li class="dishes-list__dish">
-                <p class="dishes-list__dish-name">
-                  Saint-Jacques Poêlées <span>44€</span>
-                </p>
-                <p class="dishes-list__dish-description">
-                  servies avec purée de céleri-rave
-                </p>
-              </li>
-              <li class="dishes-list__dish">
-                <p class="dishes-list__dish-name">
-                  Lotte à l'Américaine <span>46€</span>
-                </p>
-                <p class="dishes-list__dish-description">
-                  mijotée dans une sauce tomate épicée
-                </p>
-              </li>
-              <li class="dishes-list__dish">
-                <p class="dishes-list__dish-name">
-                  Turbot Sauvage <span>52€</span>
-                </p>
-                <p class="dishes-list__dish-description">
-                  cuit au four avec beurre blanc aux échalotes
+                  noix de saint-jacques poêlées au beurre blanc
                 </p>
               </li>
             </ul>
@@ -344,10 +395,14 @@
       </section>
     </main>
 
+    <!-- Pied de page -->
     <footer class="l-main-footer">
       <div class="u-container l-main-footer__container">
+        <!-- Navigation du footer -->
         <nav class="l-main-footer__upper-content">
+          <!-- Logo -->
           <a href="./index.html" class="l-main-footer__logo">AQUARIUM</a>
+          <!-- Liens de navigation -->
           <ul class="l-main-footer__links-nav">
             <li>
               <a class="l-main-footer__link" href="./index.html">Accueil</a>
@@ -367,6 +422,7 @@
               <a class="l-main-footer__link" href="#contact">Contact</a>
             </li>
           </ul>
+          <!-- Réseaux sociaux -->
           <ul class="l-main-footer__social-networks">
             <li>
               <a href="#" class="l-main-footer__social-network-logo-container">
@@ -412,12 +468,14 @@
             </li>
           </ul>
         </nav>
+        <!-- Copyright -->
         <p class="l-main-footer__copyright">
           Copyright © 2023 Aquarium | Tous Droits Réservés
         </p>
       </div>
     </footer>
 
+    <!-- Script JavaScript -->
     <script src="scripts/script.js"></script>
   </body>
 </html>

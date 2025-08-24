@@ -1,0 +1,23 @@
+@use "../base/theme";
+
+// Style pour les champs de saisie texte (input type="text", email, etc.)
+.c-form-input {
+  padding-block: 12px; // Padding vertical de 12px (haut et bas)
+  padding-inline: 16px; // Padding horizontal de 16px (gauche et droite)
+  font-family: theme.$base-text-lato;
+  border: 1px solid rgba(theme.$dark-black, 0.75); // Bordure de 1px noire avec 75% d'opacité
+  inline-size: 100%; // Largeur à 100% du conteneur parent
+  // inline-size est l'équivalent moderne de width
+}
+
+// Style pour les zones de texte multiligne (textarea)
+.c-form-textarea {
+  padding-block: 9px; // Padding vertical plus petit que les inputs (9px)
+  padding-inline: 16px; // Padding horizontal identique aux inputs (16px)
+  min-block-size: 131px; // Hauteur minimum de 131px
+  // min-block-size est l'équivalent moderne de min-height
+  resize: none;
+  font-family: theme.$base-text-lato;
+  border: 1px solid rgba(theme.$dark-black, 0.75);
+  inline-size: 100%; // Largeur à 100% du conteneur parent
+}

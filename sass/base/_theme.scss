@@ -1,31 +1,35 @@
-// Fonts
-$heading-antic-didone: "Antic Didone";
-$base-text-lato: "Lato";
-$base-text-raleway: "Raleway";
+// Polices de caractères
+$heading-antic-didone: "Antic Didone"; // Police pour les titres
+$base-text-lato: "Lato"; // Police principale pour le texte
+$base-text-raleway: "Raleway"; // Police alternative
 
-// Palette
-$orange-main: #e78c15;
-$orange-dark: #7d4700;
-$white-main: #fff;
-$dark-black: #0c0e0d;
+// Palette de couleurs
+$orange-main: #e78c15; // Orange principal - couleur primaire du site
+$orange-dark: #7d4700; // Orange foncé - pour les variations et états hover
+$white-main: #fff; // Blanc principal
+$dark-black: #0c0e0d; // Noir principal - presque noir pour meilleur contraste
 
-// REM font-sizes
-$fs-14: 0.875rem;
-$fs-16: 1rem;
-$fs-18: 1.125rem;
-$fs-20: 1.25rem;
-$fs-22: 1.375rem;
-$fs-24: 1.5rem;
-$fs-32: 2rem;
-$fs-33: 2.0625rem;
-$fs-36: 2.25rem;
-$fs-40: 2.5rem;
-$fs-50: 3.125rem;
-$fs-60: 3.75rem;
-$fs-80: 5rem;
+// Tailles de police en REM=
+// Utilisation de rem pour une mise à l'échelle responsive
+// 1rem = 16px par défaut dans la plupart des navigateurs
+$fs-14: 0.875rem; // 14px - texte très petit
+$fs-16: 1rem; // 16px - taille de base
+$fs-18: 1.125rem; // 18px - texte légèrement plus grand
+$fs-20: 1.25rem; // 20px - sous-titres
+$fs-22: 1.375rem; // 22px
+$fs-24: 1.5rem; // 24px - titres H3
+$fs-32: 2rem; // 32px - titres H2
+$fs-33: 2.0625rem; // 33px - taille spécifique
+$fs-36: 2.25rem; // 36px
+$fs-40: 2.5rem; // 40px - grands titres
+$fs-50: 3.125rem; // 50px - très grands titres
+$fs-60: 3.75rem; // 60px - titres héros
+$fs-80: 5rem; // 80px - titres géants
 
-// dimensions
-$table-sub-container: 600px;
+// Dimensions
 
-// breakpoints
-$lg-breakpoint: 1130px;
+$table-sub-container: 600px; // Largeur maximale pour les conteneurs de tableaux
+
+// Breakpoints
+
+$lg-breakpoint: 1130px; // Point de rupture pour les grands écrans (desktop)

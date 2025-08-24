@@ -1,12 +1,14 @@
+/* Classe utilitaire pour le conteneur principal du site */
 .u-container {
-  max-inline-size: 1100px;
-  padding-inline: 20px;
-  margin-inline: auto;
-  box-sizing: content-box;
+  max-inline-size: 1100px; /* Largeur maximale de 1100px (équivalent à max-width) */
+  padding-inline: 20px; /* Espacement intérieur de 20px à gauche ET à droite */
+  margin-inline: auto; /* Centre automatiquement le conteneur horizontalement */
+  box-sizing: content-box; /* Le padding s'ajoute à la largeur */
 }
 
+/* Media query pour les écrans plus petits que 1130px */
 @media (max-width: 1130px) {
   .u-container {
-    max-inline-size: 850px;
+    max-inline-size: 850px; /* Réduit la largeur maximale à 850px pour les tablettes */
   }
 }

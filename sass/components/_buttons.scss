@@ -1,6 +1,8 @@
 @use "../components/mixins";
 
+// Classe CSS pour les boutons avec style "gold"
+
 .c-gold-button {
-  @include mixins.button-aspect;
+  @include mixins.button-aspect; // Applique tous les styles du mixin button-aspect
   border: none;
 }

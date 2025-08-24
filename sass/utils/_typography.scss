@@ -1,0 +1,52 @@
+// On importe les variables du thème (couleurs, polices, tailles)
+@use "../base/theme";
+
+// Titre principal (H1) utilisé partout sur le site
+.u-main-title {
+  font-family: theme.$heading-antic-didone; // Police élégante pour les titres
+  color: theme.$white-main; // Couleur blanche
+  font-weight: 300; // Poids léger (fin)
+}
+
+// Titres de section (H2) - style principal
+.u-section-h2 {
+  font-size: theme.$fs-36; // Taille 36px
+  font-family: theme.$heading-antic-didone; // Même police élégante que H1
+  letter-spacing: 0.72px; // Espacement entre les lettres
+  color: theme.$dark-black; // Couleur noire
+  line-height: 155.55%; // Hauteur de ligne (interligne)
+  text-transform: uppercase; // Tout en majuscules
+}
+
+// Version claire du H2 (pour les fonds sombres)
+.u-section-h2--light {
+  color: theme.$white-main; // Change juste la couleur en blanc
+}
+
+// Texte de base utilisé dans les paragraphes
+.u-basic-text {
+  font-size: theme.$fs-18; // Taille 18px
+  color: theme.$dark-black; // Couleur noire
+  font-family: theme.$base-text-lato; // Police de base (Lato)
+  font-weight: 300; // Poids léger
+  line-height: 177.77%; // Interligne généreux pour la lisibilité
+}
+
+// Version claire du texte de base (pour les fonds sombres)
+.u-basic-text--light {
+  color: theme.$white-main; // Change juste la couleur en blanc
+}
+
+// Sur tablette (moins de 1130px)
+@media (max-width: 1130px) {
+  .u-section-h2 {
+    font-size: theme.$fs-32; // Réduit la taille du H2 à 32px
+  }
+}
+
+// Sur mobile (moins de 500px)
+@media (max-width: 500px) {
+  .u-basic-text {
+    font-size: theme.$fs-16; // Réduit le texte de base à 16px
+  }
+}

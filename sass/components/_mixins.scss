@@ -1,13 +1,15 @@
 @use "../base/theme";
 
+// Mixin pour l'apparence commune des boutons et liens
+
 @mixin button-aspect {
   font-family: theme.$base-text-lato;
   font-size: theme.$fs-18;
   color: theme.$dark-black;
   background-color: theme.$orange-main;
-  padding-inline: 9px;
-  padding-block: 9px;
-  line-height: 133.33%;
+  padding-inline: 9px; // Padding horizontal (logical property)
+  padding-block: 9px; // Padding vertical (logical property)
+  line-height: 133.33%; // Interligne de 1.33 pour la lisibilité
   cursor: pointer;
   font-weight: bold;
 }
