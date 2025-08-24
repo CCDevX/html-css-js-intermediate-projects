@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Réservation - Neptune</title>
+
+    <!-- CSS de la page réservation -->
+    <link rel="stylesheet" href="./styles/reservation.css" />
+
+    <!-- Polices Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Antic+Didone&family=Lato:wght@100;300;400;700;900&family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <meta
+      name="description"
+      content="Réservez votre table au restaurant Neptune - Cuisine raffinée de fruits de mer à Paris."
+    />
+  </head>
+  <body>
+    <!-- NAVIGATION PRINCIPALE -->
+    <nav class="l-main-nav">
+      <div class="u-container l-main-nav__container">
+        <a href="./index.html" class="l-main-nav__logo">NEPTUNE</a>
+
+        <button class="l-main-nav__toggle-button">
+          <img
+            src="assets/logos/hamburger.svg"
+            alt="ouvrir le menu mobile"
+            class="l-main-nav__toggle-logo"
+            width="50"
+            height="50"
+          />
+        </button>
+
+        <ul class="l-main-nav__list">
+          <li><a class="l-main-nav__link" href="./index.html">Accueil</a></li>
+          <li><a class="l-main-nav__link" href="./menu.html">Menu</a></li>
+          <li>
+            <a class="l-main-nav__link" href="./index.html#about">À propos</a>
+          </li>
+          <li>
+            <a
+              class="l-main-nav__link l-main-nav__link--active"
+              href="./reservation.html"
+              >Réservations</a
+            >
+          </li>
+          <li>
+            <a class="l-main-nav__link" href="./index.html#contact">Contact</a>
+          </li>
+        </ul>
+
+        <div class="l-main-nav__phonenumber">
+          <img
+            src="assets/logos/call.svg"
+            alt=""
+            class="l-main-nav__phonelogo"
+            width="20"
+            height="20"
+          />
+          <span class="l-main-nav__phonedigits">+33 1 42 58 96 84</span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- HEADER DE LA PAGE -->
+    <header class="reservation-header">
+      <div class="u-container reservation-header__container">
+        <h1 class="u-main-title reservation-header__title">
+          RÉSERVER UNE TABLE
+        </h1>
+        <p class="reservation-header__subtitle">
+          Réservez votre expérience culinaire d'exception
+        </p>
+      </div>
+    </header>
+
+    <!-- CONTENU PRINCIPAL -->
+    <main>
+      <!-- SECTION FORMULAIRE DE RÉSERVATION -->
+      <section class="u-container reservation-section">
+        <div class="reservation-section__content">
+          <!-- Informations pratiques -->
+          <div class="reservation-section__info">
+            <div class="reservation-info-card">
+              <h3 class="reservation-info-card__title">
+                Informations pratiques
+              </h3>
+              <div class="reservation-info-card__item">
+                <img
+                  src="assets/logos/clock.svg"
+                  alt=""
+                  width="20"
+                  height="20"
+                />
+                <div>
+                  <strong>Horaires d'ouverture :</strong><br />
+                  Lundi - Samedi : 11h30-14h & 17h-23h<br />
+                  Dimanche : 11h30-14h & 17h-22h
+                </div>
+              </div>
+              <div class="reservation-info-card__item">
+                <img
+                  src="assets/logos/location.svg"
+                  alt=""
+                  width="20"
+                  height="20"
+                />
+                <div>
+                  <strong>Adresse :</strong><br />
+                  75 Avenue des Champs-Élysées<br />
+                  75008 Paris, France
+                </div>
+              </div>
+              <div class="reservation-info-card__item">
+                <img
+                  src="assets/logos/call.svg"
+                  alt=""
+                  width="20"
+                  height="20"
+                />
+                <div>
+                  <strong>Téléphone :</strong><br />
+                  +33 1 42 58 96 84
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Formulaire de réservation -->
+          <div class="reservation-section__form-container">
+            <div class="c-reservation-widget">
+              <h2 class="c-reservation-widget__title">
+                Formulaire de réservation
+              </h2>
+
+              <form class="c-reservation-widget__form" id="reservationForm">
+                <div class="c-reservation-widget__form-row">
+                  <div class="c-reservation-widget__field">
+                    <label
+                      for="reservationDate"
+                      class="c-reservation-widget__label"
+                      >Date souhaitée</label
+                    >
+                    <input
+                      type="date"
+                      id="reservationDate"
+                      class="c-reservation-widget__input"
+                      required
+                    />
+                  </div>
+
+                  <div class="c-reservation-widget__field">
+                    <label
+                      for="reservationTime"
+                      class="c-reservation-widget__label"
+                      >Heure</label
+                    >
+                    <select
+                      id="reservationTime"
+                      class="c-reservation-widget__select"
+                      required
+                    >
+                      <option value="">Choisir l'heure</option>
+                    </select>
+                  </div>
+
+                  <div class="c-reservation-widget__field">
+                    <label
+                      for="reservationGuests"
+                      class="c-reservation-widget__label"
+                      >Nombre de convives</label
+                    >
+                    <select
+                      id="reservationGuests"
+                      class="c-reservation-widget__select"
+                      required
+                    >
+                      <option value="">Sélectionner</option>
+                      <option value="1">1 personne</option>
+                      <option value="2">2 personnes</option>
+                      <option value="3">3 personnes</option>
+                      <option value="4">4 personnes</option>
+                      <option value="5">5 personnes</option>
+                      <option value="6">6 personnes</option>
+                      <option value="7">7 personnes</option>
+                      <option value="8">8 personnes</option>
+                      <option value="8+">8+ personnes</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="c-reservation-widget__form-row">
+                  <div class="c-reservation-widget__field">
+                    <label
+                      for="reservationName"
+                      class="c-reservation-widget__label"
+                      >Nom complet</label
+                    >
+                    <input
+                      type="text"
+                      id="reservationName"
+                      name="name"
+                      class="c-reservation-widget__input"
+                      placeholder="Votre nom"
+                      required
+                    />
+                  </div>
+
+                  <div class="c-reservation-widget__field">
+                    <label
+                      for="reservationPhone"
+                      class="c-reservation-widget__label"
+                      >Téléphone</label
+                    >
+                    <input
+                      type="tel"
+                      id="reservationPhone"
+                      name="phone"
+                      class="c-reservation-widget__input"
+                      placeholder="Votre numéro"
+                      required
+                    />
+                  </div>
+
+                  <div class="c-reservation-widget__field">
+                    <label
+                      for="reservationEmail"
+                      class="c-reservation-widget__label"
+                      >Email</label
+                    >
+                    <input
+                      type="email"
+                      id="reservationEmail"
+                      name="email"
+                      class="c-reservation-widget__input"
+                      placeholder="votre@email.com"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div class="c-reservation-widget__field">
+                  <label
+                    for="reservationNotes"
+                    class="c-reservation-widget__label"
+                    >Demandes particulières</label
+                  >
+                  <textarea
+                    id="reservationNotes"
+                    name="notes"
+                    class="c-reservation-widget__textarea"
+                    placeholder="Allergies, occasion spéciale, placement préféré..."
+                  ></textarea>
+                </div>
+
+                <button type="submit" class="c-reservation-widget__submit">
+                  Demander la réservation
+                </button>
+
+                <div class="c-reservation-widget__info">
+                  <svg viewBox="0 0 24 24" width="16" height="16">
+                    <path
+                      fill="currentColor"
+                      d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                    />
+                  </svg>
+                  <span
+                    >Confirmation par téléphone sous 2h pendant nos heures
+                    d'ouverture</span
+                  >
+                </div>
+              </form>
+
+              <div class="c-reservation-widget__success" id="successMessage">
+                <h3>✅ Demande envoyée avec succès !</h3>
+                <p>
+                  Nous vous contacterons dans les plus brefs délais depuis le
+                  <strong>+33 1 42 58 96 84</strong> pour confirmer votre
+                  réservation.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION INFORMATIONS COMPLÉMENTAIRES -->
+      <section class="reservation-additional">
+        <div class="u-container reservation-additional__container">
+          <div class="reservation-additional__card">
+            <h3>Allergies & Régimes</h3>
+            <p>
+              Informez-nous de vos allergies alimentaires ou régimes spéciaux
+              lors de votre réservation. Notre chef adaptera votre menu.
+            </p>
+          </div>
+
+          <div class="reservation-additional__card">
+            <h3>Annulation</h3>
+            <p>
+              Merci de nous prévenir au moins 2 heures à l'avance en cas
+              d'annulation ou de modification.
+            </p>
+          </div>
+
+          <div class="reservation-additional__card">
+            <h3>Groupes</h3>
+            <p>
+              Pour les réservations de plus de 8 personnes, merci de nous
+              contacter directement par téléphone.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="l-main-footer">
+      <div class="u-container l-main-footer__container">
+        <nav class="l-main-footer__upper-content">
+          <a href="./index.html" class="l-main-footer__logo">NEPTUNE</a>
+
+          <ul class="l-main-footer__links-nav">
+            <li>
+              <a class="l-main-footer__link" href="./index.html">Accueil</a>
+            </li>
+            <li>
+              <a class="l-main-footer__link" href="./menu.html">Notre Menu</a>
+            </li>
+            <li>
+              <a class="l-main-footer__link" href="./index.html#about"
+                >À propos</a
+              >
+            </li>
+            <li>
+              <a class="l-main-footer__link" href="./reservation.html"
+                >Réservations</a
+              >
+            </li>
+            <li>
+              <a class="l-main-footer__link" href="./index.html#contact"
+                >Contact</a
+              >
+            </li>
+          </ul>
+
+          <ul class="l-main-footer__social-networks">
+            <li>
+              <a href="#" class="l-main-footer__social-network-logo-container">
+                <img
+                  class="l-main-footer__social-network-logo"
+                  src="assets/logos/facebook.svg"
+                  alt="Facebook"
+                />
+              </a>
+            </li>
+            <li>
+              <a href="#" class="l-main-footer__social-network-logo-container">
+                <img
+                  class="l-main-footer__social-network-logo"
+                  src="assets/logos/twitter.svg"
+                  alt="Twitter"
+                />
+              </a>
+            </li>
+            <li>
+              <a href="#" class="l-main-footer__social-network-logo-container">
+                <img
+                  class="l-main-footer__social-network-logo"
+                  src="assets/logos/instagram.svg"
+                  alt="Instagram"
+                />
+              </a>
+            </li>
+            <li>
+              <a href="#" class="l-main-footer__social-network-logo-container">
+                <img
+                  class="l-main-footer__social-network-logo"
+                  src="assets/logos/linkedIn.svg"
+                  alt="LinkedIn"
+                />
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <p class="l-main-footer__copyright">
+          Copyright © 2023 Neptune | Tous Droits Réservés
+        </p>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="scripts/script.js"></script>
+    <script src="scripts/reservation.js"></script>
+  </body>
+</html>

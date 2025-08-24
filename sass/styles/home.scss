@@ -144,7 +144,9 @@
       background: rgba(base.$white-main, 0.2);
       border-radius: 50%;
       transform: translate(-50%, -50%);
-      transition: width 0.6s, height 0.6s;
+      transition:
+        width 0.6s,
+        height 0.6s;
     }
 
     &:active::before {
@@ -264,7 +266,8 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: radial-gradient(
+    background-image:
+      radial-gradient(
         2px 2px at 20px 30px,
         rgba(base.$accent-gold, 0.3),
         transparent
@@ -298,12 +301,16 @@
     max-inline-size: 500px;
   }
 
-  // Galerie de plats améliorée
+  // Galerie de plats avec grille responsive 3-2-1
   &__photos {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    grid-template-columns: repeat(3, 1fr); // 3 colonnes égales sur desktop
     gap: base.$spacing-md;
     margin-block-end: base.$spacing-xl;
+
+    // Optionnel : limiter la largeur maximale
+    max-inline-size: 600px;
+    margin-inline: auto; // Centre la grille
   }
 
   &__card {
@@ -682,6 +689,12 @@
       margin-inline: auto;
       text-align: center;
     }
+
+    // 2 colonnes sur tablette
+    &__photos {
+      grid-template-columns: repeat(2, 1fr);
+      max-inline-size: 400px;
+    }
   }
 
   .values-section {
@@ -788,15 +801,16 @@
       padding-block: base.$spacing-xl;
     }
 
+    // 1 colonne sur mobile
     &__photos {
-      grid-template-columns: 1fr; // Une seule colonne
-      gap: base.$spacing-lg; // Espacement augmenté
-      max-width: 300px; // Largeur max pour centrer
-      margin-inline: auto; // Centrer les cards
+      grid-template-columns: 1fr;
+      gap: base.$spacing-lg;
+      max-inline-size: 300px;
+      margin-inline: auto;
     }
 
     &__card {
-      width: 100%; // Pleine largeur dans son container
+      width: 100%;
     }
 
     &__links {
