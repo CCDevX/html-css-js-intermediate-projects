@@ -37,7 +37,7 @@
     backdrop-filter: blur(2px);
 
     // Animation subtile
-    animation: gradientShift 8s ease-in-out infinite;
+    //animation: gradientShift 8s ease-in-out infinite;
   }
 
   // Image de fond améliorée
@@ -523,6 +523,8 @@
 
   &__form {
     display: flex;
+    align-items: center;
+    justify-content: center;
     gap: base.$spacing-xxl;
     @include mixins.card-style;
     padding: base.$spacing-xl;
