@@ -730,6 +730,11 @@ body {
   position: sticky;
   top: 48px;
 }
+@media (max-width: 768px) {
+  .reservation-section__info {
+    position: static;
+  }
+}
 .reservation-section__form-container {
   min-height: 600px;
 }

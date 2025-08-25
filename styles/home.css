@@ -1398,6 +1398,9 @@ body {
   .values-section {
     padding-block: 48px;
   }
+  .values-section img {
+    width: 90%;
+  }
   .reservation-section__container {
     padding-block: 48px;
   }

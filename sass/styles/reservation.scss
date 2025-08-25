@@ -68,6 +68,9 @@
   &__info {
     position: sticky;
     top: base.$spacing-xl;
+    @media (max-width: base.$md-breakpoint) {
+      position: static;
+    }
   }
 
   &__form-container {
