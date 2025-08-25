@@ -374,6 +374,7 @@ class NeptuneReservation {
     notification.style.cssText = `
       position: fixed;
       top: 20px;
+      widht:30%;
       right: 20px;
       background: ${type === "error" ? "#e74c3c" : "#27ae60"};
       color: white;

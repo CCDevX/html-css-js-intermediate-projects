@@ -178,6 +178,11 @@
   &__form {
     display: grid;
     gap: base.$spacing-lg;
+    @media (max-width: base.$md-breakpoint) {
+      #reservationDate {
+        width: 90%;
+      }
+    }
   }
 
   &__form-row {
@@ -464,4 +469,11 @@
       padding: base.$spacing-lg;
     }
   }
+}
+
+input[required]:not(:focus),
+select[required]:not(:focus) {
+  border: 1px solid #ccc;
+  background: white;
+  box-shadow: none;
 }

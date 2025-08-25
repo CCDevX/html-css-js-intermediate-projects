@@ -844,6 +844,11 @@ body {
   display: grid;
   gap: 32px;
 }
+@media (max-width: 768px) {
+  .c-reservation-widget__form #reservationDate {
+    width: 90%;
+  }
+}
 .c-reservation-widget__form-row {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -1113,6 +1118,12 @@ body {
   .reservation-additional__card {
     padding: 32px;
   }
+}
+input[required]:not(:focus),
+select[required]:not(:focus) {
+  border: 1px solid #ccc;
+  background: white;
+  box-shadow: none;
 }
 
 /*# sourceMappingURL=reservation.css.map */
