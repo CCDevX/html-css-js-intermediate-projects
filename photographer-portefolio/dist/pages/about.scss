@@ -1,0 +1,427 @@
+@use "../../scss/variables" as *;
+@use "../../scss/media-queries" as *;
+@use "sass:color"; // Import nécessaire pour les nouvelles fonctions couleur
+
+// Variables CSS pour la cohérence avec les autres pages
+:root {
+  --about-spacing-xl: clamp(3rem, 8vw, 8rem);
+  --about-spacing-lg: clamp(2rem, 6vw, 6rem);
+  --about-spacing-md: clamp(1.5rem, 4vw, 4rem);
+  --about-spacing-sm: clamp(1rem, 3vw, 2rem);
+
+  --about-gap-xl: clamp(3rem, 12vw, 8rem);
+  --about-gap-lg: clamp(2rem, 6vw, 4rem);
+  --about-gap-md: clamp(1.5rem, 4vw, 3rem);
+
+  --accordion-transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --accordion-border: 1px solid rgba(0, 0, 0, 0.1);
+  --accordion-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  --image-border-radius: clamp(6px, 1.5vw, 10px);
+}
+
+.about-container {
+  display: flex;
+  padding: var(--about-spacing-xl) clamp(2rem, 8vw, 10rem);
+  justify-content: center;
+  align-items: flex-start;
+  gap: var(--about-gap-xl);
+  max-width: 1400px;
+  margin: 0 auto;
+  isolation: isolate;
+
+  // Support des container queries
+  @supports (container-type: inline-size) {
+    container-type: inline-size;
+  }
+
+  @include md {
+    padding: var(--about-spacing-lg) var(--about-spacing-md);
+    gap: var(--about-gap-lg);
+    align-items: center;
+  }
+
+  @include sm {
+    flex-direction: column-reverse;
+    padding: var(--about-spacing-md) 1.5rem;
+    gap: var(--about-gap-md);
+    align-items: center;
+  }
+
+  @include xs {
+    padding: var(--about-spacing-sm) 1rem;
+    gap: var(--about-spacing-sm);
+  }
+
+  .about-presentation {
+    flex: 1 1 60%;
+    min-width: 0; // Évite les débordements
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--about-spacing-sm);
+
+    @include sm {
+      flex: none;
+      width: 100%;
+      max-width: none;
+    }
+
+    h2 {
+      font-family: "Libre Baskerville", serif;
+      font-size: clamp(2.4rem, 6vw, 4.4rem);
+      font-weight: 400;
+      line-height: 1.2;
+      letter-spacing: clamp(-0.4px, -0.025em, -1.2px);
+      color: $text-color;
+      text-wrap: balance;
+      margin: 0;
+
+      @media (prefers-contrast: high) {
+        font-weight: 500;
+      }
+    }
+
+    p {
+      font-size: clamp(1.4rem, 2.8vw, 2.1rem);
+      font-weight: 300;
+      line-height: 1.6;
+      color: $text-color;
+      margin: 0;
+      text-align: justify;
+      text-wrap: pretty;
+      hyphens: auto;
+      // Déplacé avant les règles nested pour éviter le warning mixed-decls
+      text-align-last: left;
+
+      @media (prefers-contrast: high) {
+        font-weight: 400;
+      }
+    }
+
+    .accordion {
+      width: 100%;
+      margin-top: var(--about-spacing-sm);
+      font-family: inherit;
+      border-radius: var(--image-border-radius);
+      overflow: hidden;
+      box-shadow: var(--accordion-shadow);
+
+      .accordion-item {
+        border-bottom: var(--accordion-border);
+        background: rgba(255, 255, 255, 0.5);
+        transition: var(--accordion-transition);
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.8);
+        }
+
+        &.active {
+          background: rgba(255, 255, 255, 0.9);
+
+          .accordion-header {
+            color: $primary-color;
+
+            &::after {
+              content: "×";
+              transform: rotate(0deg);
+              font-size: 2.4em;
+              line-height: 0.8;
+            }
+          }
+
+          .accordion-content {
+            max-height: 500px;
+            opacity: 1;
+            padding: 0 1.5rem 1.5rem;
+          }
+        }
+
+        // États focus/hover améliorés
+        &:focus-within {
+          background: rgba(255, 255, 255, 0.9);
+          box-shadow: inset 0 0 0 2px $primary-color;
+        }
+      }
+
+      .accordion-header {
+        width: 100%;
+        background: none;
+        border: none;
+        font-weight: 600;
+        font-size: clamp(1.6rem, 2.5vw, 2rem);
+        padding: clamp(0.8rem, 2vw, 1.2rem) 1.5rem;
+        text-align: left;
+        cursor: pointer;
+        position: relative;
+        color: $text-color;
+        transition: var(--accordion-transition);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        // Amélioration de l'accessibilité
+        &:focus-visible {
+          outline: 2px solid $primary-color;
+          outline-offset: -2px;
+        }
+
+        &:hover {
+          color: $primary-color;
+        }
+
+        &::after {
+          content: "+";
+          font-size: 1.8em;
+          line-height: 1;
+          transition: var(--accordion-transition);
+          transform: rotate(0deg);
+          font-weight: 400;
+          width: 24px;
+          height: 24px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        // Optimisation tactile
+        @media (pointer: coarse) {
+          min-height: 44px;
+          padding: 1rem 1.5rem;
+        }
+      }
+
+      .accordion-content {
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        padding: 0 1.5rem;
+        font-weight: 400;
+        font-size: clamp(1.4rem, 2.2vw, 1.6rem);
+        color: rgba(51, 51, 51, 0.9);
+        line-height: 1.5;
+        transition: var(--accordion-transition);
+        background: rgba(255, 255, 255, 0.3);
+
+        // Animation fluide d'ouverture
+        will-change: max-height, opacity, padding;
+      }
+
+      // Respect des préférences d'animation
+      @media (prefers-reduced-motion: reduce) {
+        .accordion-item,
+        .accordion-header,
+        .accordion-content {
+          transition-duration: 0.1s;
+        }
+      }
+    }
+  }
+
+  .image-wrapper {
+    flex: 1 1 35%;
+    min-width: 0;
+    max-width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background: linear-gradient(
+      135deg,
+      $primary-color,
+      color.adjust($primary-color, $lightness: 10%)
+        // Remplacé lighten() par color.adjust()
+    );
+    padding: clamp(5px, 1.5vw, 10px);
+    border-radius: var(--image-border-radius);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    position: relative;
+    overflow: hidden;
+
+    // Effet de profondeur
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(
+        135deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.1) 100%
+      );
+      pointer-events: none;
+    }
+
+    @include sm {
+      flex: none;
+      width: 100%;
+      max-width: 350px;
+      align-self: center;
+    }
+
+    @include xs {
+      max-width: 300px;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      display: block;
+      border-radius: calc(var(--image-border-radius) - 2px);
+      transition: transform 0.3s ease;
+
+      // Optimisation de la qualité
+      image-rendering: -webkit-optimize-contrast;
+      loading: lazy;
+      decoding: async;
+
+      &:hover {
+        transform: scale(1.02);
+      }
+
+      // Respect des préférences d'animation
+      @media (prefers-reduced-motion: reduce) {
+        transition: none;
+
+        &:hover {
+          transform: none;
+        }
+      }
+
+      // Optimisation pour les écrans haute densité
+      @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+        image-rendering: -webkit-optimize-contrast;
+      }
+    }
+
+    // Support du mode sombre
+    @media (prefers-color-scheme: dark) {
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    }
+  }
+}
+
+// Container queries pour un responsive avancé (si supporté)
+@supports (container-type: inline-size) {
+  .about-container {
+    @container (max-width: 900px) {
+      flex-direction: column-reverse;
+      gap: var(--about-gap-md);
+
+      .about-presentation {
+        width: 100%;
+        max-width: none;
+      }
+
+      .image-wrapper {
+        width: 100%;
+        max-width: 400px;
+      }
+    }
+  }
+}
+
+// Améliorations pour l'impression
+@media print {
+  .about-container {
+    padding: 2rem 1rem;
+    gap: 2rem;
+    flex-direction: column;
+
+    .about-presentation {
+      .accordion {
+        .accordion-item {
+          border: 1px solid #ddd;
+          margin-bottom: 1rem;
+          page-break-inside: avoid;
+
+          &.active .accordion-content,
+          .accordion-content {
+            max-height: none;
+            opacity: 1;
+            padding: 1rem;
+            display: block;
+          }
+
+          .accordion-header::after {
+            display: none;
+          }
+        }
+      }
+    }
+
+    .image-wrapper {
+      background: none;
+      box-shadow: none;
+      border: 1px solid #ddd;
+    }
+  }
+}
+
+// Animation d'entrée subtile
+@media (prefers-reduced-motion: no-preference) {
+  .about-container {
+    .about-presentation {
+      animation: fadeInLeft 0.8s ease-out;
+    }
+
+    .image-wrapper {
+      animation: fadeInRight 0.8s ease-out;
+    }
+
+    .accordion-item {
+      animation: fadeInUp 0.6s ease-out backwards;
+
+      &:nth-child(2) {
+        animation-delay: 0.1s;
+      }
+      &:nth-child(3) {
+        animation-delay: 0.2s;
+      }
+      &:nth-child(4) {
+        animation-delay: 0.3s;
+      }
+      &:nth-child(5) {
+        animation-delay: 0.4s;
+      }
+    }
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

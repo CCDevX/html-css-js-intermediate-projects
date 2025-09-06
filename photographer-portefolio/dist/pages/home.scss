@@ -1,0 +1,372 @@
+@use "../../scss/variables" as *;
+@use "../../scss/media-queries" as *;
+
+// Variables CSS personnalisées pour la cohérence
+:root {
+  --home-spacing-xl: clamp(3rem, 8vw, 6rem);
+  --home-spacing-lg: clamp(2rem, 5vw, 4rem);
+  --home-spacing-md: clamp(1.5rem, 4vw, 3rem);
+  --home-spacing-sm: clamp(1rem, 3vw, 2rem);
+
+  --home-gap-xl: clamp(2rem, 6vw, 4.5rem);
+  --home-gap-lg: clamp(1.5rem, 4vw, 3rem);
+  --home-gap-sm: clamp(1rem, 3vw, 2rem);
+
+  --grid-gap-base: clamp(1rem, 3vw, 2rem);
+  --grid-gap-sm: clamp(0.8rem, 2vw, 1.5rem);
+
+  --button-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  --button-shadow-hover: 0 12px 32px rgba(0, 0, 0, 0.25);
+  --image-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --image-shadow-hover: 0 12px 32px rgba(0, 0, 0, 0.18);
+}
+
+.home-container {
+  width: 100%;
+  max-width: 100vw;
+  display: flex;
+  padding: var(--home-spacing-xl) 2rem 0;
+  align-items: center;
+  gap: var(--home-gap-xl);
+  flex-direction: column;
+  overflow-x: hidden;
+  isolation: isolate;
+
+  @include sm {
+    padding: var(--home-spacing-lg) 1.5rem 0;
+    gap: var(--home-gap-lg);
+  }
+
+  @include xs {
+    padding: var(--home-spacing-md) 1rem 0;
+    gap: var(--home-gap-sm);
+  }
+
+  .title-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+    gap: var(--home-spacing-sm);
+    text-align: center;
+
+    @include sm {
+      gap: var(--home-gap-lg);
+    }
+
+    @include xs {
+      gap: var(--home-gap-sm);
+    }
+  }
+
+  h1 {
+    text-align: center;
+    font-family: "Libre Baskerville", serif;
+    font-size: clamp(2.8rem, 8vw, 6.4rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: clamp(-0.4px, -0.03em, -2px);
+    color: $text-color;
+    text-wrap: balance;
+    max-width: 15ch;
+    margin: 0;
+
+    // Optimisation pour les lecteurs d'écran
+    @media (prefers-reduced-motion: reduce) {
+      animation: none;
+    }
+
+    // Amélioration du contraste
+    @media (prefers-contrast: high) {
+      font-weight: 800;
+    }
+
+    // Support des navigateurs sans text-wrap
+    @supports not (text-wrap: balance) {
+      hyphens: auto;
+    }
+  }
+
+  p {
+    font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+    font-weight: 300;
+    line-height: 1.5;
+    text-align: center;
+    color: $text-color;
+    max-width: min(800px, 65ch);
+    margin: 0;
+    text-wrap: pretty;
+
+    // Amélioration du contraste
+    @media (prefers-contrast: high) {
+      font-weight: 400;
+    }
+
+    // Optimisation pour la lecture
+    @supports (text-spacing: normal) {
+      text-spacing: normal;
+    }
+  }
+
+  .home-button {
+    display: inline-flex;
+    padding: clamp(1rem, 2.5vw, 1.6rem) clamp(1.8rem, 4vw, 3.2rem);
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    border-radius: 48px;
+    background-color: $primary-color;
+    color: $black;
+    font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    box-shadow: var(--button-shadow);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    text-decoration: none;
+    margin: 0;
+
+    // Optimisation des performances
+    will-change: transform, box-shadow;
+
+    // Amélioration de l'accessibilité
+    &:focus-visible {
+      outline: 2px solid currentColor;
+      outline-offset: 2px;
+    }
+
+    // États interactifs améliorés
+    &:hover:not(:disabled) {
+      transform: translateY(-3px);
+      box-shadow: var(--button-shadow-hover);
+    }
+
+    &:active {
+      transform: translateY(-1px) scale(0.98);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    // Optimisation tactile
+    @media (pointer: coarse) {
+      min-height: 44px;
+      padding: 1.2rem 2.4rem;
+
+      &:hover {
+        transform: none;
+        box-shadow: var(--button-shadow);
+      }
+    }
+
+    // Respect des préférences d'animation
+    @media (prefers-reduced-motion: reduce) {
+      transition-duration: 0.1s;
+
+      &:hover {
+        transform: none;
+      }
+    }
+
+    // Support du mode sombre
+    @media (prefers-color-scheme: dark) {
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+
+      &:hover {
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+      }
+    }
+  }
+}
+
+.img-container {
+  display: grid;
+  gap: var(--grid-gap-base);
+  margin: var(--home-spacing-md) auto 0;
+  width: 100%;
+  max-width: 1200px;
+  justify-content: center;
+  padding: 0 2rem;
+
+  // Grid responsive optimisé
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+
+  // Support des container queries
+  @supports (container-type: inline-size) {
+    container-type: inline-size;
+  }
+
+  // Grand écran : 4 colonnes
+  @media (min-width: 980px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  // Tablette : 2x2
+  @include md {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--grid-gap-sm);
+    max-width: 700px;
+    padding: 0 1rem;
+    margin: var(--home-spacing-sm) auto 0;
+  }
+
+  // Mobile : colonne unique
+  @include sm {
+    grid-template-columns: 1fr;
+    gap: var(--grid-gap-sm);
+    padding: 0 1rem;
+    margin: var(--home-spacing-sm) auto 0;
+  }
+
+  @include xs {
+    gap: 1rem;
+    padding: 0;
+    margin: var(--home-spacing-sm) 0 0;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 6 / 5;
+    object-fit: cover;
+    display: block;
+    border: 3px solid transparent;
+    border-radius: clamp(6px, 1vw, 8px);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: var(--image-shadow);
+
+    // Optimisation des performances
+    will-change: transform, box-shadow, border-color;
+
+    // Amélioration de la qualité d'image
+    image-rendering: -webkit-optimize-contrast;
+
+    // Lazy loading natif
+    loading: lazy;
+    decoding: async;
+
+    // États interactifs
+    &:hover {
+      border-color: $primary-color;
+      transform: translateY(-4px);
+      box-shadow: var(--image-shadow-hover);
+    }
+
+    &:focus {
+      outline: 2px solid $primary-color;
+      outline-offset: 2px;
+    }
+
+    // Optimisation tactile
+    @media (pointer: coarse) {
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--image-shadow);
+      }
+    }
+
+    // Respect des préférences d'animation
+    @media (prefers-reduced-motion: reduce) {
+      transition-duration: 0.1s;
+
+      &:hover {
+        transform: none;
+      }
+    }
+
+    // Support du mode sombre
+    @media (prefers-color-scheme: dark) {
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+
+      &:hover {
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+      }
+    }
+
+    // Optimisation pour les écrans haute densité
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+      image-rendering: -webkit-optimize-contrast;
+    }
+  }
+}
+
+// Grid avancé avec container queries (si supporté)
+@supports (container-type: inline-size) {
+  .img-container {
+    @container (min-width: 800px) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    @container (max-width: 799px) and (min-width: 500px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @container (max-width: 499px) {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+// Améliorations pour l'impression
+@media print {
+  .home-container {
+    padding: 2rem 1rem;
+    gap: 2rem;
+  }
+
+  .home-button {
+    display: none;
+  }
+
+  .img-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin: 1rem 0;
+
+    img {
+      border: 1px solid #ddd;
+      box-shadow: none;
+      page-break-inside: avoid;
+    }
+  }
+}
+
+// Optimisation pour les animations fluides
+@media (prefers-reduced-motion: no-preference) {
+  .home-container {
+    .title-section {
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    .img-container img {
+      animation: fadeInUp 0.6s ease-out backwards;
+
+      &:nth-child(2) {
+        animation-delay: 0.1s;
+      }
+      &:nth-child(3) {
+        animation-delay: 0.2s;
+      }
+      &:nth-child(4) {
+        animation-delay: 0.3s;
+      }
+    }
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

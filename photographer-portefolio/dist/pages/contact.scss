@@ -1,0 +1,681 @@
+@use "../../scss/variables" as *;
+@use "../../scss/media-queries" as *;
+@use "sass:color";
+
+// Variables CSS optimisées pour éviter le scroll
+:root {
+  // Calcul automatique des hauteurs header + footer basé sur votre CSS
+  --header-estimated-height: calc(
+    clamp(1.2rem, 3vw, 1.6rem) * 2 + clamp(1.8rem, 2.5vw, 2rem) +
+      clamp(0.9rem, 1.2vw, 1rem)
+  ); // nav-spacing * 2 + title + subtitle
+  --footer-estimated-height: calc(
+    clamp(1.5rem, 3vw, 2rem) * 2 + clamp(1rem, 1.8vw, 1.2rem)
+  ); // footer-spacing * 2 + text
+  --header-footer-total: calc(
+    var(--header-estimated-height) + var(--footer-estimated-height)
+  );
+
+  // Fallback fixe si le calcul automatique ne convient pas (décommentez si besoin)
+  // --header-footer-total: 140px;
+
+  // Espacements optimisés pour mobile
+  --contact-spacing-xl: clamp(2rem, 6vw, 6rem);
+  --contact-spacing-lg: clamp(1.5rem, 4vw, 4rem);
+  --contact-spacing-md: clamp(1rem, 3vw, 2.5rem);
+  --contact-spacing-sm: clamp(0.8rem, 2vw, 1.5rem);
+
+  --contact-gap: clamp(1.2rem, 3vw, 2rem);
+  --contact-gap-sm: clamp(0.8rem, 2vw, 1.2rem);
+
+  // Variables spécifiques mobile
+  --contact-mobile-padding: clamp(1rem, 4vw, 2rem);
+  --contact-mobile-gap: clamp(0.8rem, 2vw, 1.2rem);
+
+  // Form styling
+  --form-border-radius: clamp(16px, 3vw, 24px);
+  --form-border-color: rgba(214, 215, 221, 0.8);
+  --form-border-color-focus: #{$primary-color};
+  --form-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  --form-shadow-focus: 0 8px 24px rgba(0, 0, 0, 0.2);
+  --form-transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+// Adaptation pour votre structure layout global
+.contact-page {
+  #main-content {
+    height: calc(100vh - var(--header-footer-total));
+    max-height: calc(100vh - var(--header-footer-total));
+    overflow: hidden;
+    padding: 0;
+
+    // Support des nouvelles unités viewport sur mobile
+    @supports (height: 100dvh) {
+      height: calc(100dvh - var(--header-footer-total));
+      max-height: calc(100dvh - var(--header-footer-total));
+    }
+
+    // Mobile : autorise le scroll si nécessaire
+    @include sm {
+      overflow-y: auto;
+      height: auto;
+      min-height: calc(100vh - var(--header-footer-total));
+
+      @supports (height: 100dvh) {
+        min-height: calc(100dvh - var(--header-footer-total));
+      }
+    }
+  }
+}
+
+.contact-container {
+  width: 100%;
+  height: 100%;
+  background-color: $black;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow: hidden;
+  isolation: isolate;
+
+  // Support des container queries
+  @supports (container-type: inline-size) {
+    container-type: inline-size;
+  }
+
+  @include md {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto; // Changé de 1fr 1fr à auto auto
+    height: auto;
+    min-height: 100%;
+  }
+
+  @include sm {
+    display: flex; // Changé de grid à flex pour plus de flexibilité
+    flex-direction: column;
+    height: auto;
+    min-height: 100%;
+    overflow: visible;
+  }
+
+  .text-container {
+    display: flex;
+    flex-direction: column;
+    padding: var(--contact-spacing-xl) clamp(2rem, 8vw, 10rem);
+    align-items: flex-start;
+    justify-content: center;
+    gap: var(--contact-gap);
+    position: relative;
+
+    // Effet de dégradé subtil
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(0, 0, 0, 0.9) 0%,
+        rgba(0, 0, 0, 0.7) 100%
+      );
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    @include md {
+      padding: var(--contact-spacing-lg) var(--contact-spacing-md);
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+      min-height: 40vh; // Hauteur minimum pour éviter que ce soit trop petit
+    }
+
+    @include sm {
+      padding: var(--contact-mobile-padding);
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+      gap: var(--contact-mobile-gap);
+      min-height: auto;
+      flex: 0 0 auto; // Ne pas grandir/rétrécir automatiquement
+    }
+
+    @include xs {
+      padding: 1.5rem 1rem;
+      gap: 1rem;
+    }
+
+    h2 {
+      font-family: "Libre Baskerville", serif;
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: clamp(-0.6px, -0.03em, -2px);
+      color: $white;
+      margin: 0;
+      text-wrap: balance;
+      max-width: 15ch;
+
+      @include md {
+        max-width: none;
+        font-size: clamp(2.2rem, 5vw, 3.5rem);
+      }
+
+      @include sm {
+        font-size: clamp(2rem, 6vw, 2.8rem); // Taille augmentée pour mobile
+        line-height: 1.2;
+        max-width: none;
+      }
+
+      @include xs {
+        font-size: clamp(1.8rem, 7vw, 2.4rem);
+      }
+
+      span {
+        color: $primary-color;
+        position: relative;
+
+        // Effet de surlignage subtil
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: -2px;
+          left: 0;
+          right: 0;
+          height: 3px;
+          background: linear-gradient(
+            90deg,
+            $primary-color,
+            color.adjust($primary-color, $lightness: 15%)
+          );
+          opacity: 0.7;
+        }
+      }
+
+      // Amélioration contraste/accessibilité
+      @media (prefers-contrast: high) {
+        font-weight: 800;
+
+        span {
+          text-shadow: 0 0 2px currentColor;
+        }
+      }
+    }
+
+    p {
+      color: rgba(255, 255, 255, 0.9);
+      font-size: clamp(1.2rem, 2.5vw, 2rem);
+      font-weight: 300;
+      line-height: 1.5;
+      margin: 0;
+      text-wrap: pretty;
+      max-width: min(500px, 65ch);
+
+      @include md {
+        font-size: clamp(1.1rem, 2.2vw, 1.6rem);
+        max-width: none;
+      }
+
+      @include sm {
+        font-size: clamp(1rem, 3vw, 1.4rem); // Taille augmentée pour mobile
+        max-width: none;
+        line-height: 1.6;
+      }
+
+      @include xs {
+        font-size: clamp(0.95rem, 3.5vw, 1.2rem);
+      }
+
+      @media (prefers-contrast: high) {
+        color: $white;
+        font-weight: 400;
+      }
+    }
+  }
+
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--contact-spacing-xl) clamp(2rem, 8vw, 10rem);
+    gap: clamp(
+      0.5rem,
+      1vw,
+      0.8rem
+    ); // Gap pour espacer les inputs avec bordures arrondies
+    position: relative;
+
+    // Effet wrapper sur le conteneur directement - SUPPRIMÉ pour mobile
+    &::before {
+      content: "";
+      position: absolute;
+      top: var(--contact-spacing-xl);
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 4rem);
+      max-width: 52rem;
+      height: calc(
+        100% - var(--contact-spacing-xl) - var(--contact-spacing-sm) - 70px
+      );
+      border-radius: var(--form-border-radius);
+      box-shadow: var(--form-shadow);
+      transition: var(--form-transition);
+      z-index: -1;
+      background: rgba(0, 0, 0, 0.02); // Fond très subtil
+
+      @include sm {
+        display: none; // Supprime l'effet wrapper sur mobile
+      }
+    }
+
+    &:focus-within::before {
+      box-shadow: var(--form-shadow-focus);
+    }
+
+    @include md {
+      padding: var(--contact-spacing-lg) var(--contact-spacing-md);
+      gap: clamp(0.4rem, 1vw, 0.6rem);
+
+      &::before {
+        top: var(--contact-spacing-lg);
+        width: calc(100% - 2rem);
+        max-width: 50rem;
+        height: calc(
+          100% - var(--contact-spacing-lg) - var(--contact-spacing-sm) - 70px
+        );
+      }
+    }
+
+    @include sm {
+      padding: var(--contact-mobile-padding);
+      gap: clamp(0.5rem, 2vw, 0.8rem);
+      flex: 1; // Prend l'espace restant
+      justify-content: flex-start;
+      padding-top: var(--contact-mobile-padding);
+    }
+
+    @include xs {
+      padding: 1.5rem 1rem;
+      padding-top: 1.5rem;
+      gap: 0.6rem;
+    }
+
+    input,
+    textarea {
+      background-color: rgba(0, 0, 0, 0.9);
+      border: 1px solid var(--form-border-color);
+      color: $white;
+      font-size: clamp(1rem, 2vw, 1.4rem); // Taille réduite mais lisible
+      font-weight: 300;
+      line-height: 1.4;
+      letter-spacing: -0.02em;
+      width: 100%;
+      margin: 0;
+      transition: var(--form-transition);
+      font-family: inherit;
+
+      @include sm {
+        font-size: clamp(1rem, 4vw, 1.2rem); // Taille adaptée mobile
+      }
+
+      @include xs {
+        font-size: 1rem;
+      }
+
+      // États focus améliorés
+      &:focus {
+        outline: none;
+        border-color: var(--form-border-color-focus);
+        box-shadow: inset 0 0 0 1px var(--form-border-color-focus);
+        background-color: rgba(0, 0, 0, 0.95);
+      }
+
+      &:hover:not(:focus) {
+        border-color: color.adjust($primary-color, $lightness: 20%);
+      }
+
+      // Placeholder styling
+      &::placeholder {
+        color: rgba(255, 255, 255, 0.6);
+        opacity: 1;
+        transition: var(--form-transition);
+      }
+
+      &:focus::placeholder {
+        opacity: 0.4;
+        transform: translateX(4px);
+      }
+
+      // Amélioration du contraste
+      @media (prefers-contrast: high) {
+        background-color: $black;
+        border-width: 2px;
+      }
+    }
+
+    input {
+      padding: clamp(0.9rem, 2vw, 1.2rem) clamp(1.2rem, 2.5vw, 2rem);
+      min-height: 48px; // Hauteur augmentée pour mobile
+      border-radius: clamp(
+        8px,
+        1.5vw,
+        12px
+      ); // Bordures arrondies sur toutes les tailles
+
+      @include sm {
+        padding: 1rem 1.2rem;
+        min-height: 50px; // Hauteur confortable sur mobile
+      }
+
+      @include xs {
+        padding: 0.9rem 1rem;
+        min-height: 48px;
+      }
+    }
+
+    textarea {
+      padding: clamp(0.9rem, 1.5vw, 1.2rem) clamp(1.2rem, 2.5vw, 2rem);
+      height: clamp(100px, 15vh, 140px); // Hauteur augmentée
+      resize: vertical;
+      min-height: 80px;
+      max-height: 200px; // Max-height augmentée
+      border-radius: clamp(
+        8px,
+        1.5vw,
+        12px
+      ); // Bordures arrondies sur toutes les tailles
+      // Amélioration de la scrollbar - déclarations avant les règles imbriquées
+      scrollbar-width: thin;
+      scrollbar-color: $primary-color rgba(255, 255, 255, 0.1);
+
+      @include sm {
+        height: clamp(
+          120px,
+          20vh,
+          160px
+        ); // Hauteur encore plus grande sur mobile
+        min-height: 100px;
+        max-height: 220px;
+        padding: 1rem 1.2rem;
+      }
+
+      @include xs {
+        height: 120px;
+        min-height: 100px;
+        padding: 0.9rem 1rem;
+      }
+
+      &::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: $primary-color;
+        border-radius: 4px;
+      }
+    }
+
+    .btn-contact {
+      margin-top: clamp(
+        1.2rem,
+        2vw,
+        1.8rem
+      ); // Marge augmentée pour cohérence avec le gap
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      max-width: 56rem;
+      padding: clamp(1rem, 1.8vw, 1.4rem) clamp(1.5rem, 2.5vw, 2rem);
+      border-radius: clamp(
+        12px,
+        2vw,
+        16px
+      ); // Cohérent avec les autres éléments
+      background: linear-gradient(
+        135deg,
+        $primary-color,
+        color.adjust($primary-color, $lightness: 10%)
+      );
+      color: $black;
+      font-size: clamp(1.1rem, 2vw, 1.4rem);
+      font-weight: 600;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      border: none;
+      cursor: pointer;
+      transition: var(--form-transition);
+      box-shadow: none;
+      text-decoration: none;
+      min-height: 48px;
+      // Optimisation des performances - déclaration avant les règles imbriquées
+      will-change: transform, background;
+
+      @include sm {
+        margin-top: 1.5rem; // Marge fixe plus importante sur mobile
+        padding: 1.2rem 1.5rem;
+        min-height: 54px; // Bouton plus grand sur mobile
+        font-size: 1.1rem;
+        border-radius: 12px;
+      }
+
+      @include xs {
+        margin-top: 1.2rem;
+        padding: 1rem 1.2rem;
+        min-height: 50px;
+        font-size: 1rem;
+        border-radius: 10px;
+      }
+
+      // États interactifs
+      &:focus-visible {
+        outline: 2px solid $white;
+        outline-offset: 2px;
+      }
+
+      &:hover:not(:disabled) {
+        transform: translateY(-1px);
+        background: linear-gradient(
+          135deg,
+          color.adjust($primary-color, $lightness: 5%),
+          color.adjust($primary-color, $lightness: 15%)
+        );
+      }
+
+      &:active {
+        transform: translateY(0);
+      }
+
+      &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+        transform: none;
+      }
+
+      // Optimisation tactile
+      @media (pointer: coarse) {
+        &:hover {
+          transform: none;
+        }
+      }
+
+      // Respect des préférences d'animation
+      @media (prefers-reduced-motion: reduce) {
+        transition-duration: 0.1s;
+
+        &:hover {
+          transform: none;
+        }
+      }
+    }
+  }
+}
+
+// Gestion de l'autofill améliorée
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px rgba(0, 0, 0, 0.9) inset !important;
+  -webkit-text-fill-color: $white !important;
+  -webkit-background-clip: text !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+// Container queries pour responsive avancé
+@supports (container-type: inline-size) {
+  .contact-container {
+    container-type: inline-size;
+
+    @container (max-width: 900px) {
+      display: flex;
+      flex-direction: column;
+
+      .text-container {
+        text-align: center;
+        align-items: center;
+
+        h2 {
+          max-width: none;
+        }
+      }
+    }
+  }
+}
+
+// Améliorations pour l'impression
+@media print {
+  .contact-page {
+    #main-content {
+      height: auto;
+      overflow: visible;
+    }
+  }
+
+  .contact-container {
+    background: white;
+    color: black;
+    display: block;
+    height: auto;
+
+    .text-container {
+      padding: 2rem 1rem;
+
+      &::before {
+        display: none;
+      }
+
+      h2,
+      p {
+        color: black;
+      }
+
+      h2 span {
+        color: black;
+
+        &::after {
+          display: none;
+        }
+      }
+    }
+
+    .form-container {
+      padding: 2rem 1rem;
+
+      input,
+      textarea {
+        background: white;
+        color: black;
+        border-color: #ddd;
+      }
+
+      .btn-contact {
+        background: #ddd;
+        color: black;
+        box-shadow: none;
+      }
+    }
+  }
+}
+
+// Animations d'entrée cohérentes
+@media (prefers-reduced-motion: no-preference) {
+  .contact-container {
+    .text-container {
+      animation: fadeInLeft 0.8s ease-out;
+
+      h2 {
+        animation: fadeInUp 0.8s ease-out 0.2s backwards;
+      }
+
+      p {
+        animation: fadeInUp 0.8s ease-out 0.4s backwards;
+      }
+    }
+
+    .form-container {
+      animation: fadeInRight 0.8s ease-out 0.3s backwards;
+
+      input,
+      textarea {
+        animation: fadeInUp 0.6s ease-out backwards;
+
+        &:nth-child(1) {
+          animation-delay: 0.5s;
+        }
+        &:nth-child(2) {
+          animation-delay: 0.6s;
+        }
+        &:nth-child(3) {
+          animation-delay: 0.7s;
+        }
+        &:nth-child(4) {
+          animation-delay: 0.8s;
+        }
+      }
+
+      .btn-contact {
+        animation: fadeInUp 0.6s ease-out 0.9s backwards;
+      }
+    }
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
