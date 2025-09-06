@@ -1,0 +1,19 @@
+.c-form-input {
+  padding-block: 12px;
+  padding-inline: 16px;
+  font-family: "Lato";
+  border: 1px solid rgba(12, 14, 13, 0.75);
+  inline-size: 100%;
+}
+
+.c-form-textarea {
+  padding-block: 9px;
+  padding-inline: 16px;
+  min-block-size: 131px;
+  resize: none;
+  font-family: "Lato";
+  border: 1px solid rgba(12, 14, 13, 0.75);
+  inline-size: 100%;
+}
+
+/*# sourceMappingURL=forms.css.map */

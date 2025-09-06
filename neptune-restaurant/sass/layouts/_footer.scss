@@ -1,0 +1,305 @@
+@use "../base/theme";
+
+.l-main-footer {
+  background: theme.$gradient-dark; // Gradient sombre
+  position: relative;
+  overflow: hidden;
+
+  // Effet décoratif en arrière-plan
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: theme.$gradient-ocean;
+    box-shadow: 0 0 20px theme.$accent-teal;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    padding-block: theme.$spacing-xxl;
+    position: relative;
+    z-index: 2;
+    display: flex;
+  }
+
+  &__upper-content {
+    display: flex;
+    align-items: center;
+    margin-block-end: theme.$spacing-xl;
+    padding-block-end: theme.$spacing-xl;
+    border-block-end: 1px solid rgba(theme.$accent-teal, 0.3);
+    position: relative;
+
+    // Ligne décorative animée
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -1px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 2px;
+      background: theme.$gradient-sunset;
+      border-radius: 2px;
+    }
+  }
+
+  &__logo,
+  &__social-networks {
+    inline-size: 100%;
+  }
+
+  &__logo {
+    font-size: theme.$fs-40; // Plus grand
+    font-family: theme.$heading-antic-didone;
+    color: theme.$white-main;
+    display: inline-block;
+    font-weight: 600;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    position: relative;
+    transition: theme.$transition-medium;
+
+    // Effet de brillance
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(theme.$accent-gold, 0.4),
+        transparent
+      );
+      transition: theme.$transition-slow;
+    }
+
+    &:hover {
+      color: theme.$accent-gold;
+      transform: scale(1.05);
+
+      &::before {
+        left: 100%;
+      }
+    }
+  }
+
+  &__links-nav {
+    margin-inline: 15px;
+    list-style: none;
+    display: flex;
+    flex-shrink: 0;
+    background: rgba(theme.$orange-main, 0.1);
+    border-radius: 50px;
+    padding: theme.$spacing-sm theme.$spacing-md;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(theme.$accent-teal, 0.2);
+    gap: theme.$spacing-xs;
+  }
+
+  &__link {
+    color: theme.$white-main;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: theme.$spacing-xs theme.$spacing-sm;
+    border-radius: theme.$button-border-radius;
+    transition: theme.$transition-medium;
+    position: relative;
+    font-size: theme.$fs-14;
+
+    // Effet de survol
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: theme.$accent-gold;
+      transform: translateX(-50%);
+      transition: theme.$transition-medium;
+    }
+
+    &:hover {
+      color: theme.$accent-gold;
+      background: rgba(theme.$white-main, 0.1);
+
+      &::before {
+        width: 80%;
+      }
+    }
+  }
+
+  &__social-networks {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    gap: theme.$spacing-sm;
+  }
+
+  &__social-network-logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px; // Taille fixe
+    height: 50px;
+    background: rgba(theme.$accent-teal, 0.2);
+    border-radius: 50%; // Cercle parfait
+    border: 2px solid rgba(theme.$accent-teal, 0.3);
+    transition: theme.$transition-medium;
+    position: relative;
+    overflow: hidden;
+
+    // Effet de vague au survol
+    &::before {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(theme.$accent-teal, 0.4);
+      transition: theme.$transition-medium;
+      border-radius: 50%;
+    }
+
+    &:hover {
+      transform: translateY(-3px) scale(1.1);
+      border-color: theme.$accent-gold;
+      box-shadow: 0 5px 15px rgba(theme.$accent-teal, 0.4);
+
+      &::before {
+        top: 0;
+      }
+
+      .l-main-footer__social-network-logo {
+        filter: brightness(1.2);
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  &__social-network-logo {
+    inline-size: theme.$fs-24;
+    block-size: theme.$fs-24;
+    transition: theme.$transition-medium;
+    position: relative;
+    z-index: 2;
+  }
+
+  &__copyright {
+    border-block-start: 1px solid rgba(theme.$accent-teal, 0.3);
+    padding-block-start: theme.$spacing-lg;
+    color: theme.$light-gray; // Couleur plus douce
+    text-align: center;
+    font-size: theme.$fs-14;
+    font-weight: 400;
+    position: relative;
+
+    // Animation subtile
+    animation: fadeInUp 1s ease-out 0.5s both;
+  }
+}
+
+// Responsivité pour tablette
+@media (max-width: theme.$lg-breakpoint) {
+  .l-main-footer {
+    &__container {
+      padding-block: theme.$spacing-xl;
+    }
+
+    &__upper-content {
+      flex-direction: column;
+      margin-block-end: theme.$spacing-lg;
+      gap: theme.$spacing-lg;
+      text-align: center;
+    }
+
+    &__logo {
+      margin-block-end: 0;
+      font-size: theme.$fs-36;
+    }
+
+    &__logo,
+    &__social-networks {
+      inline-size: auto;
+    }
+
+    &__links-nav {
+      display: none;
+    }
+
+    &__link {
+      margin: theme.$spacing-xs;
+    }
+
+    &__social-networks {
+      justify-content: center;
+    }
+  }
+}
+
+// Responsivité pour mobile
+@media (max-width: theme.$md-breakpoint) {
+  .l-main-footer {
+    &__container {
+      padding-block: theme.$spacing-lg;
+    }
+
+    &__upper-content {
+      gap: theme.$spacing-md;
+    }
+
+    &__logo {
+      font-size: theme.$fs-32;
+    }
+
+    &__links-nav {
+      display: none;
+    }
+
+    &__link {
+      padding: theme.$spacing-sm;
+      text-align: center;
+    }
+
+    &__social-network-logo-container {
+      width: 45px;
+      height: 45px;
+    }
+
+    &__social-network-logo {
+      inline-size: theme.$fs-20;
+      block-size: theme.$fs-20;
+    }
+  }
+}
+
+// Animations
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shine {
+  0%,
+  100% {
+    left: -100%;
+  }
+  50% {
+    left: 100%;
+  }
+}

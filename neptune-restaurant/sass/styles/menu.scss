@@ -1,0 +1,201 @@
+@use "../base";
+@use "../layouts/navbar";
+@use "../layouts/footer";
+@use "../utils/classes";
+@use "../utils/typography";
+@use "../components/links";
+
+/* ===== MENU HEADER - Légèrement personnalisé ===== */
+.menu-header {
+  block-size: 594px;
+  background-image: url("../assets/images/bg-menu-page.jpg");
+  background-size: cover;
+  background-position: center;
+  padding-block-start: 240px;
+  position: relative;
+
+  // Overlay subtil
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(base.$deep-blue, 0.3); // Overlay léger
+  }
+
+  &__main-title {
+    font-size: base.$fs-60;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    background: base.$gradient-sunset; // Gradient sur le titre
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+}
+
+@media (max-width: 920px) {
+  .menu-header {
+    block-size: 300px;
+    padding-block-start: 125px;
+    &__main-title {
+      font-size: base.$fs-40;
+    }
+  }
+}
+
+/* ===== MENU SECTION - Légèrement personnalisé ===== */
+.menu {
+  padding-block: 64px 176px;
+  background: linear-gradient(
+    180deg,
+    base.$light-gray,
+    base.$white-main
+  ); // Fond subtil
+
+  &__container {
+    border: 2px solid base.$accent-teal; // Nouvelle couleur de bordure
+    padding-inline: 160px;
+    padding-block: 80px;
+    border-radius: 8px; // Coins légèrement arrondis
+    background: rgba(base.$white-main, 0.9); // Fond semi-transparent
+    box-shadow: 0 4px 20px rgba(base.$accent-teal, 0.1); // Ombre subtile
+  }
+
+  &__h2 {
+    font-family: base.$heading-antic-didone;
+    color: base.$deep-blue; // Nouvelle couleur
+    text-align: center;
+    margin-block-end: 42px;
+    font-size: base.$fs-28; // Légèrement plus grand
+    text-transform: uppercase;
+    letter-spacing: 1px; // Espacement augmenté
+    font-weight: 500; // Légèrement plus bold
+    position: relative;
+
+    // Petite ligne décorative
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50px;
+      height: 2px;
+      background: base.$accent-teal;
+    }
+  }
+
+  &__flex-dishes {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__flex-dishes--spacing-bottom {
+    margin-block-end: 48px;
+    padding-block-end: 24px;
+    border-block-end: 1px solid rgba(base.$accent-teal, 0.2); // Séparateur subtil
+  }
+
+  &__demarcation {
+    flex-shrink: 0;
+    margin-inline: 50px;
+    background: base.$gradient-ocean; // Gradient au lieu d'une couleur
+    inline-size: 2px; // Légèrement plus épais
+    border-radius: 1px;
+  }
+}
+
+/* ===== LISTES DE PLATS - Légèrement personnalisé ===== */
+.dishes-list {
+  list-style: none;
+  text-align: center;
+  flex-shrink: 0;
+  inline-size: 250px;
+
+  &__dish {
+    margin-block-end: 24px; // Espacement entre les plats
+    padding: 16px; // Padding léger
+    transition: transform 0.2s ease; // Animation subtile
+    border-radius: 4px; // Coins très légèrement arrondis
+
+    &:hover {
+      transform: translateY(-2px); // Léger effet de survol
+      background: rgba(base.$accent-teal, 0.05); // Fond très subtil
+    }
+
+    &:last-child {
+      margin-block-end: 0;
+    }
+  }
+
+  &__dish-name {
+    font-family: base.$base-text-lato;
+    color: base.$deep-blue; // Nouvelle couleur
+    font-size: base.$fs-18;
+    font-weight: 600; // Plus bold
+    line-height: 133.33%;
+    margin-block-end: 8px; // Espacement augmenté
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    // Style pour le prix dans le span
+    span {
+      color: base.$accent-teal;
+      font-weight: 700;
+      margin-inline-start: 8px;
+    }
+  }
+
+  &__dish-description {
+    font-family: base.$base-text-lato;
+    font-weight: 400; // Moins léger
+    line-height: 140%; // Meilleur interligne
+    color: rgba(base.$dark-black, 0.8); // Couleur plus douce
+    font-style: italic; // Style italique
+  }
+}
+
+@media (max-width: base.$lg-breakpoint) {
+  .menu {
+    padding-block: 0 127px;
+    &__container {
+      margin-block-start: 16px;
+      padding-inline: 20px;
+      padding-block: 48px 127px;
+    }
+    &__h2 {
+      font-size: base.$fs-24;
+      margin-block-end: 24px;
+    }
+    &__flex-dishes {
+      flex-direction: column;
+      align-items: center;
+      gap: 32px; // Espacement entre les colonnes
+    }
+    &__demarcation {
+      display: none;
+    }
+  }
+
+  .dishes-list {
+    &__dish-name {
+      font-size: base.$fs-18;
+      flex-direction: column; // Prix en dessous sur mobile
+      gap: 4px;
+      align-items: center;
+
+      span {
+        margin-inline-start: 0;
+      }
+    }
+    &__dish-description {
+      font-size: base.$fs-14;
+    }
+  }
+}

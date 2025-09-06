@@ -1,0 +1,868 @@
+@use "../base";
+@use "../layouts/navbar";
+@use "../layouts/footer";
+@use "../utils/classes";
+@use "../utils/typography";
+@use "../components/links";
+@use "../components/form";
+@use "../components/buttons";
+@use "../components/mixins";
+
+/* ===== HEADER SECTION - Version Personnalisée ===== */
+.home-header {
+  block-size: 100vh; // Pleine hauteur de l'écran
+  min-block-size: 700px; // Hauteur minimum
+  background: base.$gradient-dark;
+  padding-block-start: 120px; // Espace pour la navbar fixe
+  position: relative;
+  z-index: 10;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+
+  // Overlay dégradé personnalisé
+  &__faded-bg {
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    top: 0;
+    inline-size: 60%; // Plus large
+    block-size: 100%;
+    background: linear-gradient(
+      135deg,
+      rgba(base.$deep-blue, 0.95),
+      rgba(base.$orange-main, 0.8),
+      rgba(base.$accent-teal, 0.7)
+    );
+    backdrop-filter: blur(2px);
+
+    // Animation subtile
+    //animation: gradientShift 8s ease-in-out infinite;
+  }
+
+  // Image de fond améliorée
+  &__tentacles {
+    position: absolute;
+    z-index: -2;
+    right: 0;
+    top: 0;
+    inline-size: 55%;
+    block-size: 100%;
+    object-fit: cover;
+    filter: contrast(1.1) saturate(1.2);
+
+    // Effet parallaxe léger (à implémenter avec JS)
+    transition: transform 0.1s ease-out;
+  }
+
+  // Conteneur principal
+  &__container {
+    block-size: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: base.$white-main;
+    position: relative;
+    z-index: 2;
+  }
+  // Surtitre avec style
+  &__surtitle {
+    font-size: base.$fs-20;
+    font-weight: 300;
+    margin-block-start: base.$spacing-md; // espace avec la navbar
+    margin-block-end: base.$spacing-lg; // espace avant le H1
+    color: base.$accent-gold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-block-end: base.$spacing-sm;
+    opacity: 0;
+    animation: slideInLeft 1s ease-out 0.3s forwards;
+  }
+
+  // Titre principal heroique
+  &__title {
+    font-size: clamp(3rem, 8vw, 6rem); // Taille responsive
+    margin-block-end: base.$spacing-lg;
+    background: base.$gradient-sunset;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    animation: slideInUp 1s ease-out 0.6s forwards;
+    position: relative;
+
+    // Effet de brillance périodique
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(base.$accent-gold, 0.3),
+        transparent
+      );
+      animation: shine 3s infinite 2s;
+    }
+  }
+
+  // Sous-titre élégant
+  &__subtitle {
+    font-size: base.$fs-22;
+    font-weight: 300;
+    margin-block-end: base.$spacing-xl;
+    max-inline-size: 600px;
+    line-height: 150%;
+    color: base.$light-gray;
+    opacity: 0;
+    animation: slideInRight 1s ease-out 0.9s forwards;
+  }
+
+  // Bouton CTA amélioré
+  &__cta {
+    min-inline-size: 280px;
+    align-self: flex-start;
+    font-size: base.$fs-18;
+    padding: base.$spacing-md base.$spacing-xl;
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    animation: slideInUp 1s ease-out 1.2s forwards;
+
+    // Effet de vague au clic
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      background: rgba(base.$white-main, 0.2);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition:
+        width 0.6s,
+        height 0.6s;
+    }
+
+    &:active::before {
+      width: 300px;
+      height: 300px;
+    }
+  }
+
+  // Informations pratiques stylisées
+  &__info {
+    margin-block-start: auto;
+    margin-block-end: base.$spacing-xxl;
+    display: flex;
+    gap: base.$spacing-xl;
+    opacity: 0;
+    animation: fadeInUp 1s ease-out 1.5s forwards;
+  }
+
+  &__info-paragraph {
+    display: inline-flex;
+    align-items: center;
+    font-family: base.$base-text-raleway;
+    background: rgba(base.$deep-blue, 0.6);
+    padding: base.$spacing-sm base.$spacing-md;
+    border-radius: 25px;
+    border: 1px solid rgba(base.$accent-teal, 0.3);
+    backdrop-filter: blur(10px);
+    transition: base.$transition-medium;
+
+    &:hover {
+      background: rgba(base.$accent-teal, 0.2);
+      transform: translateY(-2px);
+      box-shadow: base.$shadow-medium;
+    }
+  }
+
+  &__info-icon {
+    inline-size: base.$fs-24;
+    margin-inline-end: base.$spacing-sm;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+  }
+
+  &__info-text {
+    font-weight: 500;
+    font-size: base.$fs-16;
+  }
+}
+
+/* ===== DISCOVER SECTION - Version Personnalisée ===== */
+.discover-section {
+  display: flex;
+  padding-block: base.$spacing-xxl * 1.5;
+  background: linear-gradient(135deg, base.$white-main, base.$light-gray);
+  position: relative;
+
+  // Effet décoratif en arrière-plan
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(
+      circle,
+      rgba(base.$accent-teal, 0.1),
+      transparent
+    );
+    border-radius: 50%;
+  }
+
+  &__dish-img {
+    margin-inline-end: base.$spacing-xxl;
+    border-radius: base.$card-border-radius;
+    box-shadow: base.$shadow-heavy;
+    transition: base.$transition-medium;
+
+    &:hover {
+      transform: scale(1.02) rotate(1deg);
+      box-shadow: 0 20px 40px rgba(base.$accent-teal, 0.2);
+    }
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__h2 {
+    margin-block-end: base.$spacing-lg;
+    position: relative;
+
+    // Animation d'apparition au scroll (à implémenter avec JS)
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease-out 0.2s forwards;
+  }
+
+  .u-basic-text {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out 0.4s forwards;
+  }
+}
+
+/* ===== DISHES SECTION - Version Personnalisée ===== */
+.dishes-section {
+  background: base.$gradient-dark;
+  position: relative;
+  overflow: hidden;
+
+  // Effet de particules (optionnel avec JS)
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+      radial-gradient(
+        2px 2px at 20px 30px,
+        rgba(base.$accent-gold, 0.3),
+        transparent
+      ),
+      radial-gradient(
+        2px 2px at 40px 70px,
+        rgba(base.$accent-teal, 0.2),
+        transparent
+      );
+    background-size: 100px 100px;
+    animation: particlesFloat 20s linear infinite;
+  }
+
+  &__container {
+    padding-block: base.$spacing-xxl * 1.2;
+    display: flex;
+    position: relative;
+    z-index: 2;
+  }
+
+  &__content {
+    margin-inline-end: base.$spacing-xxl;
+  }
+
+  &__h2 {
+    margin-block-end: base.$spacing-lg;
+  }
+
+  &__basic-text {
+    margin-block-end: base.$spacing-xl;
+    max-inline-size: 500px;
+  }
+
+  // Galerie de plats avec grille responsive 3-2-1
+  &__photos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); // 3 colonnes égales sur desktop
+    gap: base.$spacing-md;
+    margin-block-end: base.$spacing-xl;
+
+    // Optionnel : limiter la largeur maximale
+    max-inline-size: 600px;
+    margin-inline: auto; // Centre la grille
+  }
+
+  &__card {
+    @include mixins.card-style;
+    padding: base.$spacing-sm;
+    text-align: center;
+    background: rgba(base.$white-main, 0.95);
+    backdrop-filter: blur(10px);
+
+    img {
+      border-radius: base.$card-border-radius;
+      margin-block-end: base.$spacing-sm;
+      transition: base.$transition-medium;
+    }
+
+    &:hover img {
+      transform: scale(1.05);
+    }
+  }
+
+  &__card-name,
+  &__card-price {
+    color: base.$dark-black;
+  }
+
+  &__card-name {
+    margin-block-start: base.$spacing-sm;
+    font-size: base.$fs-16;
+    line-height: 140%;
+    font-weight: 600;
+  }
+
+  &__card-price {
+    font-size: base.$fs-18;
+    font-weight: 700;
+    color: base.$accent-teal;
+  }
+
+  // Liens d'action améliorés
+  &__links {
+    display: flex;
+    gap: base.$spacing-lg;
+    flex-wrap: wrap;
+  }
+
+  &__link {
+    min-width: 220px;
+    text-align: center;
+  }
+
+  // Image latérale avec effet
+  &__side-image-container {
+    margin-block-start: -100px;
+    text-align: center;
+    color: base.$white-main;
+    position: relative;
+  }
+
+  &__side-image {
+    margin-block-end: base.$spacing-md;
+    border-radius: base.$card-border-radius;
+    box-shadow: base.$shadow-heavy;
+    transition: base.$transition-medium;
+
+    &:hover {
+      transform: translateY(-10px);
+    }
+  }
+
+  &__img-label {
+    font-size: base.$fs-18;
+    font-weight: 500;
+    color: base.$accent-gold;
+  }
+}
+
+/* ===== VALUES SECTION - Version Personnalisée ===== */
+.values-section {
+  padding-block: base.$spacing-xxl * 1.2;
+  display: flex;
+  gap: base.$spacing-xxl;
+  background: linear-gradient(135deg, base.$light-gray, base.$white-main);
+  position: relative;
+
+  &__chef-img {
+    border-radius: base.$card-border-radius;
+    box-shadow: base.$shadow-heavy;
+    transition: base.$transition-medium;
+
+    &:hover {
+      transform: scale(1.02);
+      box-shadow: 0 25px 50px rgba(base.$orange-main, 0.2);
+    }
+  }
+
+  &__content {
+    padding-block-start: base.$spacing-xl;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__h2 {
+    margin-block-end: base.$spacing-lg;
+  }
+
+  &__basic-text {
+    margin-block-end: base.$spacing-xl;
+  }
+
+  &__decoration-img {
+    border-radius: base.$card-border-radius;
+    box-shadow: base.$shadow-medium;
+    margin-block-start: base.$spacing-md;
+  }
+}
+
+/* ===== RESERVATION SECTION - Version Personnalisée ===== */
+.reservation-section {
+  background: base.$gradient-dark;
+  position: relative;
+
+  &__container {
+    display: flex;
+    padding-block: base.$spacing-xxl * 1.2;
+    position: relative;
+    z-index: 2;
+  }
+
+  &__h2 {
+    margin-block-end: base.$spacing-lg;
+  }
+
+  &__info {
+    inline-size: 100%;
+
+    .u-basic-text {
+      margin-block-end: base.$spacing-md;
+
+      strong {
+        color: base.$accent-gold;
+      }
+    }
+  }
+
+  &__schedule-sunday,
+  &__dress-code {
+    margin-block-end: base.$spacing-xl;
+  }
+
+  &__dress-code {
+    padding: base.$spacing-md;
+    background: rgba(base.$accent-teal, 0.1);
+    border-radius: base.$card-border-radius;
+    border-left: 4px solid base.$accent-teal;
+  }
+
+  // Séparateur stylisé
+  &__demarcation {
+    inline-size: 2px;
+    background: base.$gradient-sunset;
+    margin-inline: base.$spacing-xxl;
+    border-radius: 2px;
+    box-shadow: 0 0 10px rgba(base.$accent-gold, 0.5);
+  }
+
+  &__location {
+    margin-block-end: base.$spacing-sm;
+  }
+
+  &__social-networks {
+    margin-block-end: base.$spacing-xl;
+  }
+
+  &__link {
+    color: base.$accent-gold;
+    margin-inline-start: base.$spacing-xs;
+    text-decoration: underline;
+    transition: base.$transition-medium;
+
+    &:hover {
+      color: base.$white-main;
+    }
+  }
+
+  &__end-picture {
+    inline-size: 100%;
+    max-block-size: 280px;
+    object-fit: cover;
+    border: 2px solid rgba(base.$accent-teal, 0.5);
+    border-radius: base.$card-border-radius;
+    box-shadow: base.$shadow-medium;
+  }
+}
+
+/* ===== CONTACT SECTION - Version Personnalisée ===== */
+.contact-section {
+  display: flex;
+  gap: base.$spacing-xxl;
+  padding-block: base.$spacing-xxl * 1.2;
+  background: linear-gradient(135deg, base.$white-main, base.$light-gray);
+
+  &__h2 {
+    margin-block-end: base.$spacing-xl;
+  }
+
+  &__basic-text {
+    margin-block-end: base.$spacing-lg;
+  }
+
+  &__form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: base.$spacing-xxl;
+    @include mixins.card-style;
+    padding: base.$spacing-xl;
+    background: base.$white-main;
+  }
+
+  &__side-img {
+    align-self: flex-start;
+    border-radius: base.$card-border-radius;
+    box-shadow: base.$shadow-medium;
+  }
+
+  &__label {
+    font-size: base.$fs-16;
+    font-weight: 600;
+    color: base.$deep-blue;
+    display: block;
+    margin-block-end: base.$spacing-xs;
+  }
+
+  &__input {
+    margin-block-end: base.$spacing-md;
+    border-radius: base.$button-border-radius;
+    transition: base.$transition-medium;
+
+    &:focus {
+      border-color: base.$accent-teal;
+      box-shadow: 0 0 0 3px rgba(base.$accent-teal, 0.2);
+      outline: none;
+    }
+  }
+
+  &__submit-button {
+    inline-size: 100%;
+    padding: base.$spacing-md;
+  }
+
+  &__main-decoration-img {
+    border-radius: base.$card-border-radius;
+    box-shadow: base.$shadow-heavy;
+  }
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes gradientShift {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(20px);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shine {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes particlesFloat {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100px 100px;
+  }
+}
+
+/* ===== RESPONSIVITÉ ===== */
+
+// Tablette
+@media (max-width: base.$lg-breakpoint) {
+  .home-header {
+    padding-block-start: 100px;
+
+    &__faded-bg {
+      inline-size: 50%;
+    }
+
+    &__tentacles {
+      inline-size: 60%;
+    }
+
+    &__title {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+    }
+
+    &__info {
+      gap: base.$spacing-md;
+    }
+  }
+
+  .discover-section {
+    flex-direction: column;
+    text-align: center;
+    max-inline-size: base.$table-sub-container;
+    padding-block: base.$spacing-xxl;
+
+    &__dish-img {
+      margin-inline: auto;
+      margin-block-start: base.$spacing-lg;
+      order: 2;
+    }
+  }
+
+  .dishes-section {
+    &__container {
+      padding-block: base.$spacing-xxl;
+    }
+
+    &__side-image-container {
+      display: none;
+    }
+
+    &__content {
+      margin-inline: auto;
+      text-align: center;
+    }
+
+    // 2 colonnes sur tablette
+    &__photos {
+      grid-template-columns: repeat(2, 1fr);
+      max-inline-size: 400px;
+    }
+  }
+
+  .values-section {
+    flex-direction: column;
+    max-inline-size: 600px;
+    margin-inline: auto;
+    text-align: center;
+
+    &__chef-img {
+      order: 2;
+      max-inline-size: 400px;
+      margin-inline: auto;
+    }
+
+    &__decoration-img {
+      display: none;
+    }
+  }
+
+  .reservation-section {
+    &__container {
+      flex-direction: column;
+      text-align: center;
+      max-inline-size: base.$table-sub-container;
+      margin-inline: auto;
+    }
+
+    &__demarcation {
+      inline-size: 50%;
+      block-size: 2px;
+      margin-block: base.$spacing-lg;
+      margin-inline: auto;
+    }
+  }
+
+  .contact-section {
+    flex-direction: column;
+    max-inline-size: base.$table-sub-container;
+    margin-inline: auto;
+    text-align: center;
+
+    &__side-img {
+      display: none;
+    }
+
+    &__main-decoration-img {
+      display: none;
+    }
+  }
+}
+
+// Mobile
+@media (max-width: base.$md-breakpoint) {
+  .home-header {
+    block-size: 100vh;
+    min-block-size: 600px;
+    padding-block-start: 120px; // Augmenté pour éviter le chevauchement avec navbar
+    &__faded-bg,
+    &__tentacles {
+      inline-size: 100%;
+    }
+
+    &__faded-bg {
+      background: rgba(base.$deep-blue, 0.8);
+    }
+
+    &__container {
+      text-align: center;
+    }
+
+    &__title {
+      font-size: clamp(2rem, 8vw, 3rem);
+      margin-block-end: base.$spacing-md;
+    }
+
+    &__subtitle {
+      font-size: base.$fs-18;
+    }
+
+    &__cta {
+      inline-size: 100%;
+      max-inline-size: 300px;
+      margin-inline: auto;
+    }
+
+    &__info {
+      flex-direction: column;
+      gap: base.$spacing-sm;
+      margin-block-end: base.$spacing-lg;
+    }
+  }
+
+  .discover-section {
+    padding-block: base.$spacing-xl;
+
+    &__dish-img {
+      max-inline-size: 350px;
+      inline-size: 100%;
+    }
+  }
+
+  .dishes-section {
+    &__container {
+      padding-block: base.$spacing-xl;
+    }
+
+    // 1 colonne sur mobile
+    &__photos {
+      grid-template-columns: 1fr;
+      gap: base.$spacing-lg;
+      max-inline-size: 300px;
+      margin-inline: auto;
+    }
+
+    &__card {
+      width: 100%;
+    }
+
+    &__links {
+      flex-direction: column;
+      align-items: center;
+      gap: base.$spacing-md;
+      margin-block-start: base.$spacing-lg;
+    }
+  }
+
+  .values-section {
+    padding-block: base.$spacing-xl;
+    img {
+      width: 90%;
+    }
+  }
+
+  .reservation-section {
+    &__container {
+      padding-block: base.$spacing-xl;
+    }
+  }
+
+  .contact-section {
+    padding-block: base.$spacing-xl;
+
+    &__form {
+      padding: base.$spacing-md;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .home-header {
+    padding-block-start: 100px; // Encore plus d'espace sur très petit écran
+
+    &__cta {
+      min-inline-size: auto;
+    }
+  }
+
+  .dishes-section {
+    &__photos {
+      gap: base.$spacing-md;
+    }
+  }
+
+  .contact-section {
+    &__form {
+      flex-direction: column;
+    }
+  }
+}

@@ -1,0 +1,11 @@
+@use "./mixins";
+
+// Classe CSS pour les liens avec style "gold"
+// Cette classe fait ressembler les liens à des boutons
+.c-gold-link {
+  @include mixins.button-aspect; // Applique les mêmes styles que les boutons
+  text-align: center;
+  display: inline-block; // Permet d'appliquer padding et dimensions sur un lien
+  // Les liens sont inline par défaut, inline-block permet
+  // d'avoir un comportement similaire aux boutons
+}

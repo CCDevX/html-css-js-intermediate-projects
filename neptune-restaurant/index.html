@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Neptune - cuisine raffinée</title>
+    
+    <!-- Lien vers la feuille de style principale -->
+    <link rel="stylesheet" href="./styles/home.css" />
+    
+    <!-- Optimisation des polices Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Antic+Didone&family=Lato:wght@100;300;400;700;900&family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Meta description pour le SEO -->
+    <meta name="description" content="Restaurant de fruits de mer haut de gamme à Paris. Venez découvrir notre cuisine raffinée préparée par notre chef primé.">
+  </head>
+  <body>
+
+    <!-- HEADER - En-tête avec navigation et hero section -->
+    <header class="home-header">
+      <!-- NAVIGATION PRINCIPALE -->
+      <nav class="l-main-nav"> <!-- l- = layout (mise en page) -->
+        <div class="u-container l-main-nav__container"> <!-- u- = utility (utilitaire) -->
+          <!-- Logo du site -->
+          <a href="./index.html" class="l-main-nav__logo">NEPTUNE</a>
+          
+          <!-- Bouton hamburger pour mobile -->
+          <button class="l-main-nav__toggle-button">
+            <img src="assets/logos/hamburger.svg" alt="ouvrir le menu mobile" class="l-main-nav__toggle-logo" width="50" height="50">
+          </button>
+          
+          <!-- Liste des liens de navigation -->
+          <ul class="l-main-nav__list">
+            <li><a class="l-main-nav__link" href="./index.html">Accueil</a></li>
+            <li><a class="l-main-nav__link" href="./menu.html">Menu</a></li>
+            <li><a class="l-main-nav__link" href="./index.html#about">À propos</a></li>
+            <li><a class="l-main-nav__link" href="./reservation.html">Réservations</a></li>
+            <li><a class="l-main-nav__link" href="./index.html#contact">Contact</a></li>
+          </ul>
+          
+          <!-- Numéro de téléphone affiché dans la nav -->
+          <div class="l-main-nav__phonenumber">
+            <img src="assets/logos/call.svg" alt="" class="l-main-nav__phonelogo" width="20" height="20">
+            <span class="l-main-nav__phonedigits">+33 1 42 58 96 84</span>
+          </div>
+        </div>
+      </nav>
+      
+      <!-- HERO SECTION - Section principale d'accueil -->
+      <div class="home-header__faded-bg"></div> <!-- Overlay/filtre sur l'image de fond -->
+      <img src="assets/images/main-bg.jpg" alt="plat de tentacules" class="home-header__tentacles" width="947" height="674">
+      
+      <div class="u-container home-header__container"> <!-- Conteneur principal du hero -->
+        <p class="home-header__surtitle">Découvrez l'Art de la</p> <!-- Texte au-dessus du titre -->
+        <h1 class="u-main-title home-header__title">CUISINE MARINE</h1> <!-- Titre principal -->
+        <p class="home-header__subtitle">Où les Fruits de Mer Frais Rencontrent un Service Exceptionnel</p>
+        <a href="./reservation.html" class="c-gold-link home-header__cta">Réserver une table</a> <!-- c- = component -->
+
+        <!-- Informations pratiques (adresse + horaires) -->
+        <div class="home-header__info">
+          <p class="home-header__info-paragraph">
+            <img src="assets/logos/location.svg" alt="" class="home-header__info-icon" width="24" height="24">
+            <span class="home-header__info-text">75 Avenue des Champs-Élysées, 75008 Paris, France</span>
+          </p>
+          <p class="home-header__info-paragraph">
+            <img src="assets/logos/clock.svg" alt="" class="home-header__info-icon" width="24" height="24">
+            <span class="home-header__info-text">Lun–Sam&nbsp;11h30–14h &amp; 17h–23h <br> Dim&nbsp;11h30–14h &amp; 17h–22h</span>
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <!-- CONTENU PRINCIPAL -->
+    <main>
+      <!-- SECTION "À PROPOS" -->
+      <section id="about" class="u-container discover-section">
+        <img src="assets/images/presentational-dish-1.jpg" alt="un plat de fruits de mer" class="discover-section__dish-img" width="440" height="600">
+        <div class="discover-section__text">
+          <h2 class="u-section-h2 discover-section__h2">DÉCOUVREZ LA PASSION DERRIÈRE NOTRE RESTAURANT DE FRUITS DE MER</h2>
+          <p class="u-basic-text">Nous sommes bien plus qu'un simple endroit où prendre un repas. Notre passion pour les fruits de mer nous a poussés à créer une expérience culinaire unique, alliant les ingrédients les plus frais à un service exceptionnel dans une atmosphère chaleureuse et accueillante. Notre équipe de chefs talentueux prend plaisir à sélectionner à la main les meilleurs fruits de mer des marchés locaux, s'assurant que chaque plat que nous servons soit de la plus haute qualité. Que vous ayez envie d'un plateau de fruits de mer classique ou d'un plat créatif et innovant, vous pouvez être sûr de profiter du meilleur que l'océan a à offrir.</p>
+        </div>
+      </section>
+
+      <!-- SECTION PRÉSENTATION DES PLATS -->
+      <section class="dishes-section">
+        <div class="u-container dishes-section__container">
+          <div class="dishes-section__content">
+            <h2 class="u-section-h2 u-section-h2--light dishes-section__h2">NOS PLATS DE FRUITS DE MER</h2>
+            <!-- Modificateur --light pour version claire du titre -->
+            <p class="u-basic-text u-basic-text--light dishes-section__basic-text">Du saumon grillé succulent à la bisque de homard crémeuse, nos plats sont préparés en mettant l'accent sur la saveur et la présentation.</p>
+            
+            <!-- Galerie de plats avec prix -->
+            <div class="dishes-section__photos">
+              <div class="dishes-section__card">
+                <img src="assets/images/example-food-1.jpg" alt="Bar Grillé" width="168" height="114">
+                <p class="dishes-section__card-name">Bar Grillé</p>
+                <p class="dishes-section__card-price">23 €</p>
+              </div>
+              <div class="dishes-section__card">
+                <img src="assets/images/example-food-2.jpg" alt="Crevettes Scampi" width="168" height="114">
+                <p class="dishes-section__card-name">Crevettes Scampi</p>
+                <p class="dishes-section__card-price">18 €</p>
+              </div>
+              <div class="dishes-section__card">
+                <img src="assets/images/example-food-3.jpg" alt="Poulpe Grillé" width="168" height="114">
+                <p class="dishes-section__card-name">Poulpe Grillé</p>
+                <p class="dishes-section__card-price">32 €</p>
+              </div>
+            </div>
+            
+            <!-- Liens d'action -->
+            <div class="dishes-section__links">
+              <a href="./menu.html" class="c-gold-link dishes-section__link">Voir le Menu</a>
+              <a href="./Neptune_Menu.pdf" download class="c-gold-link dishes-section__link">Télécharger le Menu</a>
+            </div>
+          </div>
+          
+          <!-- Image décorative latérale -->
+          <div class="dishes-section__side-image-container">
+            <img src="assets/images/oysters.jpg" alt="Huîtres Rockefeller" class="dishes-section__side-image" width="440" height="601">
+            <p class="dishes-section__img-label">Huîtres Rockefeller</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION VALEURS/PHILOSOPHIE -->
+      <section class="u-container values-section">
+        <img src="assets/images/chef-cooking.jpg" alt="chef cuisinier" class="values-section__chef-img" width="440" height="656">
+        <div class="values-section__content">
+          <h2 class="u-section-h2 values-section__h2">LE MONDE FRAIS ET SAVOUREUX DES FRUITS DE MER</h2>
+          <p class="u-basic-text values-section__basic-text">Nous croyons que les fruits de mer frais sont la clé d'un excellent goût. C'est pourquoi nous ne nous approvisionnons qu'avec les meilleurs ingrédients, en préparant expertement chaque plat pour faire ressortir les meilleures saveurs.</p>
+          <img src="assets/images/restaurant-room.jpg" alt="la salle du restaurant" class="values-section__decoration-img">
+        </div>
+      </section>
+
+      <!-- SECTION RÉSERVATION -->
+      <section id="reservation" class="reservation-section">
+        <div class="u-container reservation-section__container">
+            <!-- Informations de réservation -->
+            <div class="reservation-section__info">
+              <h2 class="u-section-h2 u-section-h2--light reservation-section__h2">HORAIRES D'OUVERTURE</h2>
+              <p class="u-basic-text u-basic-text--light">Lundi – Samedi : <strong>11h30–14h &amp; 17h–23h</strong></p>
+<p class="u-basic-text u-basic-text--light reservation-section__schedule-sunday">Dimanche : <strong>11h30–14h &amp; 17h–22h</strong></p>
+              <p class="u-basic-text u-basic-text--light reservation-section__dress-code">Réservation fortement conseillée, particulièrement les week-ends et jours fériés.</p>
+              <p class="u-basic-text u-basic-text--light">TÉLÉPHONE : <strong>+33 1 42 58 96 84</strong></p>
+              <p class="u-basic-text u-basic-text--light">GÉNÉRAL : <strong>neptune@info.com</strong></p>
+            </div>
+            
+            <!-- Séparateur visuel -->
+            <div class="reservation-section__demarcation"></div>
+            
+            <!-- Informations supplémentaires -->
+            <div class="reservation-section__info">
+              <h2 class="u-section-h2 u-section-h2--light reservation-section__h2">PLUS D'INFORMATIONS</h2>
+              <p class="u-basic-text u-basic-text--light reservation-section__location">Adresse : <strong>75 Avenue des Champs-Élysées, 75008 Paris</strong></p>
+              <p class="u-basic-text u-basic-text--light reservation-section__social-networks">Suivez-nous : 
+                <strong>
+                  <a class="reservation-section__link" href="#">Facebook</a>
+                  <a class="reservation-section__link" href="#">Instagram</a>
+                </strong>
+              </p>
+              <img src="assets/images/restaurant-table.jpg" alt="tables du restaurant" class="reservation-section__end-picture" width="461" height="308">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION CONTACT AVEC FORMULAIRE -->
+      <section id="contact" class="u-container contact-section">
+        <div>
+          <h2 class="u-section-h2 contact-section__h2">Contactez-nous</h2>
+          <form class="contact-section__form">
+            <!-- Image décorative du formulaire -->
+            <img src="assets/images/seafood.jpg" alt="fruits de mer" class="contact-section__side-img" width="170" height="315">
+            
+            <!-- Contenu du formulaire -->
+            <div class="form-content">
+              <p class="u-basic-text contact-section__basic-text">
+                Laissez vos informations et nous vous recontacterons rapidement.
+              </p>
+              
+              <!-- Champ nom -->
+              <label for="name" class="contact-section__label">Votre nom</label>
+              <input 
+              id="name"
+              placeholder="Saisissez ici"
+              type="text" 
+              class="c-form-input contact-section__input"> <!-- Utilisation du composant c-form-input -->
+
+              <!-- Champ téléphone -->
+              <label for="phone" class="contact-section__label">Votre numéro de téléphone</label>
+              <input 
+              id="phone"
+              placeholder="Saisissez ici"
+              type="text" 
+              class="c-form-input contact-section__input">
+
+              <!-- Champ message -->
+              <label for="message" class="contact-section__label">Votre message</label>
+              <textarea 
+              id="message"
+              placeholder="Saisissez ici"
+              class="c-form-textarea contact-section__input"></textarea> <!-- Utilisation du composant c-form-textarea -->
+
+              <!-- Bouton de soumission -->
+              <button class="c-gold-button contact-section__submit-button">Envoyer maintenant</button> <!-- Utilisation du composant c-gold-button -->
+            </div>
+          </form>
+        </div>
+        <!-- Image décorative principale -->
+        <img src="assets/images/shrimps-being-cooked.jpg" alt="crevettes en cours de cuisson" class="contact-section__main-decoration-img" width="440" height="570">
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="l-main-footer"> <!-- l- = layout -->
+      <div class="u-container l-main-footer__container">
+        <!-- Navigation du footer -->
+        <nav class="l-main-footer__upper-content">
+          <a href="./index.html" class="l-main-footer__logo">NEPTUNE</a>
+          
+          <!-- Liens de navigation (répétés du header) -->
+          <ul class="l-main-footer__links-nav">
+            <li><a class="l-main-footer__link" href="./index.html">Accueil</a></li>
+            <li><a class="l-main-footer__link" href="./menu.html">Notre Menu</a></li>
+            <li><a class="l-main-footer__link" href="#about">À propos</a></li>
+            <li><a class="l-main-footer__link" href="./reservation.html">Réservations</a></li>
+            <li><a class="l-main-footer__link" href="#contact">Contact</a></li>
+          </ul>
+          
+          <!-- Réseaux sociaux -->
+          <ul class="l-main-footer__social-networks">
+            <li>
+              <a href="#" class="l-main-footer__social-network-logo-container">
+                <img class="l-main-footer__social-network-logo" src="assets/logos/facebook.svg" alt="Visitez notre page Facebook" />
+              </a>
+            </li>
+            <li>
+              <a href="#" class="l-main-footer__social-network-logo-container">
+                <img class="l-main-footer__social-network-logo" src="assets/logos/twitter.svg" alt="Visitez notre page Twitter" width="36" height="37" />
+              </a>
+            </li>
+            <li>
+              <a href="#" class="l-main-footer__social-network-logo-container">
+                <img class="l-main-footer__social-network-logo" src="assets/logos/instagram.svg" alt="Visitez notre page Instagram" width="36" height="37" />
+              </a>
+            </li>
+            <li>
+              <a href="#" class="l-main-footer__social-network-logo-container">
+                <img class="l-main-footer__social-network-logo" src="assets/logos/linkedIn.svg" alt="Visitez notre page LinkedIn" width="36" height="37" />
+              </a>
+            </li>
+          </ul>
+        </nav>
+        
+        <!-- Copyright -->
+        <p class="l-main-footer__copyright">Copyright © 2023 Neptune | Tous Droits Réservés</p>
+      </div>
+    </footer>
+    
+    <!-- Script JavaScript -->
+    <script src="scripts/script.js"></script>
+  </body>
+</html>

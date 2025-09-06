@@ -1,0 +1,22 @@
+{
+  "name": "aquarium-restaurant-website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch sass:",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CCDevX/aquarium-restaurant-website.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/CCDevX/aquarium-restaurant-website/issues"
+  },
+  "homepage": "https://github.com/CCDevX/aquarium-restaurant-website#readme"
+}

@@ -1,0 +1,144 @@
+// Import des variables du thème personnalisé et mixins
+@use "../base/theme";
+@use "../components/mixins";
+
+// Titre principal (H1) utilisé partout sur le site - Version personnalisée
+.u-main-title {
+  font-family: theme.$heading-antic-didone;
+  color: theme.$white-main;
+  font-weight: 400; // Poids légèrement plus épais
+  @include mixins.title-gradient; // Application du gradient
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); // Ombre pour meilleure lisibilité
+
+  // Animation d'apparition
+  @include mixins.fade-in-up(0.3s);
+}
+
+// Titres de section (H2) - Version personnalisée
+.u-section-h2 {
+  @include mixins.responsive-text(theme.$fs-28, theme.$fs-32, theme.$fs-36);
+  font-family: theme.$heading-antic-didone;
+  letter-spacing: 1px; // Espacement augmenté
+  color: theme.$deep-blue; // Nouvelle couleur
+  line-height: 140%; // Interligne optimisé
+  text-transform: uppercase;
+  font-weight: 500; // Poids moyen
+  position: relative;
+
+  // Ligne décorative sous le titre
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: theme.$gradient-ocean;
+    border-radius: 2px;
+  }
+}
+
+// Version claire du H2 (pour les fonds sombres)
+.u-section-h2--light {
+  color: theme.$white-main;
+
+  &::after {
+    background: theme.$gradient-sunset; // Ligne dorée sur fond sombre
+  }
+}
+
+// Texte de base utilisé dans les paragraphes - Version personnalisée
+.u-basic-text {
+  @include mixins.responsive-text(theme.$fs-16, theme.$fs-18, theme.$fs-20);
+  color: theme.$dark-black;
+  font-family: theme.$base-text-lato;
+  font-weight: 400; // Poids légèrement augmenté
+  line-height: 165%; // Interligne optimisé pour la lecture
+  margin-bottom: theme.$spacing-sm; // Espacement en bas
+
+  // Amélioration de la lisibilité
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Version claire du texte de base (pour les fonds sombres)
+.u-basic-text--light {
+  color: theme.$light-gray; // Gris clair plus doux que le blanc pur
+}
+
+// Nouveaux styles de texte personnalisés
+.u-text-accent {
+  color: theme.$accent-teal;
+  font-weight: 600;
+}
+
+.u-text-gold {
+  color: theme.$accent-gold;
+  font-weight: 500;
+}
+
+.u-text-large {
+  @include mixins.responsive-text(theme.$fs-20, theme.$fs-22, theme.$fs-24);
+  font-weight: 300;
+  line-height: 150%;
+}
+
+.u-text-small {
+  font-size: theme.$fs-14;
+  font-weight: 400;
+  opacity: 0.8;
+}
+
+// Style pour les citations
+.u-quote {
+  font-family: theme.$heading-antic-didone;
+  font-style: italic;
+  font-size: theme.$fs-20;
+  color: theme.$accent-teal;
+  position: relative;
+  padding: theme.$spacing-md;
+  margin: theme.$spacing-lg 0;
+
+  &::before {
+    content: '"';
+    font-size: theme.$fs-60;
+    color: theme.$accent-gold;
+    position: absolute;
+    top: -10px;
+    left: 0;
+    opacity: 0.3;
+  }
+}
+
+// Responsivité tablette
+@media (max-width: theme.$lg-breakpoint) {
+  .u-section-h2 {
+    text-align: center; // Centre les titres sur tablette
+
+    &::after {
+      left: 50%; // Centre la ligne décorative
+    }
+  }
+
+  .u-quote {
+    text-align: center;
+    padding: theme.$spacing-sm;
+  }
+}
+
+// Responsivité mobile
+@media (max-width: theme.$md-breakpoint) {
+  .u-main-title {
+    text-align: center;
+  }
+
+  .u-section-h2 {
+    margin-bottom: theme.$spacing-md;
+  }
+
+  .u-basic-text {
+    text-align: justify; // Justifie le texte sur mobile pour optimiser l'espace
+  }
+}
