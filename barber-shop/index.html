@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Le Barbier de Paris - L'Art de la Coupe Masculine</title>
+  <meta name="description" content="Maison de barbier traditionnelle au cœur de Paris. Excellence, savoir-faire et raffinement depuis 5 générations." />
+  <link rel="icon" href="ressources/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+
+<!-- Header -->
+<header id="accueil">
+  <nav class="main-nav">
+    <div class="nav-container">
+      <div class="nav-brand">
+        <span class="brand-text">Le Barbier</span>
+      </div>
+      <button aria-controls="main-navlist" aria-expanded="false" class="nav-toggler">
+        <span class="nav-line"></span>
+        <span class="nav-line"></span>
+        <span class="nav-line"></span>
+      </button>
+      <ul id="main-navlist" class="nav-menu">
+        <li><a href="#accueil">Accueil</a></li>
+        <li><a href="#valeurs">Savoir-faire</a></li>
+        <li><a href="#prestations">Prestations</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-content">
+      <h1 class="main-title">L'Art de la Coupe<br><span class="title-accent">Masculine</span></h1>
+      <p class="main-subtitle">Tradition • Excellence • Raffinement</p>
+      <div class="hero-cta">
+        <a href="#prestations" class="btn-primary">Découvrir nos services</a>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <div class="scroll-line"></div>
+    </div>
+  </div>
+</header>
+
+<!-- About section -->
+<main>
+  <section class="about" id="valeurs">
+    <div class="container">
+      <header class="section-header">
+        <h2 class="section-title">Notre Savoir-faire</h2>
+        <p class="section-subtitle">Cinq générations au service de l'élégance masculine</p>
+      </header>
+
+      <div class="about-content">
+        <div class="about-text">
+          <div class="text-block">
+            <h3 class="block-title">Excellence Artisanale</h3>
+            <p>Chaque geste est le fruit d'un apprentissage minutieux, transmis de maître à apprenti. Notre équipe perpétue les techniques traditionnelles du barbier français, alliant précision technique et sens esthétique.</p>
+          </div>
+
+          <div class="text-block">
+            <h3 class="block-title">L'Art du Détail</h3>
+            <p>Du rasage au coupe-chou à la finition parfaite, nous accordons une attention particulière à chaque détail. Car l'élégance réside dans la perfection des finitions.</p>
+          </div>
+        </div>
+
+        <div class="about-visual">
+          <div class="image-container">
+            <img src="ressources/slide-1.jpg" alt="Artisan barbier au travail" class="main-image" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Prestations -->
+  <section class="prestations" id="prestations">
+    <div class="container">
+      <header class="section-header">
+        <h2 class="section-title">Nos Prestations</h2>
+        <p class="section-subtitle">Une carte de services pensée pour votre bien-être</p>
+      </header>
+
+      <div class="services-grid">
+        <div class="service-category">
+          <h3 class="category-title">Soins du Visage</h3>
+          <div class="services-list">
+            <article class="service-item">
+              <div class="service-header">
+                <h4 class="service-name">Rasage Traditionnel</h4>
+                <span class="service-price">35€</span>
+              </div>
+              <p class="service-description">Rasage au coupe-chou, serviettes chaudes, soins apaisants</p>
+              <span class="service-duration">45 minutes</span>
+            </article>
+
+            <article class="service-item">
+              <div class="service-header">
+                <h4 class="service-name">Taille de Barbe</h4>
+                <span class="service-price">25€</span>
+              </div>
+              <p class="service-description">Taille experte, finitions précises, huiles nourrissantes</p>
+              <span class="service-duration">30 minutes</span>
+            </article>
+
+            <article class="service-item">
+              <div class="service-header">
+                <h4 class="service-name">Soin Complet</h4>
+                <span class="service-price">55€</span>
+              </div>
+              <p class="service-description">Rasage traditionnel, taille de barbe, soins premium</p>
+              <span class="service-duration">60 minutes</span>
+            </article>
+          </div>
+        </div>
+
+        <div class="service-category">
+          <h3 class="category-title">Coiffure</h3>
+          <div class="services-list">
+            <article class="service-item">
+              <div class="service-header">
+                <h4 class="service-name">Coupe Classique</h4>
+                <span class="service-price">45€</span>
+              </div>
+              <p class="service-description">Shampoing, coupe personnalisée, finitions</p>
+              <span class="service-duration">45 minutes</span>
+            </article>
+
+            <article class="service-item">
+              <div class="service-header">
+                <h4 class="service-name">Coupe & Style</h4>
+                <span class="service-price">65€</span>
+              </div>
+              <p class="service-description">Coupe sur-mesure, conseils style, produits coiffants</p>
+              <span class="service-duration">60 minutes</span>
+            </article>
+
+            <article class="service-item">
+              <div class="service-header">
+                <h4 class="service-name">Forfait Complet</h4>
+                <span class="service-price">85€</span>
+              </div>
+              <p class="service-description">Coupe, rasage, soins premium, expérience complète</p>
+              <span class="service-duration">90 minutes</span>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section class="team">
+    <div class="container">
+      <header class="section-header">
+        <h2 class="section-title">Nos Maîtres Barbiers</h2>
+        <p class="section-subtitle">Une équipe d'artisans passionnés</p>
+      </header>
+
+      <div class="team-grid">
+        <article class="team-member">
+          <div class="member-image">
+            <img src="ressources/barber1.jpg" alt="Portrait de Jean-Baptiste" />
+          </div>
+          <div class="member-info">
+            <h3 class="member-name">Jean-Baptiste</h3>
+            <p class="member-title">Maître Barbier</p>
+            <p class="member-experience">25 ans d'expérience</p>
+          </div>
+        </article>
+
+        <article class="team-member">
+          <div class="member-image">
+            <img src="ressources/barber2.jpg" alt="Portrait d'Antoine" />
+          </div>
+          <div class="member-info">
+            <h3 class="member-name">Antoine</h3>
+            <p class="member-title">Barbier Expert</p>
+            <p class="member-experience">15 ans d'expérience</p>
+          </div>
+        </article>
+
+        <article class="team-member">
+          <div class="member-image">
+            <img src="ressources/barber3.jpg" alt="Portrait de Claire" />
+          </div>
+          <div class="member-info">
+            <h3 class="member-name">Claire</h3>
+            <p class="member-title">Spécialiste Coiffure</p>
+            <p class="member-experience">10 ans d'expérience</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <header class="section-header">
+        <h2 class="section-title">Nous Rencontrer</h2>
+        <p class="section-subtitle">Deux adresses d'exception à Paris</p>
+      </header>
+
+      <div class="contact-content">
+        <div class="locations">
+          <div class="location-card">
+            <div class="location-info">
+              <h3 class="location-name">Saint-Germain</h3>
+              <address class="location-address">
+                13 Rue de la Couronne<br>
+                75006 Paris
+              </address>
+              <div class="location-contact">
+                <a href="tel:0442384239" class="contact-link">04 42 38 42 39</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="location-card">
+            <div class="location-info">
+              <h3 class="location-name">Marais</h3>
+              <address class="location-address">
+                10 Avenue Leclerc<br>
+                75004 Paris
+              </address>
+              <div class="location-contact">
+                <a href="tel:0140858626" class="contact-link">01 40 85 86 26</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="schedule-info">
+          <h3 class="schedule-title">Horaires</h3>
+          <div class="schedule-grid">
+            <div class="schedule-item">
+              <span class="day">Lundi — Vendredi</span>
+              <span class="hours">9h00 — 19h00</span>
+            </div>
+            <div class="schedule-item">
+              <span class="day">Samedi</span>
+              <span class="hours">9h00 — 18h00</span>
+            </div>
+            <div class="schedule-item">
+              <span class="day">Dimanche</span>
+              <span class="hours">Fermé</span>
+            </div>
+          </div>
+
+          <div class="appointment-cta">
+            <p class="cta-text">Rendez-vous sur réservation uniquement</p>
+            <a href="tel:0442384239" class="btn-secondary">Réserver</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <p class="footer-text">&copy; 2024 Le Barbier de Paris. Tous droits réservés.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
